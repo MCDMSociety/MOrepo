@@ -1,0 +1,125 @@
+---
+output: github_document
+---
+
+
+# Multi-Objective Optimization Repository (MOrepo)
+
+This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, generators and algorithms for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute. 
+
+## Usage
+
+Instances can be downloaded in different ways depending on usage:
+
+   - If you want the whole repository, download it as a zip file
+   - Browse to a single instance and download it using the raw format at GitHub
+   - Use the R package `MOrepoTools` to download instances
+   
+We recormend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R commandline write:
+
+```{r}
+library(devtools)   # 
+install_github()
+```
+
+Now download instances and results using 
+
+```{r}
+getInstanceInfo(...)
+getInstance(...)
+```
+
+
+
+## Features
+
+The repository mainly contains MO test instanses from variaous sources. However, also generator, algorithms and other source code related to MO optimization are welcome. 
+
+## Structure
+
+Dir structure
+
+
+## Instance format 
+
+ 
+ - Free MPS format
+ - Raw with desc
+
+
+
+
+## Solution format (JSON?)
+
+A file named <instance_name>_sol<number>.json
+
+
+
+instance: name of instance (string)
+comments: misc comments about the results (string, null)
+nDCard: Total number/cardinality of nondominated points (number, null)
+suppCard: Number of supported nondominated points (number, null)
+extCard: Number of extreme supported nondominated points (number, null)
+critType: array of integer, real, null with length as number of criteria (array, null)
+points: Array with nondominated points objects 0(array, null)
+   
+   A point object consists of 
+   class: either us (unsupported), se (supported extreme), s (supported - may be extreme or nonextreme), sne (supported nonextreme), null (unknown)
+   point: array of numbers
+   
+ (eller måske pointsClass i stedet for?)
+optimal: (true, false, null)
+
+
+
+
+
+
+## Validators
+
+
+R package
+
+- check a contribution
+- download a set of test instances
+- download solutions and plot
+- download citation
+- merge ndsets
+
+
+
+## Problem classification
+ 
+Instances are classified into different classifications. This set is expanded as new problem instances is added to the repository. The current classifications of MO optimization problems are 
+
+- Knapsack
+- Assignment   
+- Traveling salesman (TSP)
+- Setcovering
+- Setpartitioning
+- Setpacking 
+- Facility location
+- Shortest path
+- Transhipment
+- Multi-commodity flow
+- Minimum cost network flow
+- IP/MILP (general problems with a mixture of constraints)  
+
+ 
+ 
+## Instance numbering
+
+
+## Biblography
+
+
+## How to contribute
+
+
+## Contributors
+  
+
+
+
+
+The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc. 
