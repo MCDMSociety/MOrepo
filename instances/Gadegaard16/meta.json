@@ -1,0 +1,9 @@
+{
+  "instancePrefix": "Gadegaard16",
+  "instanceSet": {
+    "subfolder": "SSCFLP"
+    "class": "Facility location",
+    "tags": [ "single_source", "capacitated", "single_source_capacitated", "sscflp" ],
+    "format": [ "raw" ]
+  }
+}
