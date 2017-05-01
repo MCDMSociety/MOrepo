@@ -1,9 +1,14 @@
 {
-  "instancePrefix": "Gadegaard16",
-  "instanceSet": {
-    "subfolder": "SSCFLP"
-    "class": "Facility location",
-    "tags": [ "single_source", "capacitated", "single_source_capacitated", "sscflp" ],
-    "format": [ "raw" ]
-  }
+   "instancePrefix": "Gadegaard16",
+   "instanceSet": [
+      {
+         "subfolder": "SSCFLP",
+         "class": "Facility location",
+         "tags": [ "single_source", "capacitated", "single_source_capacitated", "sscflp" ],
+         "format": [ "raw" ]
+      },
+      {
+         "external": "http://www.hi-lf.dk/wp/wp-admin/post.php?post=9776&action=edit"
+      }
+   ]
 }
