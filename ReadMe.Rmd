@@ -47,6 +47,10 @@ Dir structure
  - Raw with desc
 
 
+meta.json content:
+
+prefix: Prefix of the instances (equals folder name) (string)
+
 
 
 ## Solution format (JSON?)

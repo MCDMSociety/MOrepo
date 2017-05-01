@@ -1,0 +1,11 @@
+{
+   "instancePrefix": "Stridsen17",
+   "instanceSet": [
+      {
+         "subfolder": "",
+         "class": "TSP",
+         "tags": [ ],
+         "format": [ "raw" ]
+      }
+   ]
+}
