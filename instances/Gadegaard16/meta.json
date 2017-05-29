@@ -1,14 +1,15 @@
 {
-   "instancePrefix": "Gadegaard16",
-   "instanceSet": [
+   "folder": "Gadegaard16",
+   "maintainer" : "Lars Relund <junk@relund.dk>",
+   "creator" : "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>",
+   "instanceGroups": [
       {
          "subfolder": "SSCFLP",
          "class": "Facility location",
-         "tags": [ "single_source", "capacitated", "single_source_capacitated", "sscflp" ],
-         "format": [ "raw" ]
-      },
-      {
-         "external": "http://www.hi-lf.dk/wp/wp-admin/post.php?post=9776&action=edit"
+         "tags": [ "singleSource", "capacitated", "singleSourceCapacitated", "SSCFLP" ],
+         "format": [ "raw" ],
+         "desc": "Instances for the single source capacitated facility location problem.",
+         "creator" : "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>"
       }
    ]
 }
