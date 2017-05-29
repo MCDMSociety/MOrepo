@@ -1,7 +1,6 @@
 {
    "folder": "Gadegaard16",
    "maintainer" : "Lars Relund <junk@relund.dk>",
-   "creator" : "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>",
    "instanceGroups": [
       {
          "subfolder": "SSCFLP",
