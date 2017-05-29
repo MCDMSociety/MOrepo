@@ -2,10 +2,25 @@
 output: github_document
 ---
 
+```{r, include=FALSE}
+library(MOrepoTools)
+```
+
 
 # Multi-Objective Optimization Repository (MOrepo)
 
-This repository is  a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, generators and algorithms for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute. 
+This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute. 
+
+The repository has the following structure:
+
+- `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time.
+- `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances.
+- `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc. 
+
+Moreover a set of files in the root are included with documentation. 
+
+Maintainers of `MOrepo` are Lars Relund Nielsen, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets and resluts are  `r paste0(getMaintainers(), collapse=", ")`. Current contributors to the repository are `r paste0(getContributors(), collapse=", ")`. 
+
 
 ## Usage
 
@@ -17,30 +32,55 @@ Instances can be downloaded in different ways depending on usage:
    
 We recormend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R commandline write:
 
-```{r}
-library(devtools)   # 
-install_github()
+```{r, eval=FALSE}
+library(devtools)   # if the package is missing see ?install.package 
+install_github("relund/MOrepo/misc/R/MOrepoTools/")
 ```
 
 Now download instances and results using 
 
-```{r}
-getInstanceInfo(...)
-getInstance(...)
+```{r, eval=FALSE}
+library(MOrepoTools)
+getInstance(name="SSCFLP", onlyList = TRUE)
+getInstance(name="SSCFLP.*p6", onlyList = TRUE)
 ```
 
 
+## Problem classification
+ 
+Instances are classified into different classifications. The current classifications of MO optimization problems are:
 
-## Features
+`r paste("-", getProblemClasses(), collapse="\n")`
 
-The repository mainly contains MO test instanses from variaous sources. However, also generator, algorithms and other source code related to MO optimization are welcome. 
+The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be 
 
-## Structure
+- Knapsack
+- Assignment   
+- Traveling salesman (TSP)
+- Set covering
+- Set partitioning
+- Set packing 
+- Shortest path
+- Transhipment
+- Multi-commodity flow
+- Minimum cost network flow
+- IP/MILP (general problems with a mixture of constraints) 
 
-Dir structure
 
 
-## Instance format 
+## How to contribute
+
+All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instanses and results from variaous sources. However, also generators, format converters etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it. 
+
+
+
+
+
+
+
+
+
+<!-- ## Instance format 
 
  
  - Free MPS format
@@ -92,22 +132,7 @@ R package
 
 
 
-## Problem classification
  
-Instances are classified into different classifications. This set is expanded as new problem instances is added to the repository. The current classifications of MO optimization problems are 
-
-- Knapsack
-- Assignment   
-- Traveling salesman (TSP)
-- Setcovering
-- Setpartitioning
-- Setpacking 
-- Facility location
-- Shortest path
-- Transhipment
-- Multi-commodity flow
-- Minimum cost network flow
-- IP/MILP (general problems with a mixture of constraints)  
 
  
  
@@ -117,13 +142,12 @@ Instances are classified into different classifications. This set is expanded as
 ## Biblography
 
 
-## How to contribute
-
-
-## Contributors
-  
 
 
 
 
-The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc. 
+
+
+
+
+The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc.   -->
