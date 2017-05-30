@@ -12,10 +12,6 @@
             "description": "Name and e-mail of the maintainer who have added the instances to MOrepo",
             "type": "string"
         },
-        "creator": {
-            "description": "Name and e-mail of the creator of the instances",
-            "type": "string"
-        },
         "rawDesc": {
             "description": "Short description of the raw format",
             "type": "string"
@@ -30,6 +26,10 @@
                         "description": "Subfolder in an instance format folder",
                         "type": "string"
                      },
+                     "creator": {
+                        "description": "Name and e-mail of the creator of the instances",
+                        "type": "string"
+                    },
                      "class": {
                         "description": "Problem class",
                         "type": "string"
@@ -54,11 +54,11 @@
                         "type": "string"
                      }
                 },
-                "required": ["subfolder", "class", "format", "desc"]
+                "required": ["subfolder", "creator", "class", "format", "desc"]
             },
             "minItems": 1,
             "uniqueItems": true
         }
     },
-    "required": ["folder", "maintainer", "creator", "instanceGroups"]
+    "required": ["folder", "maintainer", "instanceGroups"]
 }
