@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Meta file",
+    "description": "Meta file for instance set",
+    "type": "object",
+    "properties": {
+        "folder": {
+            "description": "The name of the folder containing the contribution",
+            "type": "string"
+        },
+        "maintainer": {
+            "description": "Name and e-mail of the maintainer who have added the instances to MOrepo",
+            "type": "string"
+        },
+        "creator": {
+            "description": "Name and e-mail of the creator of the instances",
+            "type": "string"
+        },
+        "rawDesc": {
+            "description": "Short description of the raw format",
+            "type": "string"
+        },
+        "instanceGroups": {
+            "type": "array",
+            "items": {
+                "title": "Instance groups",
+                "type": "object",
+                "properties": {
+                     "subfolder": {
+                        "description": "Subfolder in an instance format folder",
+                        "type": "string"
+                     },
+                     "class": {
+                        "description": "Problem class",
+                        "type": "string"
+                     },
+                     "tags": {
+                        "description": "An array with tags",
+                        "type": "array",
+                        "items": {
+                           "type": "string"
+                        }
+                     },
+                     "format": {
+                        "type": "array",
+                        "items": {
+                           "type": "string"
+                        },
+                        "minItems": 1,
+                        "uniqueItems": true
+                     },
+                     "desc": {
+                        "description": "Description of the instance group",
+                        "type": "string"
+                     }
+                },
+                "required": ["subfolder", "class", "format", "desc"]
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": ["folder", "maintainer", "creator", "instanceGroups"]
+}
