@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{getMaintainers}
 \alias{getMaintainers}
-\title{Get info about the instances.}
+\title{Get maintainers of stuff at MOrepo.}
 \usage{
 getMaintainers(branch = "master", local = FALSE)
 }
@@ -15,7 +15,10 @@ getMaintainers(branch = "master", local = FALSE)
 A vector of maintainers (invisible).
 }
 \description{
-Get info about the instances.
+Get maintainers of stuff at MOrepo.
+}
+\examples{
+getMaintainers()
 }
 \author{
 Lars Relund \email{lars@relund.dk}
