@@ -12,7 +12,7 @@ The repository has the following structure:
 
 Moreover a set of files in the root are included with documentation.
 
-Maintainers of `MOrepo` are Lars Relund Nielsen, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets and resluts are Lars Relund <junk@relund.dk>. Current contributors to the repository are S.L. Gadegaard, A Klose, L.R. Nielsen.
+Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets, resluts etc. are Lars Relund <junk@relund.dk>, Thomas Stidsen <thst@dtu.dk>. Current contributors to the repository are S.L. Gadegaard, A Klose, L.R. Nielsen, Thomas Stidsen <thst@dtu.dk>.
 
 Usage
 -----
@@ -44,6 +44,7 @@ Problem classification
 Instances are classified into different classifications. The current classifications of MO optimization problems are:
 
 -   Facility location
+-   TSP
 
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
 

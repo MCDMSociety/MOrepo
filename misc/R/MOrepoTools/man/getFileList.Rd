@@ -4,22 +4,28 @@
 \alias{getFileList}
 \title{Get list of files at GitHub}
 \usage{
-getFileList(name = "", subdir = "", branch = "master")
+getFileList(name = "", subdir = "", branch = "master", local = FALSE)
 }
 \arguments{
-\item{name}{Name of the instance(s) or only parts of the name. May be an regular expression for
-the instance name (excluding the file extension).}
+\item{name}{Name of the file(s) or only parts of the name. May be an regular expression.}
 
 \item{subdir}{Restricts search to a specific subfolder path at GitHub. The path must end with a
 slash (/).}
 
 \item{branch}{The branch at GitHub.}
+
+\item{local}{Use local repo.}
 }
 \value{
 The names of the files (including file path at GitHub)
 }
 \description{
 Get list of files at GitHub
+}
+\examples{
+getFileList("SSCFLP.*p6")
+getFileList("inst")
+getFileList(subdir = "instances/Gadegaard16/")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

@@ -19,7 +19,7 @@ The repository has the following structure:
 
 Moreover a set of files in the root are included with documentation. 
 
-Maintainers of `MOrepo` are Lars Relund Nielsen, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets and resluts are  `r paste0(getMaintainers(), collapse=", ")`. Current contributors to the repository are `r paste0(getContributors(), collapse=", ")`. 
+Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets, resluts etc. are  `r paste0(getMaintainers(), collapse=", ")`. Current contributors to the repository are `r paste0(getContributors(), collapse=", ")`. 
 
 
 ## Usage

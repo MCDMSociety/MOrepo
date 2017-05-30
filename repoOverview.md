@@ -2,7 +2,7 @@
 Test instances @ MOrepo
 =======================
 
-This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about%20specific-instances).
+This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about-specific-instances).
 
 ### Instance set Gadegaard16:
 

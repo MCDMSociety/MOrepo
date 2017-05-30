@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{getInstance}
 \alias{getInstance}
-\title{Download an instances and results}
+\title{Download instances from GitHub}
 \usage{
 getInstance(name = NULL, class = NULL, fileFormat = "raw",
   branch = "master", onlyList = FALSE)
@@ -24,7 +24,11 @@ path at GitHub). Useful for testing.}
 The names of the instances.
 }
 \description{
-Download an instances and results
+Download instances from GitHub
+}
+\examples{
+getInstance(name="SSCFLP")
+getInstance(name="SSCFLP.*p6")
 }
 \author{
 Lars Relund \email{lars@relund.dk}
