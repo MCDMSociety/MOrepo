@@ -35,17 +35,17 @@ yesno<-function (...)
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 checkContribution<-function() {
-   # message("Your working directory is ", getwd())
-   # if (!yesno("Is that the location of your contribution?")) {
-   #    message("\n   Error: Change working directory!")
-   #    return(invisible(FALSE))
-   # }
-   #
-   # # Encoding
-   # if (!yesno("\nAre files citation.bib and meta.json saved using encoding UTF-8?")) {
-   #    message("\n   Error: You need to save them using UTF-8!")
-   #    return(invisible(FALSE))
-   # }
+   message("Your working directory is ", getwd())
+   if (!yesno("Is that the location of your contribution?")) {
+      message("\n   Error: Change working directory!")
+      return(invisible(FALSE))
+   }
+
+   # Encoding
+   if (!yesno("\nAre files citation.bib and meta.json saved using encoding UTF-8?")) {
+      message("\n   Error: You need to save them using UTF-8!")
+      return(invisible(FALSE))
+   }
 
    message("Checking meta file content ...", appendLF = FALSE)
    if (!file.exists("meta.json")) {
@@ -74,6 +74,17 @@ checkContribution<-function() {
                  paste0(meta$instanceGroups$format[[1]], collapse = ", "), ") specified in the meta.json file.")
          return(invisible(FALSE))
       }
+      # Subfolders for each file format contains the same file names except file extension
+      fRoot <- basename(list.files(path = "./instances/", recursive = FALSE, full.names = FALSE))
+      f <- basename(list.files(path = "./instances/", recursive = TRUE, full.names = FALSE))
+      f<-f[!(f %in% fRoot)]
+      f <- sub("\\..*.$","",f)
+      if (!all(data.frame(table(f))$Freq >= length(meta$instanceGroups$format[[1]]))) {
+         message("\n   Error: The each instance file folder (",
+                 paste0(meta$instanceGroups$format[[1]], collapse = ", "),
+                 ") must contain the same file names (with different file extension).")
+         return(invisible(FALSE))
+      }
       # Subfolders for each instance group
       for (f in meta$instanceGroups$format[[1]]) {
          if (!all(list.dirs(paste0("./instances/",f), full.names = FALSE, recursive = FALSE) %in% meta$instanceGroups$subfolder)) {
@@ -86,6 +97,14 @@ checkContribution<-function() {
       for (f in meta$instanceGroups$format[[1]]) {
          if (length(grep(meta$folder, basename(list.files(paste0("./instances/",f), recursive = TRUE)), invert = TRUE))>0) {
             message("\n   Error: Files in folder ", f, " must all start with prefix ", meta$folder, "!")
+            return(invisible(FALSE))
+         }
+      }
+      # Subfolder name contained in filename for all instances
+      for (f in meta$instanceGroups$format[[1]]) {
+         for (d in meta$instanceGroups$subfolder)
+         if (length(grep(d, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
+            message("\n   Error: Files in subfolder ", d, " must all contain ", d, "!")
             return(invisible(FALSE))
          }
       }
