@@ -43,7 +43,7 @@ The file contains
 -   `creator`: Name and e-mail of the creator of the instances (string).
 -   `rawDesc`: Short description of the raw format.
 -   `instanceGroups`: An array with entries containing info about each group of instances (normally one entry for each subfolder). Each entry contains
-    -   `subfolder`: Subfolder of an instance format folder (if none set it to "").
+    -   `subfolder`: Subfolder of an instance format folder (if none set it to an empty string '').
     -   `class`: Problem class.
     -   `tags`: An array with tags (use camel notation, not underscores).
     -   `format`: Array with file formats (the names of the instance format folders).

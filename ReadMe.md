@@ -4,15 +4,20 @@ Multi-Objective Optimization Repository (MOrepo)
 
 This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute.
 
-The repository has the following structure:
+The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of subrepositories, one for each contribution. Subrepositories are named `MOrepo-<name>` where `name` normally is the sir name of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub.
 
--   `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time.
--   `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances.
--   `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.
+The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrive info about test instance groups, results and problem classes.
 
-Moreover a set of files in the root are included with documentation.
+<!-- - `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time. -->
+<!-- - `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances. -->
+<!-- - `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.  -->
+Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen.
 
-Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen. Maintainers of instance sets, resluts etc. are Lars Relund <junk@relund.dk>, Thomas Stidsen <thst@dtu.dk>. Current contributors to the repository are S.L. Gadegaard, A Klose, L.R. Nielsen, Thomas Stidsen <thst@dtu.dk>.
+Maintainers of contributions are
+
+Current contributors to the repository are S.L. Gadegaard, A Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps, K. Van Nieuwenhuyze.
+
+instance sets, resluts etc. are Lars Relund <junk@relund.dk>.
 
 Usage
 -----
@@ -27,15 +32,15 @@ We recormend the last option and illustrate how it works. You don't need much kn
 
 ``` r
 library(devtools)   # if the package is missing see ?install.package 
-install_github("relund/MOrepo/misc/R/MOrepoTools/")
+install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools/")
 ```
 
 Now download instances and results using
 
 ``` r
 library(MOrepoTools)
-getInstance(name="SSCFLP", onlyList = TRUE)
-getInstance(name="SSCFLP.*p6", onlyList = TRUE)
+getInstance(name="Tuyttens", onlyList = T)
+getInstance(class="Facility location", onlyList = T)
 ```
 
 Problem classification
@@ -44,7 +49,8 @@ Problem classification
 Instances are classified into different classifications. The current classifications of MO optimization problems are:
 
 -   Facility location
--   TSP
+-   Assignment
+-   Assignment problem
 
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
 
