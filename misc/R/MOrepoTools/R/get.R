@@ -184,7 +184,7 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
    if (silent) return(invisible(metaList))
    for (i in 1:length(metaList)) {
       x <- metaList[[i]]
-      cat(paste0('\n### Instance group ',x$folder,':\n\n'))
+      cat(paste0('\n### Instance group ',x$contributionName,':\n\n'))
       cat("Source: ")
       print(x$bib[1])
       cat("\n")
@@ -243,7 +243,7 @@ getContributors<-function(local = FALSE) {
 #' @examples
 #' getMaintainers()
 #' getMaintainers(local = T)
-getMaintainers<-function(branch = "master", local = FALSE) {
+getMaintainers<-function(local = FALSE) {
    fileN<-getFileList("meta.json", local = local)
    baseURL1 <- ifelse(local, "", "https://raw.githubusercontent.com/MCDMSociety/")
    metaList<-NULL
