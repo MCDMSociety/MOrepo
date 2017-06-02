@@ -4,22 +4,20 @@
 \alias{getContributors}
 \title{Get info about contributors (authors in citation BibTeX files)}
 \usage{
-getContributors(branch = "master", local = FALSE)
+getContributors(local = FALSE)
 }
 \arguments{
-\item{branch}{The branch at GitHub.}
-
 \item{local}{Use local repo.}
 }
 \value{
-A vector with unique contributors.
+A vector with unique contributors (read from citation.bib).
 }
 \description{
 Get info about contributors (authors in citation BibTeX files)
 }
 \examples{
 getContributors()
-getContributors(local = F)
+getContributors(local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

@@ -4,17 +4,18 @@
 \alias{getInstanceInfo}
 \title{Get info about the instances.}
 \usage{
-getInstanceInfo(class = NULL, folder = NULL, branch = "master",
-  local = FALSE)
+getInstanceInfo(class = NULL, contribution = NULL, local = FALSE,
+  silent = FALSE)
 }
 \arguments{
 \item{class}{Problem class of interest (if NULL consider all classes).}
 
-\item{folder}{Folder(s) of interest (if NULL consider all folders).}
+\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
 
-\item{branch}{The branch at GitHub.}
+\item{local}{Use local repos. Assume that repositories are placed in the father folder of the
+current working dir.}
 
-\item{local}{Use local repo.}
+\item{silent}{If true no output.}
 }
 \value{
 A list (invisible).
@@ -23,8 +24,8 @@ A list (invisible).
 Get info about the instances.
 }
 \examples{
-getInstanceInfo(local = T)
-getInstanceInfo(local = F)
+getInstanceInfo()
+getInstanceInfo(class="Facility location")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

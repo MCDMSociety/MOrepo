@@ -2,30 +2,35 @@
 % Please edit documentation in R/get.R
 \name{getFileList}
 \alias{getFileList}
-\title{Get list of files at GitHub}
+\title{Search repos and get a list of files}
 \usage{
-getFileList(name = "", subdir = "", branch = "master", local = FALSE)
+getFileList(name = "", subdir = "", contribution = NULL, local = FALSE)
 }
 \arguments{
 \item{name}{Name of the file(s) or only parts of the name. May be an regular expression.}
 
-\item{subdir}{Restricts search to a specific subfolder path at GitHub. The path must end with a
+\item{subdir}{Restricts search to a specific subfolder in each repo. The path must end with a
 slash (/).}
 
-\item{branch}{The branch at GitHub.}
+\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
 
 \item{local}{Use local repo.}
 }
 \value{
-The names of the files (including file path at GitHub)
+The names of the files (including file path)
 }
 \description{
-Get list of files at GitHub
+Search repos and get a list of files
 }
 \examples{
 getFileList("SSCFLP.*p6")
-getFileList("inst")
-getFileList(subdir = "instances/Gadegaard16/")
+getFileList(".json")
+getFileList(c(".json","ReadMe"))
+getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
+getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
+getFileList(".xml", contribution="Tuyttens00")
+getFileList(".xml", contribution="Tuyttens00", local = T)
+getFileList(".json", local =T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

@@ -5,7 +5,7 @@
 \title{Download instances from GitHub}
 \usage{
 getInstance(name = NULL, class = NULL, fileFormat = "raw",
-  branch = "master", onlyList = FALSE)
+  onlyList = FALSE)
 }
 \arguments{
 \item{name}{Name of the instance(s) or only parts of the name. May be an regular expression for
@@ -14,8 +14,6 @@ the instance name (excluding the file extension).}
 \item{class}{Problem class. Ignored if \code{name} used.}
 
 \item{fileFormat}{The file format of the instance. That is, the file extension of the instance.}
-
-\item{branch}{The branch at GitHub.}
 
 \item{onlyList}{If true don't download the instances but only list the instances (including file
 path at GitHub). Useful for testing.}
@@ -27,8 +25,8 @@ The names of the instances.
 Download instances from GitHub
 }
 \examples{
-getInstance(name="SSCFLP")
-getInstance(name="SSCFLP.*p6")
+getInstance(name="Tuyttens", onlyList = T)
+getInstance(name="Tuyttens")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

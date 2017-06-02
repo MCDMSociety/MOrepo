@@ -2,23 +2,22 @@
 % Please edit documentation in R/get.R
 \name{getProblemClasses}
 \alias{getProblemClasses}
-\title{Get the problem classes}
+\title{Get all the problem classes}
 \usage{
-getProblemClasses(branch = "master", local = FALSE)
+getProblemClasses(local = FALSE)
 }
 \arguments{
-\item{branch}{The branch at GitHub.}
-
 \item{local}{Use local repo.}
 }
 \value{
 All problem classes.
 }
 \description{
-Get the problem classes
+Get all the problem classes
 }
 \examples{
 getProblemClasses()
+getProblemClasses(local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

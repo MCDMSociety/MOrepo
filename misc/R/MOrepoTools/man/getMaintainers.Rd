@@ -2,23 +2,22 @@
 % Please edit documentation in R/get.R
 \name{getMaintainers}
 \alias{getMaintainers}
-\title{Get maintainers of stuff at MOrepo.}
+\title{Get maintainers of all sub-repos at MOrepo (read from the meta.json file).}
 \usage{
 getMaintainers(branch = "master", local = FALSE)
 }
 \arguments{
-\item{branch}{The branch at GitHub.}
-
 \item{local}{Use local repo.}
 }
 \value{
-A vector of maintainers (invisible).
+A vector of maintainers.
 }
 \description{
-Get maintainers of stuff at MOrepo.
+Get maintainers of all sub-repos at MOrepo (read from the meta.json file).
 }
 \examples{
 getMaintainers()
+getMaintainers(local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

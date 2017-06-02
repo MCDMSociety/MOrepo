@@ -54,7 +54,7 @@ checkContribution<-function() {
    }
    checkMeta("meta.json")
    meta<-jsonlite::fromJSON("meta.json")
-   if (meta$folder != sub("MOrepo-", "", basename(getwd()))) {
+   if (meta$contributionName != sub("MOrepo-", "", basename(getwd()))) {
       message("\n   Error: The folder entry in meta.json is not equal the folder name of the contribution!")
       return(invisible(FALSE))
    }
@@ -95,8 +95,8 @@ checkContribution<-function() {
       }
       # Folder name used as prefix for all instances
       for (f in meta$instanceGroups$format[[1]]) {
-         if (length(grep(meta$folder, basename(list.files(paste0("./instances/",f), recursive = TRUE)), invert = TRUE))>0) {
-            message("\n   Error: Files in folder ", f, " must all start with prefix ", meta$folder, "!")
+         if (length(grep(meta$contributionName, basename(list.files(paste0("./instances/",f), recursive = TRUE)), invert = TRUE))>0) {
+            message("\n   Error: Files in folder ", f, " must all start with prefix ", meta$contributionName, "!")
             return(invisible(FALSE))
          }
       }

@@ -9,6 +9,6 @@ URL: https://github.com/relund/r-pkg-template/
 BugReports: https://github.com/relund/r-pkg-template/issues
 Description: More about what it does (maybe more than one line)
 License: GPL (>= 3)
-Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate
+Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1

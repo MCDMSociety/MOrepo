@@ -4,8 +4,8 @@
     "description": "Meta file for instance set",
     "type": "object",
     "properties": {
-        "folder": {
-            "description": "The name of the folder containing the contribution",
+        "contributionName": {
+            "description": "The name of the repo containing the contribution (without the MOrepo- prefix)",
             "type": "string"
         },
         "maintainer": {
@@ -58,7 +58,43 @@
             },
             "minItems": 1,
             "uniqueItems": true
+        },
+        "resultGroups": {
+            "type": "array",
+            "items": {
+                "title": "Result groups",
+                "type": "object",
+                "properties": {
+                     "subfolder": {
+                        "description": "Subfolder in an instance format folder",
+                        "type": "string"
+                     },
+                     "creator": {
+                        "description": "Name and e-mail of the creator of the results",
+                        "type": "string"
+                    },
+                     "class": {
+                        "description": "Problem class",
+                        "type": "string"
+                     },
+                     "tags": {
+                        "description": "An array with tags",
+                        "type": "array",
+                        "items": {
+                           "type": "string"
+                        }
+                     },
+                     "desc": {
+                        "description": "Description of the result group",
+                        "type": "string"
+                     }
+                },
+                "required": ["subfolder", "creator", "class", "desc"]
+            },
+            "minItems": 1,
+            "uniqueItems": true
         }
     },
-    "required": ["folder", "maintainer", "instanceGroups"]
+    "required": ["contributionName", "maintainer"],
+    "anyOf" : ["instanceGroups", "resultGroups"]
 }
