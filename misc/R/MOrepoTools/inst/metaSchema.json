@@ -16,6 +16,10 @@
             "description": "Short description of the raw format",
             "type": "string"
         },
+        "algorithm": {
+            "description": "Url to the algorithm used in the study",
+            "type": "string"
+        },
         "instanceGroups": {
             "type": "array",
             "items": {
@@ -33,6 +37,10 @@
                      "class": {
                         "description": "Problem class",
                         "type": "string"
+                     },
+                     "objectives": {
+                        "description": "Number of objectives",
+                        "type": "number"
                      },
                      "tags": {
                         "description": "An array with tags",
@@ -54,7 +62,7 @@
                         "type": "string"
                      }
                 },
-                "required": ["subfolder", "creator", "class", "format", "desc"]
+                "required": ["subfolder", "creator", "class", "objectives", "format", "desc"]
             },
             "minItems": 1,
             "uniqueItems": true
@@ -89,7 +97,7 @@
                         "type": "string"
                      }
                 },
-                "required": ["subfolder", "creator", "class", "desc"]
+                "required": ["subfolder", "creator", "class", "objectives", "desc"]
             },
             "minItems": 1,
             "uniqueItems": true

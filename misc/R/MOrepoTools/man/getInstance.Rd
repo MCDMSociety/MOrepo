@@ -27,6 +27,7 @@ Download instances from GitHub
 \examples{
 getInstance(name="Tuyttens", onlyList = T)
 getInstance(name="Tuyttens")
+getInstance(class="Facility location", onlyList = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

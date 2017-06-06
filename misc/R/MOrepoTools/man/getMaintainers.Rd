@@ -4,7 +4,7 @@
 \alias{getMaintainers}
 \title{Get maintainers of all sub-repos at MOrepo (read from the meta.json file).}
 \usage{
-getMaintainers(branch = "master", local = FALSE)
+getMaintainers(local = FALSE)
 }
 \arguments{
 \item{local}{Use local repo.}

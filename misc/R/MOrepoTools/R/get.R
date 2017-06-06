@@ -49,6 +49,7 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 #' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
 #' @param subdir Restricts search to a specific subfolder in each repo. The path must end with a
 #'   slash (/).
+#' @param class Problem class. Ignored if \code{name} used.
 #' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
 #' @param local Use local repo.
 #'
@@ -58,13 +59,14 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 #' @examples
 #' getFileList("SSCFLP.*p6")
 #' getFileList(".json")
+#' getFileList(".json", class = "Facility location")
 #' getFileList(c(".json","ReadMe"))
 #' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
 #' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
 #' getFileList(".xml", contribution="Tuyttens00")
 #' getFileList(".xml", contribution="Tuyttens00", local = T)
 #' getFileList(".json", local =T)
-getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE) {
+getFileList<-function(name = "", subdir = "", class = NULL, contribution = NULL, local = FALSE) {
    if (is.null(contribution)) {
       baseURL <- ifelse(local, "contributions.json",
                         paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/contributions.json") )

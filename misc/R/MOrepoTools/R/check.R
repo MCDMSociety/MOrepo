@@ -55,7 +55,7 @@ checkContribution<-function() {
    checkMeta("meta.json")
    meta<-jsonlite::fromJSON("meta.json")
    if (meta$contributionName != sub("MOrepo-", "", basename(getwd()))) {
-      message("\n   Error: The folder entry in meta.json is not equal the folder name of the contribution!")
+      message("\n   Error: The contributionName entry in meta.json is not a part of the folder name of the contribution!")
       return(invisible(FALSE))
    }
    message(" ok.")
@@ -66,30 +66,34 @@ checkContribution<-function() {
          message("\n   Error: You need to add a file ReadMe.md in the instances folder!")
          return(invisible(FALSE))
       }
+      message("Checking file and folders structure in instances ...", appendLF = FALSE)
 
-      message("Checking instance subfolders ...", appendLF = FALSE)
       # Subfolders for each file format
-      if (!all(meta$instanceGroups$format[[1]] %in% list.dirs(path = "./instances", full.names = FALSE, recursive = FALSE))) {
+      if (!all(unlist(meta$instanceGroups$format) %in% list.dirs(path = "./instances", full.names = FALSE, recursive = FALSE))) {
          message("\n   Error: The instances folder must have a subfolder for each instance file format (",
                  paste0(meta$instanceGroups$format[[1]], collapse = ", "), ") specified in the meta.json file.")
          return(invisible(FALSE))
       }
-      # Subfolders for each file format contains the same file names except file extension
-      fRoot <- basename(list.files(path = "./instances/", recursive = FALSE, full.names = FALSE))
-      f <- basename(list.files(path = "./instances/", recursive = TRUE, full.names = FALSE))
-      f<-f[!(f %in% fRoot)]
-      f <- sub("\\..*.$","",f)
-      if (!all(data.frame(table(f))$Freq >= length(meta$instanceGroups$format[[1]]))) {
-         message("\n   Error: The each instance file folder (",
-                 paste0(meta$instanceGroups$format[[1]], collapse = ", "),
-                 ") must contain the same file names (with different file extension).")
-         return(invisible(FALSE))
+      # Subfolders in each file format folder (from meta.json)
+      for (i in 1:length(meta$instanceGroups$subfolder)) {
+         for (f in meta$instanceGroups$format[[i]]) {
+            if (!(meta$instanceGroups$subfolder[i] %in% list.dirs(path = paste0("./instances/",f), full.names = FALSE, recursive = FALSE))) {
+               message("\n   Error: The format folder ", f, " must have a subfolder named ", meta$instanceGroups$subfolder[i], " as specified in the meta.json file.")
+               return(invisible(FALSE))
+            }
+         }
       }
-      # Subfolders for each instance group
-      for (f in meta$instanceGroups$format[[1]]) {
-         if (!all(list.dirs(paste0("./instances/",f), full.names = FALSE, recursive = FALSE) %in% meta$instanceGroups$subfolder)) {
-            message("\n   Error: The folder ", f, " does not have subfolder(s) ",
-                    paste0(meta$instanceGroups$subfolder, collapse = ", "), "!")
+      # Subfolders for each file format contains the same file names except file extension
+      dat <- NULL
+      for (s in meta$instanceGroups$subfolder) {
+         for (f in meta$instanceGroups$format[[i]]) {
+            files <- basename(list.files(path = paste0("./instances/", f, "/", s) , recursive = FALSE, full.names = FALSE))
+            files <- sub("\\..*.$","",files)
+            dat <- c(dat,files)
+         }
+         if (!all(data.frame(table(files))$Freq >= length(meta$instanceGroups$format[[i]]))) {
+            message("\n   Error: The each instance file folder ", s,
+                    ") must contain the same file names (with different file extension).")
             return(invisible(FALSE))
          }
       }
@@ -104,7 +108,7 @@ checkContribution<-function() {
       for (f in meta$instanceGroups$format[[1]]) {
          for (d in meta$instanceGroups$subfolder)
          if (length(grep(d, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
-            message("\n   Error: Files in subfolder ", d, " must all contain ", d, "!")
+            message("\n   Error: Filenames in subfolder ", d, " must all contain ", d, "!")
             return(invisible(FALSE))
          }
       }
