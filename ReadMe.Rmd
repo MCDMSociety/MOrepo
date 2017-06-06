@@ -11,7 +11,7 @@ library(MOrepoTools)
 
 This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute. 
 
-The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of subrepositories, one for each contribution. Subrepositories are named `MOrepo-<name>` where `name` normally is the sir name of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub. 
+The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of subrepositories, one for each contribution. Subrepositories are named `MOrepo-<name>` where `name` normally is the surname of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub. 
 
 The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrive info about test instance groups, results and problem classes. 
 
@@ -21,35 +21,52 @@ The main repository contains documentation about how to use and contribute to `M
 
 Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen. 
 
-Maintainers of contributions are
+Maintainers of contributions are `r paste0(getMaintainers(), collapse=", ")`.
 
 Current contributors to the repository are `r paste0(getContributors(), collapse=", ")`. 
-
-instance sets, resluts etc. are  `r paste0(getMaintainers(), collapse=", ")`. 
 
 
 ## Usage
 
 Instances can be downloaded in different ways depending on usage:
 
-   - If you want the whole repository, download it as a zip file
-   - Browse to a single instance and download it using the raw format at GitHub
-   - Use the R package `MOrepoTools` to download instances
+   - If you want the whole repository, download it as a zip file on GitHub.
+   - Browse to a single instance and download it using the raw format at GitHub.
+   - Use the R package `MOrepoTools` to download instances.
    
 We recormend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R commandline write:
 
 ```{r, eval=FALSE}
 library(devtools)   # if the package is missing see ?install.package 
-install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools/")
+install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
-Now download instances and results using 
 
-```{r, eval=FALSE}
+To get an overview run 
+
+
+```{r, cache=TRUE}
 library(MOrepoTools)
-getInstance(name="Tuyttens", onlyList = T)
-getInstance(class="Facility location", onlyList = T)
+getProblemClasses()  # current problem classes in MOrepo
+getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ```
+
+Now download all Tuyttens instances in raw format using 
+
+```{r, cache=TRUE}
+getInstance(name="Tuyttens", fileFormat = "raw")   
+getInstance(name="ReadMe", fileFormat = "md") 
+```
+
+Similar download all 'Facility location' instances using (`onlyList` just gives you the file list 
+without download)
+
+```{r}
+files <- getInstance(class="Facility location", onlyList = T)
+head(files)
+```
+
+
 
 
 ## Problem classification
@@ -61,7 +78,6 @@ Instances are classified into different classifications. The current classificat
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be 
 
 - Knapsack
-- Assignment   
 - Traveling salesman (TSP)
 - Set covering
 - Set partitioning
