@@ -154,7 +154,7 @@ this project file in RStudio and run the above code.
 
 When you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk>. He will create the
 sub-repository at GitHub and inform you (you may also do this before Step 1, if you would like to
-work with git in the start). You can then add the files to git and GitHub using git from the
+work with git from the start). You can then add the files to git and GitHub using git from the
 commandline inside the contribution folder:
 
 ```
@@ -164,6 +164,10 @@ git commit -am "First commit"
 git remote add origin https://github.com/MCDMSociety/MOrepo-<contributionName>.git
 git push -u origin master
 ```
+
+Remark: If you use [RStudio](https://www.rstudio.com/products/rstudio/) go to `Tools -> Project
+Options -> Git/SVN` and type in `https://github.com/MCDMSociety/MOrepo-<contributionName>.git`. You
+can now do all git stuff from within RStudio.
 
 
 
