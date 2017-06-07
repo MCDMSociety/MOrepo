@@ -141,16 +141,18 @@ optimal: (true, false, null)
 ## Step 5 - Checking and submitting your contribution
 
 When your contribution is ready, we recormmend to check if it is valid using the `MOrepoTools` R
-package. Install [R](https://cran.r-project.org/index.html) and preferably
-[RStudio](https://www.rstudio.com/products/rstudio/). Rename the file `MOrepo-Template.Rproj` to
-`MOrepo-<contributionName>.Rproj`, open the project in RStudio and run:
+package. Install [R](https://cran.r-project.org/index.html) and run:
 
 ```{r, eval=FALSE}
 library(MOrepoTools)  # if not installed see the check.R file
 checkContribution()
 ```
 
-We you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk>. He will create the
+Remark: It may be easier if you also download [RStudio](https://www.rstudio.com/products/rstudio/)
+and rename the file `MOrepo-Template.Rproj` to `MOrepo-<contributionName>.Rproj`. You now just open
+this project file in RStudio and run the above code.
+
+When you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk>. He will create the
 sub-repository at GitHub and inform you (you may also do this before Step 1, if you would like to
 work with git in the start). You can then add the files to git and GitHub using git from the
 commandline inside the contribution folder:

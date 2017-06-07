@@ -109,32 +109,7 @@ All researchers are welcome to contribute to `MOrepo`. The repository mainly con
  - Raw with desc
 
 
-meta.json content:
 
-prefix: Prefix of the instances (equals folder name) (string)
-
-
-
-## Solution format (JSON?)
-
-A file named <instance_name>_sol<number>.json
-
-
-
-instance: name of instance (string)
-comments: misc comments about the results (string, null)
-nDCard: Total number/cardinality of nondominated points (number, null)
-suppCard: Number of supported nondominated points (number, null)
-extCard: Number of extreme supported nondominated points (number, null)
-critType: array of integer, real, null with length as number of criteria (array, null)
-points: Array with nondominated points objects 0(array, null)
-   
-   A point object consists of 
-   class: either us (unsupported), se (supported extreme), s (supported - may be extreme or nonextreme), sne (supported nonextreme), null (unknown)
-   point: array of numbers
-   
- (eller måske pointsClass i stedet for?)
-optimal: (true, false, null)
 
 
 
