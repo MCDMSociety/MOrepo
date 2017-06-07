@@ -96,7 +96,42 @@ The structure of the `instances` folder is as follows:
 The `instances` folder should not contain any compressed files.
 
 
+
+
 ## Step 3 - Adding results to MOrepo
+
+Results of applying an algorithm to the test instances at MOrepo can be added to your contribution. 
+If your study contains results they should be added to the `results` folder (remove it if you don't
+have any results). For the moment only solutions in the objective space (e.g. the nondominated set)
+can be stored. Results must be saved in json format with file name
+`<instance_name>_result_<number>.json` where `<number>` is optional (`<number>` may be useful if
+want to store different approximations of the nondominated set). `<instance_name>` must be equal to
+the full instance name used at MOrepo (not including the file extension). The result file has the
+following structure:
+
+- `instanceName` (required): Name of instance not including the file extension (string).
+- `contributionName` (required): The name of the the contribution (string).
+- `objectives` (required): Number of objectives (number). 
+- `objectiveType` (required): Array with strings `int`, `float` or `null` (unknown) giving the 
+   numeric types of the objectives. Must have the same length as the number of objectives (array, null).
+- `direction` (required): Array with strings `min` or `max` giving the direction of the objectives. 
+   Must have the same length as the number of objectives (array).
+- `comments` (optional): Misc comments about the results (string).
+- `optimal` (required): `true` if an exact optimal solution, `false` is know an approximation, `null` 
+   if unknown, i.e. may be optimal (boolean, null).
+- `suppCard` (optional): Number of supported nondominated points (number). This is with respect to 
+   the solution found. 
+- `extCard` (optional): Number of extreme supported nondominated points (number)
+- `card` (required): Number of points
+- `points` (required): Array with nondominated points objects (array). Each point object consists of  
+   `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend to `z3` if three objectives)
+   and type which may be either `us` (unsupported), `se` (supported extreme), `s` (supported - may 
+   be extreme or nonextreme), `sne` (supported nonextreme), `null` (unknown). The type entry 
+
+   
+ (eller måske pointsClass i stedet for?)
+optimal: (true, false, null)
+
 
 
 
@@ -106,12 +141,15 @@ The `instances` folder should not contain any compressed files.
 ## Step 5 - Checking and submitting your contribution
 
 When your contribution is ready, we recormmend to check if it is valid using the `MOrepoTools` R
-package and run:
+package. Install [R](https://cran.r-project.org/index.html) and preferably
+[RStudio](https://www.rstudio.com/products/rstudio/). Rename the file `MOrepo-Template.Rproj` to
+`MOrepo-<contributionName>.Rproj`, open the project in RStudio and run:
 
 ```{r, eval=FALSE}
-library(MOrepoTools)
+library(MOrepoTools)  # if not installed see the check.R file
 checkContribution()
 ```
+
 We you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk>. He will create the
 sub-repository at GitHub and inform you (you may also do this before Step 1, if you would like to
 work with git in the start). You can then add the files to git and GitHub using git from the
