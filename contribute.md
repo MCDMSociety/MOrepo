@@ -2,7 +2,7 @@
 Contributing to MOrepo
 ======================
 
-All researchers are welcome to contribute to MOrepo with instances, results etc. Each contribution will be added as a sub-repository to the [MCDMSociety](https://github.com/MCDMSociety) organization at GitHub. Name the repository MO-repo-`<first_author><year>` e.g. `MOrepo-Gadegaard16`.
+All researchers are welcome to contribute to MOrepo with instances, results etc. Each contribution will be added as a sub-repository to the [MCDMSociety](https://github.com/MCDMSociety) organization at GitHub. Name the repository MOrepo-`<first_author><year>` e.g. `MOrepo-Gadegaard16`.
 
 As maintainers of MOrepo we will do our best to help you in the process. That is, you are always welcome to contact us if you have problems following the steps below. The best way to do this is to file an [issue](https://github.com/MCDMSociety/MOrepo/issues) at GitHub and we will try to resolve your issues asap.
 
@@ -77,23 +77,57 @@ The `instances` folder should not contain any compressed files.
 Step 3 - Adding results to MOrepo
 ---------------------------------
 
+Results of applying an algorithm to the test instances at MOrepo can be added to your contribution. If your study contains results they should be added to the `results` folder (remove it if you don't have any results). For the moment only solutions in the objective space (e.g. the nondominated set) can be stored. Results must be saved in json format with file name `<instanceName>_<other>_result.json` where `<other>` is optional an may be a string as you like e.g. `<other>` may be useful if want to store different approximations of the nondominated set. `<instanceName>` must be equal to the full instance name used at MOrepo (not including the file extension). The result file has the following structure:
+
+-   `version` (required): Result format version (string). Currently version must be set to 1.0.
+-   `instanceName` (required): Name of instance not including the file extension (string).
+-   `contributionName` (required): The name of the the contribution (string).
+-   `objectives` (required): Number of objectives (number).
+-   `objectiveType` (required): Array with strings `int`, `float` or `null` (unknown) giving the numeric types of the objectives. Must have the same length as the number of objectives (array, null).
+-   `direction` (required): Array with strings `min` or `max` giving the direction of the objectives. Must have the same length as the number of objectives (array).
+-   `comments` (optional): Misc comments about the results (string).
+-   `optimal` (required): `true` if an exact optimal solution, `false` is know an approximation, `null` if unknown, i.e. may be optimal (boolean, null).
+-   `suppCard` (optional): Number of supported nondominated points (number). This is with respect to the solution found.
+-   `extCard` (optional): Number of extreme supported nondominated points (number)
+-   `card` (required): Number of points
+-   `cpu` (optional): In general you cannot compare cpu times for different machines. But you may create plots of results run on the same machine. An object with
+    -   `sec`: Cpu time in seconds (number).
+    -   `machineSpec`: Machine specification, e.g. Intel Xeon 2.67 GHz, 6 GB RAM, Red Hat Enterprise Linux v4.0 OS (string).
+-   `points` (required): Array with nondominated points objects (array). Each point object consists of
+    `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend to `z3` if three objectives) and type which may be either `us` (unsupported), `se` (supported extreme), `s` (supported - may be extreme or nonextreme), `sne` (supported nonextreme), `null` (unknown). The type entry
+-   `valid` (required): If true the results are considered valid. If false the results may be in conflict with results on the same instance from other contributions.
+-   `misc` (optional): An entry you may use as you like. It could e.g. contain an object with more detailed entries about the experiment.
+
+You may create the json result files as you like. If you use R and MOrepoTools an easy way to do it is to use the function `createResultFile`. For further information see the documentation of the package:
+
+``` r
+library(MOrepoTools)
+?createResultFile
+```
+
 Step 4 - Adding other stuff
 ---------------------------
+
+You are very welcome to add other stuff to MOrepo. For instance, for reproducibility it is a good idea to add the source code of your algorithm (you may even ask for a sub-repository while you develop it - see Step 5). Source code can be put in a folder `algorithm`. Moreover, an instance generator can be put in a folder `generator`.
 
 Step 5 - Checking and submitting your contribution
 --------------------------------------------------
 
-When your contribution is ready, we recormmend to check if it is valid using the `MOrepoTools` R package and run:
+When your contribution is ready, we recommend to check if it is valid using the `MOrepoTools` R package. Install [R](https://cran.r-project.org/index.html) and run:
 
 ``` r
-library(MOrepoTools)
+library(MOrepoTools)  # if not installed see the check.R file
 checkContribution()
 ```
 
-We you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk>. He will create the sub-repository at GitHub and inform you (you may also do this before Step 1, if you would like to work with git in the start). You can then add the files to git and GitHub using git from the commandline inside the contribution folder:
+Remark: It may be easier if you also download [RStudio](https://www.rstudio.com/products/rstudio/) and rename the file `MOrepo-Template.Rproj` to `MOrepo-<contributionName>.Rproj`. You now just open this project file in RStudio and run the above code.
+
+When you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk> together with your GitHub username. He will create the sub-repository at GitHub and inform you (you may also do this before Step 1, if you would like to work with git from the start). You can then add the files to git and GitHub using git from the command line inside the contribution folder:
 
     git init
     git add --all
     git commit -am "First commit"
     git remote add origin https://github.com/MCDMSociety/MOrepo-<contributionName>.git
     git push -u origin master
+
+Remark: If you use [RStudio](https://www.rstudio.com/products/rstudio/) go to `Tools -> Project  Options -> Git/SVN` and type in `https://github.com/MCDMSociety/MOrepo-<contributionName>.git`. You can now do all [git stuff](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) from within RStudio.
