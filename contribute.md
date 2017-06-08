@@ -98,6 +98,69 @@ Results of applying an algorithm to the test instances at MOrepo can be added to
 -   `valid` (required): If true the results are considered valid. If false the results may be in conflict with results on the same instance from other contributions.
 -   `misc` (optional): An entry you may use as you like. It could e.g. contain an object with more detailed entries about the experiment.
 
+An example could be:
+
+    {
+      "contributionName": "Pedersen08",
+      "objectives": 2,
+      "objectiveType": ["int", "int"],
+      "direction": ["min", "min"],
+      "comments": "Results from the paper by Pedersen et. al (2008)",
+      "optimal": true,
+      "cpu": {
+        "sec": 0,
+        "machineSpec": "Intel Xeon 2.67 GHz, 6 GB RAM, Red Hat Enterprise Linux v4.0 OS"
+      },
+      "valid": true,
+      "version": "1.0",
+      "instanceName": "Tuyttens00_AP_n05",
+      "suppCard": 3,
+      "extCard": 3,
+      "card": 8,
+      "points": [
+        {
+          "z1": 27,
+          "z2": 56,
+          "type": "se"
+        },
+        {
+          "z1": 30,
+          "z2": 53,
+          "type": "us"
+        },
+        {
+          "z1": 31,
+          "z2": 36,
+          "type": "se"
+        },
+        {
+          "z1": 34,
+          "z2": 33,
+          "type": "us"
+        },
+        {
+          "z1": 42,
+          "z2": 30,
+          "type": "us"
+        },
+        {
+          "z1": 43,
+          "z2": 25,
+          "type": "us"
+        },
+        {
+          "z1": 49,
+          "z2": 23,
+          "type": "us"
+        },
+        {
+          "z1": 51,
+          "z2": 9,
+          "type": "se"
+        }
+      ]
+    }
+
 You may create the json result files using tools you like. If you use R and MOrepoTools an easy way to do it is to use the function `createResultFile`. For further information see the documentation of the package:
 
 ``` r
