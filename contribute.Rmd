@@ -138,7 +138,9 @@ extension). The result file has the following structure:
 - `misc` (optional): An entry you may use as you like. It could e.g. contain an object with more 
    detailed entries about the experiment. 
 
-You may create the json result files as you like. If you use R and MOrepoTools an easy way to do it is to use the function `createResultFile`. For further information see the documentation of the package: 
+You may create the json result files using tools you like. If you use R and MOrepoTools an easy way
+to do it is to use the function `createResultFile`. For further information see the documentation of
+the package:
 
 ```{r, eval=FALSE}
 library(MOrepoTools)
