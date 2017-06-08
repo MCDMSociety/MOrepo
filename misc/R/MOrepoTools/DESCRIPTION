@@ -1,14 +1,14 @@
 Package: MOrepoTools
 Type: Package
 Title: Tools for MOrepo
-Version: 0.1
+Version: 1.0
 Date: 2017-04-01
 Authors@R: person("Lars", "Relund", email = "lars@relund.dk",
   role = c("aut", "cre"))
-URL: https://github.com/relund/r-pkg-template/
-BugReports: https://github.com/relund/r-pkg-template/issues
-Description: More about what it does (maybe more than one line)
+URL: https://github.com/MCDMSociety/MOrepo/misc/R/MOrepoTools
+BugReports: https://github.com/MCDMSociety/MOrepo/issues
+Description: Tools for the MOrepo at GitHub
 License: GPL (>= 3)
-Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr
+Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr, readr
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1

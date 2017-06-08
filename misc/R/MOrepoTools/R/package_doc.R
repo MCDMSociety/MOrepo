@@ -13,7 +13,6 @@
 #'
 #' @seealso ~~ Optional links to other man pages, e.g. ~~ ~~
 #' <pkg>:<pkg>-package ~~
-#' @references ~~ Literature or other references for background information ~~
 #' @keywords package
 #' @examples
 #' # ~~ simple examples of the most important functions ~~

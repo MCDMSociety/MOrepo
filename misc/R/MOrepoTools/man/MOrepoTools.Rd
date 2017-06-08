@@ -17,9 +17,6 @@ important functions ~~
 \examples{
 # ~~ simple examples of the most important functions ~~
 }
-\references{
-~~ Literature or other references for background information ~~
-}
 \seealso{
 ~~ Optional links to other man pages, e.g. ~~ ~~
 <pkg>:<pkg>-package ~~
