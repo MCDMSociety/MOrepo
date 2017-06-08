@@ -51,11 +51,14 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    lst$contributionName <- contributionName
    lst$instanceName <- instanceName
    lst$objectives <- objectives
+   if (length(objectiveType)!=objectives) stop("Error: Length of objectiveType must be ", objectives)
    lst$objectiveType <- objectiveType
+   if (length(direction)!=objectives) stop("Error: Length of direction must be ", objectives)
    lst$direction <- direction
    lst$optimal <- optimal
    if (!is.null(suppCard)) lst$suppCard <- suppCard
    if (!is.null(extCard)) lst$extCard <- extCard
+   if (card != length(points$z1)) stop("Error: card is not equal the number of points!")
    lst$card <- card
    lst$points <- points
    if (!is.null(cpu)) lst$cpu <- list(cpu = cpu[1], machineSpec = cpu[2])
@@ -67,6 +70,19 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    message("Results written to ", paste0(instanceName, other, "_result.json"))
 }
 
+
+#' Validate a result file based on schema.
+#'
+#' @param file Name of result file.
+#'
+#' @return Warnings and errors (if any).
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @examples
+#' MOrepoTools:::checkResult("Tuyttens00_AP_n05_result.json")
+checkResult<-function(file) {
+   schema<-system.file("resultSchema.json", package = "MOrepoTools")
+   jsonvalidate::json_validate(file, schema, verbose = TRUE, error = TRUE)
+}
 
 
 

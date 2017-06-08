@@ -122,6 +122,17 @@ checkContribution<-function() {
       message(" ok.")
    }
 
+   if ("results" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
+      message("Your contribution contains results of test instances. ")
+      files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE )
+      message("Validate the result files: ")
+      for (f in files) {
+         message("Check ", f, " ...", appendLF = FALSE)
+         checkResult(f)
+         message(" ok.")
+      }
+   }
+
    message("Checking for missing files ...", appendLF = FALSE)
    if (!file.exists("citation.bib")) {
       message("\n   Error: You need to add a file citation.bib!")

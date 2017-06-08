@@ -1,0 +1,107 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for a result file",
+    "description": "Result file for an instance",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "Version of the result format. Currently only 1.0 supported",
+            "type": "string",
+            "enum": ["1.0"]
+        },
+        "instanceName": {
+            "description": "The name of the test instance (without the file extension)",
+            "type": "string"
+        },
+        "contributionName": {
+            "description": "The name of the repo containing the contribution (without the MOrepo- prefix)",
+            "type": "string"
+        },
+        "objectives": {
+            "description": "Number of objectives",
+            "type": "number"
+        },
+        "objectiveType": {
+            "type": "array",
+            "items": {
+                "title": "Numeric type",
+                "type": [ "string", "null"],
+                "enum": ["int", "float", null]
+            },
+            "minItems": 2
+        },
+        "direction": {
+            "type": "array",
+            "items": {
+                "title": "Numeric type",
+                "type": "string",
+                "enum": ["min", "max"]
+            },
+            "minItems": 2
+        },
+        "comments": {
+            "description": "Misc comments about the results",
+            "type": "string"
+        },
+        "optimal": {
+            "description": "`true` if an exact optimal solution, `false` is know an approximation, `null` if unknown, i.e. may be optimal",
+            "type": "boolean"
+        },
+        "suppCard": {
+            "description": "Number of supported nondominated points",
+            "type": "number"
+        },
+        "extCard": {
+            "description": "Number of extreme supported nondominated points",
+            "type": "number"
+        },
+        "card": {
+            "description": "Number of points",
+            "type": "number"
+        },
+        "cpu": {
+           "description": "An object with cpu time",
+           "type": "object",
+           "properties": {
+               "sec": {
+                  "description": "Cpu time in seconds",
+                  "type": "number"
+                },
+               "machineSpec": {
+                  "description": " Machine specification",
+                  "type": "string"
+                }
+           },
+           "required": ["sec", "machineSpec"]
+        },
+        "points": {
+            "type": "array",
+            "items": {
+                "title": "A point",
+                "type": "object",
+                "properties": {
+                     "z1": { "type": "number" },
+                     "z2": { "type": "number" },
+                     "type": {
+                        "type": "string",
+                        "enum": ["us", "se", "s", "sne"]
+                     }
+                },
+                "patternProperties": {
+                     "^z": { "type": "number" }
+                },
+                "additionalProperties": false,
+                "required": ["z1", "z2", "type"]
+            },
+            "minItems": 1
+        },
+        "valid": {
+            "description": "If true the results are considered valid. If false the results may be in conflict",
+            "type": "boolean"
+        },
+        "misc": {
+            "description": "An entry you may use as you like"
+        },
+    },
+    "required": ["version", "instanceName", "contributionName", "objectives", "objectiveType", "optimal", "card", "points", "valid"]
+}
