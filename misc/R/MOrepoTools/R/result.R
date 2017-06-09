@@ -66,9 +66,101 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    lst$valid <- valid
    str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA)
    if (other!="") other <- paste0("_", other, "_")
-   readr::write_lines(str, paste0(instanceName, other, "_result.json"))
+   fileN <- paste0(instanceName, other, "_result.json")
+   readr::write_lines(str, fileN)
    message("Results written to ", paste0(instanceName, other, "_result.json"))
+   message("Validate the file against schema ... ", appendLF = F)
+   checkResult(fileN)
+   message("ok.")
 }
+
+
+
+
+#' Modify the content of a result file
+#'
+#' Assume that you work with a local repository. All parameters not \code{NULL} are modified.
+#'
+#' @param fileN File name including path.
+#' @param version Result format version (string). Currently version must be set to 1.0.
+#' @param instanceName Name of instance not including the file extension (string).
+#' @param contributionName The name of the the contribution (string).
+#' @param objectives Number of objectives (number).
+#' @param objectiveType Vector with strings \code{int}, \code{float} or \code{NA} (unknown) giving
+#'   the numeric types of the objectives. Must have the same length as the number of objectives.
+#' @param direction Vector with strings \code{min} or \code{max} giving the direction of the
+#'   objectives.
+#' @param comments Misc comments about the results (string).
+#' @param optimal \code{TRUE} if an exact optimal solution, \code{FALSE} is know an approximation,
+#'   \code{NA} if unknown, i.e. may be optimal (boolean, null).
+#' @param suppCard Number of supported nondominated points (number). This is with respect to the
+#'   solution found.
+#' @param extCard Number of extreme supported nondominated points.
+#' @param card Number of points.
+#' @param cpu If not NULL, a vector with two entries cpu time in seconds (number) and machine
+#'   specification (string).
+#' @param valid If TRUE the results are considered valid. If FALSE the results may be in conflict
+#'   with results on the same instance from other contributions.
+#' @param misc If not NULL, an entry you may use as you like (vector, list etc.). It could e.g.
+#'   contain an object with more detailed entries about the experiment.
+#' @param points A data frame with the nondominated points. Column names must be \code{z1, z2, ..., zn,
+#'   type} where column \code{zi} is the value of the i'th objective and column type contains
+#'   strings which may be either \code{us} (unsupported), \code{se} (supported extreme), \code{s}
+#'   (supported - may be extreme or nonextreme), \code{sne} (supported nonextreme), \code{NA}
+#'   (unknown).
+#' @param check If \code{TRUE} validate the file against the schema.
+#'
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' points <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
+#'    type = c('se', 'us', 'se', 'us', 'us', 'us', 'us', 'se'))
+#' createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
+#'    objectives = 2, points = points, card = 8, suppCard = 3, extCard = 3,
+#'    objectiveType = c("int", "int"), direction = c("min", "min"),
+#'    comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE
+#' )
+#' modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed comment")
+modifyResultFile<-function(fileN, instanceName = NULL, contributionName = NULL, objectives = NULL,
+   points = NULL, card = NULL, suppCard = NULL, extCard = NULL, objectiveType = NULL,
+   direction = NULL, comments = NULL, optimal = TRUE, cpu = NULL, valid = NULL, version = NULL,
+   misc = NULL, check = TRUE)
+{
+   lst <- jsonlite::fromJSON(fileN)
+   if (!is.null(version)) lst$version <- version
+   if (!is.null(comments)) lst$comments <- comments
+   if (!is.null(contributionName)) lst$contributionName <- contributionName
+   if (!is.null(instanceName)) lst$instanceName <- instanceName
+   if (!is.null(objectives)) lst$objectives <- objectives
+   if (!is.null(objectiveType)) {
+      if (length(objectiveType)!=lst$objectives) stop("Error: Length of objectiveType must be ", lst$objectives)
+      lst$objectiveType <- objectiveType
+   }
+   if (!is.null(direction)) {
+      if (length(direction)!=lst$objectives) stop("Error: Length of direction must be ", lst$objectives)
+      lst$direction <- direction
+   }
+   if (!is.null(optimal)) lst$optimal <- optimal
+   if (!is.null(suppCard)) lst$suppCard <- suppCard
+   if (!is.null(extCard)) lst$extCard <- extCard
+   if (!is.null(card)) lst$card <- card
+   if (!is.null(points)) lst$points <- points
+   if (lst$objectives != dim(lst$points)[2]-1) stop("Error: Number of objectives don't match columns in points!")
+   if (lst$card != length(lst$points$z1)) stop("Error: card is not equal the number of points!")
+   if (!is.null(cpu)) lst$cpu <- list(cpu = cpu[1], machineSpec = cpu[2])
+   if (!is.null(misc)) lst$misc <- misc
+   if (!is.null(valid)) lst$valid <- valid
+   str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA)
+   readr::write_lines(str, fileN)
+   message("Modified ", fileN)
+   if (check) {
+      message("Validate the file against schema ... ", appendLF = F)
+      checkResult(fileN)
+      message("ok.")
+   }
+}
+
+
 
 
 #' Validate a result file based on schema.
@@ -77,12 +169,14 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
 #'
 #' @return Warnings and errors (if any).
 #' @author Lars Relund \email{lars@@relund.dk}
+#' @export
 #' @examples
 #' MOrepoTools:::checkResult("Tuyttens00_AP_n05_result.json")
 checkResult<-function(file) {
    schema<-system.file("resultSchema.json", package = "MOrepoTools")
    jsonvalidate::json_validate(file, schema, verbose = TRUE, error = TRUE)
 }
+
 
 
 

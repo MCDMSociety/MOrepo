@@ -283,3 +283,25 @@ getRepoPath<-function(local = FALSE) {
 }
 
 
+
+#' Download a contribution as a zip file.
+#'
+#' @param contributionName Contribution name(s) (without the MOrepo prefix).
+#'
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' getContributionAsZip(c("Tuyttens00", "Template"))
+getContributionAsZip<-function(contributionName) {
+   path <- paste0("https://github.com/MCDMSociety/MOrepo-", contributionName, "/archive/master.zip")
+   for (i in 1:length(path)) {
+      message("Download MOrepo-", contributionName[i], ".zip ... ", appendLF = FALSE)
+      if (download.file(path[i], destfile = paste0("MOrepo-", contributionName[i], ".zip"), quiet = TRUE)>0) {
+         warning("The contribution could not be downloaded! ")
+      }
+      message("finished.")
+   }
+}
+
+
+

@@ -125,12 +125,15 @@ checkContribution<-function() {
    if ("results" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains results of test instances. ")
       files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE )
-      message("Validate the result files: ")
+      message("Validate the result files against schema: ")
       for (f in files) {
          message("Check ", f, " ...", appendLF = FALSE)
          checkResult(f)
          message(" ok.")
       }
+      message("Check if there is an instance file to the result file ... ", appendLF = FALSE)
+
+      message(" ok.")
    }
 
    message("Checking for missing files ...", appendLF = FALSE)
