@@ -7,7 +7,7 @@
 #' setMetaInstances()
 setMetaInstances<-function() {
    lst <- list()
-   lst$desc = "Meta file instances at MOrepo"
+   lst$desc = "Meta file - Instances at MOrepo"
 
    # get all instances at GitHub
    files <- getFileList(subdir = "instances")
@@ -40,3 +40,6 @@ setMetaInstances<-function() {
    readr::write_lines(str, "metaInstances.json")
    message("Meta data for MOrepo saved to metaInstances.json")
 }
+
+
+

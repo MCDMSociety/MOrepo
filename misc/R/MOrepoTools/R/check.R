@@ -60,6 +60,21 @@ checkContribution<-function() {
    }
    message(" ok.")
 
+   message("Checking for missing files ...", appendLF = FALSE)
+   if (!file.exists("citation.bib")) {
+      message("\n   Error: You need to add a file citation.bib!")
+      return(invisible(FALSE))
+   }
+   if (!file.exists("ReadMe.md")) {
+      message("\n   Error: You need to add a file ReadMe.md in the root!")
+      return(invisible(FALSE))
+   }
+   message(" ok.")
+
+   message("Checking citation.bib ...", appendLF = FALSE)
+   RefManageR::ReadBib("citation.bib")
+   message(" ok.")
+
    if ("instances" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains test instances. ")
       if (!file.exists("instances/ReadMe.md")) {
@@ -107,10 +122,10 @@ checkContribution<-function() {
       # Subfolder name contained in filename for all instances
       for (f in meta$instanceGroups$format[[1]]) {
          for (d in meta$instanceGroups$subfolder)
-         if (length(grep(d, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
-            message("\n   Error: Filenames in subfolder ", d, " must all contain ", d, "!")
-            return(invisible(FALSE))
-         }
+            if (length(grep(d, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
+               message("\n   Error: Filenames in subfolder ", d, " must all contain ", d, "!")
+               return(invisible(FALSE))
+            }
       }
       # Only files with the file format suffix
       for (f in meta$instanceGroups$format[[1]]) {
@@ -125,31 +140,25 @@ checkContribution<-function() {
    if ("results" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains results of test instances. ")
       files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE )
-      message("Validate the result files against schema: ")
+      message("Validate the result files against schema ... ")
       for (f in files) {
-         message("Check ", f, " ...", appendLF = FALSE)
+         message("Validate ", f, " ...", appendLF = FALSE)
          checkResult(f)
          message(" ok.")
       }
-      message("Check if there is an instance file to the result file ... ", appendLF = FALSE)
-
+      message("Check if there is an instance file in MOrepo for each result file ... ", appendLF = FALSE)
+      instances <- getMetaInstances()
+      res <- sapply(files, function(x) {
+         name <- basename(x)
+         name <- sub("(.*)_result.*$", "\\1", name)
+         if (!(name %in% instances$instanceName)) {
+            message("\n   Error: File ", x, " does not correspond to and instance file!")
+            return(FALSE)
+         } else return(TRUE)
+      })
+      if (all(res) == FALSE) return(invisible(FALSE))
       message(" ok.")
    }
-
-   message("Checking for missing files ...", appendLF = FALSE)
-   if (!file.exists("citation.bib")) {
-      message("\n   Error: You need to add a file citation.bib!")
-      return(invisible(FALSE))
-   }
-   if (!file.exists("ReadMe.md")) {
-      message("\n   Error: You need to add a file ReadMe.md in the root!")
-      return(invisible(FALSE))
-   }
-   message(" ok.")
-
-   message("Checking citation.bib ...", appendLF = FALSE)
-   RefManageR::ReadBib("citation.bib")
-   message(" ok.")
 
    message("Everything seems to be okay :-)")
 }

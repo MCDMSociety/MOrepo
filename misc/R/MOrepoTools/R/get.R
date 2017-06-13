@@ -305,3 +305,17 @@ getContributionAsZip<-function(contributionName) {
 
 
 
+#' Get data frame over all instances at MOrepo
+#'
+#' Use \code{metaInstances.json} as source.
+#'
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' getMetaInstances()
+getMetaInstances<-function() {
+   instances <- jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaInstances.json")
+   instances$instances <- as.data.frame(instances$instances)
+   colnames(instances$instances) <- instances$colNames
+   instances <- instances$instances
+}
