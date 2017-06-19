@@ -210,32 +210,41 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' getContributors()
-#' getContributors(local = T)
-getContributors<-function(local = FALSE) {
-   fileN<-getFileList("citation.bib", local = local)
-   baseURL <- ifelse(local, "file://./",  "https://raw.githubusercontent.com/MCDMSociety/" )
+#' getContributorNames()
+getContributorNames<-function(local = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
-
-   metaList<-NULL
-   for (f in fileN) {
-      bib<-paste0(baseURL, f)
-      if (download.file(bib, destfile = "tmp.bib", quiet = TRUE)>0) {
-         stop(paste("File",basename(bib),"could not be downloaded!"))
-      } else {
-         bib<-RefManageR::ReadBib("tmp.bib")
-      }
-      metaList<-c(metaList,list(bib))
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
+   authors <- NULL
+   for (i in 1:length(repos$repoInfo)) {
+      readr::write_file(repos$repoInfo[[i]]$bib, "tmp.bib")
+      bib<-RefManageR::ReadBib("tmp.bib")
+      authors<-c(authors, paste(bib$author))
    }
-   lst<-lapply(metaList, FUN = function(x) paste(x$author))
-   lst<-unique(unlist(lst))
-   return(lst)
+   return(unique(authors))
+   # fileN<-getFileList("citation.bib", local = local)
+   # baseURL <- ifelse(local, "file://./",  "https://raw.githubusercontent.com/MCDMSociety/" )
+   # RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
+   #
+   # metaList<-NULL
+   # for (f in fileN) {
+   #    bib<-paste0(baseURL, f)
+   #    if (download.file(bib, destfile = "tmp.bib", quiet = TRUE)>0) {
+   #       stop(paste("File",basename(bib),"could not be downloaded!"))
+   #    } else {
+   #       bib<-RefManageR::ReadBib("tmp.bib")
+   #    }
+   #    metaList<-c(metaList,list(bib))
+   # }
+   # lst<-lapply(metaList, FUN = function(x) paste(x$author))
+   # lst<-unique(unlist(lst))
+   # return(lst)
 }
 
 
 
 
-#' Get maintainers of all sub-repos at MOrepo (read from the meta.json file).
+#' Get maintainers of all sub-repos at MOrepo (read from the metaContributions.json file).
 #'
 #' @param local Use local repo.
 #'
@@ -246,15 +255,9 @@ getContributors<-function(local = FALSE) {
 #' getMaintainers()
 #' getMaintainers(local = T)
 getMaintainers<-function(local = FALSE) {
-   fileN<-getFileList("meta.json", local = local)
-   baseURL1 <- ifelse(local, "", "https://raw.githubusercontent.com/MCDMSociety/")
-   metaList<-NULL
-   for (f in fileN) {
-      meta<-paste0(baseURL1, f)
-      meta<-jsonlite::fromJSON(meta)
-      metaList<-c(metaList,list(meta))
-   }
-   lst<-lapply(metaList, FUN = function(x) paste(x$maintainer))
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   meta<-jsonlite::fromJSON(paste0(baseURL, "metaContributions.json"))
+   lst<-lapply(meta$repoInfo, FUN = function(x) paste(x$maintainer))
    lst<-unique(unlist(lst))
    return(lst)
 }
@@ -271,8 +274,8 @@ getMaintainers<-function(local = FALSE) {
 #' @examples
 #' getRepoPath()
 getRepoPath<-function(local = FALSE) {
-   baseURL <- ifelse(local, "contributions.json",
-                     paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/contributions.json") )
+   baseURL <- ifelse(local, "metaContributions.json",
+                     paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
    repos<-jsonlite::fromJSON(baseURL)$repos
    if (local) {
       repos<-paste0("../MOrepo-", repos, "/")
@@ -318,4 +321,23 @@ getMetaInstances<-function() {
    instances$instances <- as.data.frame(instances$instances)
    colnames(instances$instances) <- instances$colNames
    instances <- instances$instances
+}
+
+
+
+#' Convert a vector to a string with an 'and' at the second last (if needed).
+#'
+#' @param v A vector.
+#'
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' vec2String("Test")
+#' vec2String(1:2)
+#' vec2String(1:5)
+vec2String<-function(v) {
+   if (length(v)==1) return(v)
+   str <- paste0(v[1:(length(v)-1)], collapse = ", ")
+   str <- paste0(str, " and ", v[length(v)])
+   return(str)
 }
