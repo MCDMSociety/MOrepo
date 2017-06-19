@@ -4,26 +4,29 @@ output: github_document
 
 ```{r, include=FALSE}
 library(MOrepoTools)
+knitr::opts_chunk$set(tidy = TRUE, opts=list(blank=FALSE, width.cutoff=120), cache = TRUE, 
+                      autodep = TRUE )
+knitr::opts_knit$set(width = 90)
 ```
 
 
 # Multi-Objective Optimization Repository (MOrepo)
 
-This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute. 
+This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continuously updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All researchers within MO optimization are welcome to contribute. 
 
-The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of subrepositories, one for each contribution. Subrepositories are named `MOrepo-<name>` where `name` normally is the surname of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub. 
+The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of sub-repositories, one for each contribution. Sub-repositories are named `MOrepo-<name>` where `name` normally is the surname of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub. 
 
-The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrive info about test instance groups, results and problem classes. 
+The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrieve info about test instance groups, results and problem classes. 
 
 <!-- - `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time. -->
 <!-- - `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances. -->
 <!-- - `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.  -->
 
-Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen. 
+Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dta.dk> and Kim Allan Andersen <kia@econ.au.dk>. 
 
-Maintainers of contributions are `r paste0(getMaintainers(), collapse=", ")`.
+Current maintainers of sub-repositories are `r vec2String(getMaintainers())`.
 
-Current contributors to the repository are `r paste0(getContributors(), collapse=", ")`. 
+Current contributors to the repository are `r vec2String(getContributorNames())`. 
 
 
 ## Usage
@@ -34,7 +37,7 @@ Instances can be downloaded in different ways depending on usage:
    - Browse to a single instance and download it using the raw format at GitHub.
    - Use the R package `MOrepoTools` to download instances.
    
-We recormend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R commandline write:
+We recommend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R command line write:
 
 ```{r, eval=FALSE}
 library(devtools)   # if the package is missing see ?install.package 
@@ -42,8 +45,7 @@ install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
 
-To get an overview run 
-
+To get an overview over the current probem classes run:
 
 ```{r, cache=TRUE}
 library(MOrepoTools)
@@ -51,19 +53,16 @@ getProblemClasses()  # current problem classes in MOrepo
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ```
 
-Now download all Tuyttens instances in raw format using 
+Now download the Tuyttens00 contribution as a zip file using 
 
 ```{r, cache=TRUE}
-getInstance(name="Tuyttens", fileFormat = "raw")   
-getInstance(name="ReadMe", fileFormat = "md") 
+getContributionAsZip("Tuyttens00")
 ```
 
-Similar download all 'Facility location' instances using (`onlyList` just gives you the file list 
-without download)
+Or download a selected instances 
 
 ```{r}
-files <- getInstance(class="Facility location", onlyList = T)
-head(files)
+getInstance(name="Tuyttens.*n10")
 ```
 
 
@@ -78,7 +77,7 @@ Instances are classified into different classifications. The current classificat
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be 
 
 - Knapsack
-- Traveling salesman (TSP)
+- Traveling salesman
 - Set covering
 - Set partitioning
 - Set packing 
@@ -92,7 +91,7 @@ The set of problem classes is expanded as new problem instances is added to the 
 
 ## How to contribute
 
-All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instanses and results from variaous sources. However, also generators, format converters etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it. 
+All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instances and results from various sources. However, also generators, format converters, algorithms etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it. 
 
 
 

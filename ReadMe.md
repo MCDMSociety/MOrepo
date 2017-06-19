@@ -2,20 +2,20 @@
 Multi-Objective Optimization Repository (MOrepo)
 ================================================
 
-This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continusly updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All resarchers within MO optimization are welcome to contribute.
+This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continuously updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All researchers within MO optimization are welcome to contribute.
 
-The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of subrepositories, one for each contribution. Subrepositories are named `MOrepo-<name>` where `name` normally is the surname of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub.
+The repository consists of a main repository [`MOrepo`](https://github.com/MCDMSociety/MOrepo) at GitHub and a set of sub-repositories, one for each contribution. Sub-repositories are named `MOrepo-<name>` where `name` normally is the surname of the first author and year of the study. All repositories are located within the [`MCDMSociety`](https://github.com/MCDMSociety/) organization at GitHub.
 
-The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrive info about test instance groups, results and problem classes.
+The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrieve info about test instance groups, results and problem classes.
 
 <!-- - `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time. -->
 <!-- - `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances. -->
 <!-- - `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.  -->
-Maintainers of `MOrepo` are Lars Relund Nielsen, Sune Gadegaard, Thomas Stridsen and Kim Allan Andersen.
+Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dta.dk> and Kim Allan Andersen <kia@econ.au.dk>.
 
-Maintainers of contributions are Sune Lauth Gadegaard <sgadegaard@econ.au.dk>, Lars Relund <junk@relund.dk>.
+Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
 
-Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps, K. Van Nieuwenhuyze.
+Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze.
 
 Usage
 -----
@@ -26,14 +26,14 @@ Instances can be downloaded in different ways depending on usage:
 -   Browse to a single instance and download it using the raw format at GitHub.
 -   Use the R package `MOrepoTools` to download instances.
 
-We recormend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R commandline write:
+We recommend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R command line write:
 
 ``` r
-library(devtools)   # if the package is missing see ?install.package 
+library(devtools)  # if the package is missing see ?install.package 
 install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
-To get an overview run
+To get an overview over the current probem classes run:
 
 ``` r
 library(MOrepoTools)
@@ -55,7 +55,7 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
     ## 400â411. DOI: 10.1287/ijoc.1070.0253.
     ## 
     ## Test classes: Assignment  
-    ## Subfolders: AP, MMAP  
+    ## Subfolders: AP and MMAP  
     ## Formats: xml  
     ## 
     ## ### Instance group Tuyttens00:
@@ -66,52 +66,28 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
     ## 10.1023/A:1009670112978.
     ## 
     ## Test classes: Assignment  
-    ## Formats: raw, xml
+    ## Formats: raw and xml
 
-Now download all Tuyttens instances in raw format using
+Now download the Tuyttens00 contribution as a zip file using
 
 ``` r
-getInstance(name="Tuyttens", fileFormat = "raw")   
+getContributionAsZip("Tuyttens00")
 ```
 
-    ## Download Tuyttens00_AP_n05.raw ...finished
+    ## Download MOrepo-Tuyttens00.zip ...
+
+    ## finished.
+
+Or download a selected instances
+
+``` r
+getInstance(name = "Tuyttens.*n10")
+```
+
     ## Download Tuyttens00_AP_n10.raw ...finished
     ## Download Tuyttens00_AP_n100.raw ...finished
-    ## Download Tuyttens00_AP_n15.raw ...finished
-    ## Download Tuyttens00_AP_n20.raw ...finished
-    ## Download Tuyttens00_AP_n25.raw ...finished
-    ## Download Tuyttens00_AP_n30.raw ...finished
-    ## Download Tuyttens00_AP_n35.raw ...finished
-    ## Download Tuyttens00_AP_n40.raw ...finished
-    ## Download Tuyttens00_AP_n45.raw ...finished
-    ## Download Tuyttens00_AP_n50.raw ...finished
-    ## Download Tuyttens00_AP_n60.raw ...finished
-    ## Download Tuyttens00_AP_n70.raw ...finished
-    ## Download Tuyttens00_AP_n80.raw ...finished
-    ## Download Tuyttens00_AP_n90.raw ...finished
 
-    ##  [1] "Tuyttens00_AP_n05.raw"  "Tuyttens00_AP_n10.raw" 
-    ##  [3] "Tuyttens00_AP_n100.raw" "Tuyttens00_AP_n15.raw" 
-    ##  [5] "Tuyttens00_AP_n20.raw"  "Tuyttens00_AP_n25.raw" 
-    ##  [7] "Tuyttens00_AP_n30.raw"  "Tuyttens00_AP_n35.raw" 
-    ##  [9] "Tuyttens00_AP_n40.raw"  "Tuyttens00_AP_n45.raw" 
-    ## [11] "Tuyttens00_AP_n50.raw"  "Tuyttens00_AP_n60.raw" 
-    ## [13] "Tuyttens00_AP_n70.raw"  "Tuyttens00_AP_n80.raw" 
-    ## [15] "Tuyttens00_AP_n90.raw"
-
-Similar download all 'Facility location' instances using (`onlyList` just gives you the file list without download)
-
-``` r
-files <- getInstance(class="Facility location", onlyList = T)
-head(files)
-```
-
-    ## [1] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p01_0.raw"
-    ## [2] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p01_1.raw"
-    ## [3] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p01_2.raw"
-    ## [4] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p02_0.raw"
-    ## [5] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p02_1.raw"
-    ## [6] "MOrepo-Gadegaard16/master/instances/raw/CFLP_UFLP/Gadegaard16_CFLP_UFLP_Klose_p02_2.raw"
+    ## [1] "Tuyttens00_AP_n10.raw"  "Tuyttens00_AP_n100.raw"
 
 Problem classification
 ----------------------
@@ -124,7 +100,7 @@ Instances are classified into different classifications. The current classificat
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
 
 -   Knapsack
--   Traveling salesman (TSP)
+-   Traveling salesman
 -   Set covering
 -   Set partitioning
 -   Set packing
@@ -137,7 +113,7 @@ The set of problem classes is expanded as new problem instances is added to the 
 How to contribute
 -----------------
 
-All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instanses and results from variaous sources. However, also generators, format converters etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it.
+All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instances and results from various sources. However, also generators, format converters, algorithms etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it.
 
 <!-- ## Instance format 
 
@@ -146,32 +122,7 @@ All researchers are welcome to contribute to `MOrepo`. The repository mainly con
  - Raw with desc
 
 
-meta.json content:
 
-prefix: Prefix of the instances (equals folder name) (string)
-
-
-
-## Solution format (JSON?)
-
-A file named <instance_name>_sol<number>.json
-
-
-
-instance: name of instance (string)
-comments: misc comments about the results (string, null)
-nDCard: Total number/cardinality of nondominated points (number, null)
-suppCard: Number of supported nondominated points (number, null)
-extCard: Number of extreme supported nondominated points (number, null)
-critType: array of integer, real, null with length as number of criteria (array, null)
-points: Array with nondominated points objects 0(array, null)
-   
-   A point object consists of 
-   class: either us (unsupported), se (supported extreme), s (supported - may be extreme or nonextreme), sne (supported nonextreme), null (unknown)
-   point: array of numbers
-   
- (eller måske pointsClass i stedet for?)
-optimal: (true, false, null)
 
 
 
