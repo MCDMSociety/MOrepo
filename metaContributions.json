@@ -1,4 +1,73 @@
 {
-   "desc": "Sub repositories at MOrepo without MOrepo prefix",
-   "repos": [ "Gadegaard16", "Pedersen08", "Tuyttens00" ]
+  "desc": "Sub repositories at MOrepo without MOrepo prefix",
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00"],
+  "repoInfo": {
+    "Gadegaard16": {
+      "contributionName": "Gadegaard16",
+      "maintainer": "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>",
+      "algorithm": "https://github.com/SuneGadegaard/BOCBLP",
+      "instanceGroups": [
+        {
+          "subfolder": "CFLP_UFLP",
+          "class": "Facility location",
+          "objectives": 2,
+          "tags": ["capacitated", "CFLP", "UFLP", "uncapacitated"],
+          "format": "raw",
+          "desc": "Instances for the capacitated and uncapacitated facility location problems.",
+          "creator": "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>"
+        },
+        {
+          "subfolder": "SSCFLP",
+          "class": "Facility location",
+          "objectives": 2,
+          "tags": ["singleSource", "capacitated", "singleSourceCapacitated", "SSCFLP"],
+          "format": "raw",
+          "desc": "Instances for the single source capacitated facility location problem.",
+          "creator": "Sune Lauth Gadegaard <sgadegaard@econ.au.dk>"
+        }
+      ],
+      "bib": "@Article{Gadegaard16b,\n  author   = {S.L. Gadegaard and A. Klose and L.R. Nielsen},\n  title    = {A bi-objective approach to discrete cost-bottleneck location problems},\n  journal  = {Annals of Operations Research},\n  year     = {2016},\n  pages    = {1-23},\n  abstract = {This paper considers a family of bi-objective discrete facility location problems with a cost objective and a bottleneck objective. A special case is, for instance, a bi-objective version of the (vertex) p-centdian problem. We show that bi-objective facility location problems of this type can be solved efficiently by means of an epsilon-constraint method that solves at most (n-1)m minisum problems, where n is the number of customer points and m the number of potential facility sites. Additionally, we compare the approach to a lexicographic epsilon-constrained method that only returns efficient solutions and to a two-phase method relying on the perpendicular search method. We report extensive computational results obtained from several classes of facility location problems. The proposed algorithm compares very favorably to both the lexicographic epsilon-constrained method and to the two phase method.},\n  doi      = {10.1007/s10479-016-2360-8},\n}\n\n"
+    },
+    "Pedersen08": {
+      "contributionName": "Pedersen08",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "AP",
+          "class": "Assignment",
+          "objectives": 2,
+          "tags": ["ap", "assignmentProblem", "bi-AP"],
+          "format": "xml",
+          "desc": "Instances for the bi-objective assignment problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "MMAP",
+          "class": "Assignment",
+          "objectives": 2,
+          "tags": ["bi-MMAP", "MMAP", "multi-modal"],
+          "format": "xml",
+          "desc": "Instances for the bi-objective multi-modal assignment problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        }
+      ],
+      "bib": "@ARTICLE{Pedersen08,\nauthor = {Pedersen, C.R. and Nielsen, L.R. and Andersen, K.A.},\ntitle = {The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results},\nyear = {2008},\nvolume = {20},\nnumber = {3},\njournal = {Informs Journal on Computing},\ninstitution = {Department of Operations Research, University of Aarhus},\nschool = {Department of Operations Research, University of Aarhus},\npages = {400–411},\ndoi = {10.1287/ijoc.1070.0253},\nabstract = {We consider the bicriterion multi modal assignment problem which is a new generalization of the classical linear assignment problem. A two-phase solution method using an effective ranking scheme is presented. The algorithm is valid for generating all nondominated criterion points or an approximation. Extensive computational results are conducted on a large library of test instances to test the performance of the algorithm and to identify hard test instances. Also, test results of the algorithm applied to the bicriterion assignment problem is provided.},\n}\n"
+    },
+    "Tuyttens00": {
+      "contributionName": "Tuyttens00",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "",
+          "class": "Assignment",
+          "objectives": 2,
+          "tags": ["ap", "assignmentProblem", "bi-AP"],
+          "format": ["raw", "xml"],
+          "desc": "Instances for the bi-objective assignment problem.",
+          "creator": "D. Tuyttens, J. Teghem, Ph. Fortemps and K. van Nieuwenhuyze"
+        }
+      ],
+      "bib": "@Article{Tuyttens00,\nauthor={Tuyttens, D. and Teghem, J. and Fortemps, Ph. and Nieuwenhuyze, K. Van},\ntitle={Performance of the MOSA Method for the Bicriteria Assignment Problem},\njournal={Journal of Heuristics},\nyear={2000},\nvolume={6},\nnumber={3},\npages={295--310},\ndoi={10.1023/A:1009670112978},\n}\n"
+    }
+  }
 }
