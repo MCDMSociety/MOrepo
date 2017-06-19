@@ -26,12 +26,13 @@ setMetaInstances<-function() {
    repoPaths <- getRepoPath()
    for (i in 1:length(repoPaths)) {
       meta<-jsonlite::fromJSON(paste0(repoPaths[i],"meta.json"))
-      idx <- grep(meta$contributionName, dat$instanceName)
-      dat$contributionName[idx] <- meta$contributionName
+      idx1 <- grep(meta$contributionName, dat$instanceName)
+      dat$contributionName[idx1] <- meta$contributionName
       for (j in 1:length(meta$instanceGroups$subfolder)) {
-         idx <- grep(meta$instanceGroups$subfolder[j], dat$subfolder)
-         dat$class[idx] <- meta$instanceGroups$class[j]
-         dat$tags[idx] <- paste0(unlist(meta$instanceGroups$tags[j]), collapse = "; ")
+         idx2 <- grep(meta$instanceGroups$subfolder[j], dat$subfolder)
+         idx3 <- intersect(idx1,idx2)
+         dat$class[idx3] <- meta$instanceGroups$class[j]
+         dat$tags[idx3] <- paste0(unlist(meta$instanceGroups$tags[j]), collapse = "; ")
       }
    }
    lst$instances<-dat

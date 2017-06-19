@@ -26,6 +26,7 @@ Get info about the instances.
 \examples{
 getInstanceInfo()
 getInstanceInfo(class="Facility location")
+getInstanceInfo(contribution = c("Tuyttens00", "Gadegaard16"))
 }
 \author{
 Lars Relund \email{lars@relund.dk}

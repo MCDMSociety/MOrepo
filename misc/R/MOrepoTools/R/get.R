@@ -11,7 +11,7 @@
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' getInstance(name="Tuyttens", onlyList = T)
+#' getInstance(name="Tuyttens.*n10", onlyList = T)
 #' getInstance(name="Tuyttens")
 #' getInstance(class="Facility location", onlyList = T)
 getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALSE) {
@@ -44,6 +44,36 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 
 
 
+#' Get instance files (use \code{metaInstances.json})
+#'
+#' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
+#' @param class Problem class. Ignored if \code{name} used.
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param local Use local repo.
+#'
+#' @return The names of the files (including file path)
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' getInstanceList("SSCFLP.*p64")
+#' getInstanceList(class = "Facility location")
+#' getInstanceList(contribution="Tuyttens00")
+getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = FALSE) {
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   files<-jsonlite::fromJSON(paste0(baseURL,"metaInstances.json"))
+   colnames(files$instances) <- files$colNames
+   options(stringsAsFactors = FALSE)
+   files <- as.data.frame(files$instances)
+
+   if (!is.null(contribution)) files <- files[files$contributionName %in% contribution,]
+   if (!is.null(class)) files <- files[files$class %in% class,]
+   if (name != "") files <- files[grep(name, files$instanceName), ]
+   return(files$instanceName)
+}
+
+
+
+
 #' Search repos and get a list of files
 #'
 #' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
@@ -59,17 +89,16 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 #' @examples
 #' getFileList("SSCFLP.*p6")
 #' getFileList(".json")
-#' getFileList(".json", class = "Facility location")
 #' getFileList(c(".json","ReadMe"))
 #' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
 #' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
 #' getFileList(".xml", contribution="Tuyttens00")
 #' getFileList(".xml", contribution="Tuyttens00", local = T)
-#' getFileList(".json", local =T)
-getFileList<-function(name = "", subdir = "", class = NULL, contribution = NULL, local = FALSE) {
+#' getFileList(".json", local = T)
+getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE) {
    if (is.null(contribution)) {
-      baseURL <- ifelse(local, "contributions.json",
-                        paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/contributions.json") )
+      baseURL <- ifelse(local, "metaContributions.json",
+                        paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
       repos<-jsonlite::fromJSON(baseURL)$repos
       if (local) {
          contribution<-paste0("../MOrepo-", repos, "/")
@@ -116,15 +145,11 @@ getFileList<-function(name = "", subdir = "", class = NULL, contribution = NULL,
 #' getProblemClasses()
 #' getProblemClasses(local = T)
 getProblemClasses<-function(local = FALSE) {
-   path<-getFileList("meta.json", local = local)
-   baseURL <- ifelse(local, "",  paste0("https://raw.githubusercontent.com/MCDMSociety/") )
-   dat<-NULL
-   for (f in path) {
-      meta<-paste0(baseURL, f)
-      meta<-jsonlite::fromJSON(meta)
-      dat<-c(dat, meta$instanceGroups$class)
-   }
-   return(unique(dat[!is.na(dat)]))
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
+   lst <- lapply(repos$repoInfo, function(x) x$instanceGroups$class)
+   lst <- unlist(lst)
+   return(unique(lst))
 }
 
 
@@ -144,30 +169,22 @@ getProblemClasses<-function(local = FALSE) {
 #' @examples
 #' getInstanceInfo()
 #' getInstanceInfo(class="Facility location")
+#' getInstanceInfo(contribution = c("Tuyttens00", "Gadegaard16"))
 getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
-   if (is.null(contribution)) {
-      contribution<-getRepoPath(local)
-   } else {
-      if (local) {
-         contribution <- paste0("../MOrepo-",contribution,"/")
-      } else {
-         contribution <- paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", contribution, "/master/")
-      }
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
+   repos <- repos$repoInfo
+   if (!is.null(contribution)) {
+      repos <- repos[contribution]
+      repos <- repos[!sapply(repos, is.null)]       #repos[!is.na(names(repos))]
    }
 
-   metaList<-NULL
-   for (f in contribution) {
-      bib<-paste0(f, "citation.bib")
-      if (local) bib <- paste0("file://",bib)
-      if (download.file(bib, destfile = "tmp.bib", quiet = TRUE)>0) {
-         stop(paste("File",basename(bib),"could not be downloaded!"))
-      } else {
-         bib<-RefManageR::ReadBib("tmp.bib")
-      }
-      meta<-jsonlite::fromJSON(paste0(f,"meta.json"))
-      meta$bib <- bib
-      metaList<-c(metaList,list(meta))
+   metaList<-repos
+   for (i in 1:length(metaList)) {
+      readr::write_file(metaList[[i]]$bib, "tmp.bib")
+      bib<-RefManageR::ReadBib("tmp.bib")
+      metaList[[i]]$bib <- bib
    }
 
    if (!is.null(class)) {
@@ -190,11 +207,11 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
       cat("Source: ")
       print(x$bib[1])
       cat("\n")
-      cat(paste0("Test classes: ", paste0(unique(x$instanceGroups$class[!is.na(x$instanceGroups$class)]), collapse = ", "), "  \n"))
+      cat(paste0("Test classes: ", vec2String(unique(x$instanceGroups$class[!is.na(x$instanceGroups$class)])), "  \n"))
       if (!all(x$instanceGroups$subfolder=="")) {
-         cat(paste0("Subfolders: ", paste0(unique(x$instanceGroups$subfolder[!is.na(x$instanceGroups$subfolder)]), collapse = ", "), "  \n"))
+         cat(paste0("Subfolders: ", vec2String(unique(x$instanceGroups$subfolder[!is.na(x$instanceGroups$subfolder)])), "  \n"))
       }
-      cat(paste0("Formats: ", paste0(unique(unlist(x$instanceGroups$format)), collapse = ", "), "  \n"))
+      cat(paste0("Formats: ", vec2String(unique(unlist(x$instanceGroups$format))), "  \n"))
    }
    invisible(metaList)
 }

@@ -4,8 +4,7 @@
 \alias{getFileList}
 \title{Search repos and get a list of files}
 \usage{
-getFileList(name = "", subdir = "", class = NULL, contribution = NULL,
-  local = FALSE)
+getFileList(name = "", subdir = "", contribution = NULL, local = FALSE)
 }
 \arguments{
 \item{name}{Name of the file(s) or only parts of the name. May be an regular expression.}
@@ -13,11 +12,11 @@ getFileList(name = "", subdir = "", class = NULL, contribution = NULL,
 \item{subdir}{Restricts search to a specific subfolder in each repo. The path must end with a
 slash (/).}
 
-\item{class}{Problem class. Ignored if \code{name} used.}
-
 \item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
 
 \item{local}{Use local repo.}
+
+\item{class}{Problem class. Ignored if \code{name} used.}
 }
 \value{
 The names of the files (including file path)
@@ -28,13 +27,12 @@ Search repos and get a list of files
 \examples{
 getFileList("SSCFLP.*p6")
 getFileList(".json")
-getFileList(".json", class = "Facility location")
 getFileList(c(".json","ReadMe"))
 getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
 getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
 getFileList(".xml", contribution="Tuyttens00")
 getFileList(".xml", contribution="Tuyttens00", local = T)
-getFileList(".json", local =T)
+getFileList(".json", local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

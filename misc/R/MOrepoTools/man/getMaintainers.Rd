@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{getMaintainers}
 \alias{getMaintainers}
-\title{Get maintainers of all sub-repos at MOrepo (read from the meta.json file).}
+\title{Get maintainers of all sub-repos at MOrepo (read from the metaContributions.json file).}
 \usage{
 getMaintainers(local = FALSE)
 }
@@ -13,7 +13,7 @@ getMaintainers(local = FALSE)
 A vector of maintainers.
 }
 \description{
-Get maintainers of all sub-repos at MOrepo (read from the meta.json file).
+Get maintainers of all sub-repos at MOrepo (read from the metaContributions.json file).
 }
 \examples{
 getMaintainers()
