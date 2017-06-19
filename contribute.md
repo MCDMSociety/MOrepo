@@ -2,7 +2,7 @@
 Contributing to MOrepo
 ======================
 
-All researchers are welcome to contribute to MOrepo with instances, results etc. Each contribution will be added as a sub-repository to the [MCDMSociety](https://github.com/MCDMSociety) organization at GitHub. Name the repository MOrepo-`<first_author><year>` e.g. `MOrepo-Gadegaard16`.
+All researchers are welcome to contribute to MOrepo with instances, results etc. Each contribution will be added as a sub-repository to the [MCDMSociety](https://github.com/MCDMSociety) organization at GitHub. Name the repository `MOrepo-<first_author><year>` e.g. `MOrepo-Gadegaard16`.
 
 As maintainers of MOrepo we will do our best to help you in the process. That is, you are always welcome to contact us if you have problems following the steps below. The best way to do this is to file an [issue](https://github.com/MCDMSociety/MOrepo/issues) at GitHub and we will try to resolve your issues asap.
 
@@ -77,7 +77,7 @@ The `instances` folder should not contain any compressed files.
 Step 3 - Adding results to MOrepo
 ---------------------------------
 
-Results of applying an algorithm to the test instances at MOrepo can be added to your contribution. If your study contains results they should be added to the `results` folder (remove it if you don't have any results). For the moment only solutions in the objective space (e.g. the nondominated set) can be stored. Results must be saved in json format with file name `<instanceName>_<other>_result.json` where `<other>` is optional an may be a string as you like e.g. `<other>` may be useful if want to store different approximations of the nondominated set. `<instanceName>` must be equal to the full instance name used at MOrepo (not including the file extension). The result file has the following structure:
+Results of applying an algorithm to the test instances at MOrepo can be added to your contribution. If your study contains results they should be added to the `results` folder (remove it if you don't have any results). For the moment only solutions in the objective space (e.g. the nondominated set) can be stored. Results must be saved in json format with file name `<instanceName>_result_<other>.json` where `<other>` is optional an may be a string as you like e.g. `<other>` may be useful if want to store different approximations of the nondominated set. `<instanceName>` must be equal to the full instance name used at MOrepo (not including the file extension). The result file has the following structure:
 
 -   `version` (required): Result format version (string). Currently version must be set to 1.0.
 -   `instanceName` (required): Name of instance not including the file extension (string).

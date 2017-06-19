@@ -2,17 +2,21 @@
 output: github_document
 ---
 
+```{r, include=FALSE}
+library(MOrepoTools)
+dat <- getProblemClasses()
+```
 
 # Test instances @ MOrepo
 
-This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about-specific-instances). 
+This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about-specific-instances). The current problem classes are `r vec2String(dat)`. The contributions listed after class are:
 
 ```{r, results='asis', echo=FALSE, tidy=FALSE}
-library(MOrepoTools)
-getInstanceInfo()
+for (i in dat) {
+   cat("\n## Problem class ", i, "\n")
+   getInstanceInfo(class = i)
+}
 ```
-
-## Extracting info about specific instances 
 
 
 

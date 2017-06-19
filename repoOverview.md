@@ -2,30 +2,33 @@
 Test instances @ MOrepo
 =======================
 
-This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about-specific-instances).
+This document gives an overview over all the test instance sets in `MOrepo`. To extract more info about an instance set see [the next section](#extracting-info-about-specific-instances). The current problem classes are Facility location and Assignment. The contributions listed after class are:
 
-### Instance group :
+Problem class Facility location
+-------------------------------
+
+### Instance group Gadegaard16:
 
 Source: Gadegaard, S, A. Klose and L. Nielsen (2016). "A bi-objective approach to discrete cost-bottleneck location problems". In: *Annals of Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
 
 Test classes: Facility location
-Subfolders: CFLP\_UFLP, SSCFLP
+Subfolders: CFLP\_UFLP and SSCFLP
 Formats: raw
 
-### Instance group :
+Problem class Assignment
+------------------------
+
+### Instance group Pedersen08:
 
 Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, p. 400â411. DOI: 10.1287/ijoc.1070.0253.
 
-Test classes: Assignment, Assignment problem
-Subfolders: AP, MMAP
+Test classes: Assignment
+Subfolders: AP and MMAP
 Formats: xml
 
-### Instance group :
+### Instance group Tuyttens00:
 
 Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance of the MOSA Method for the Bicriteria Assignment Problem". In: *Journal of Heuristics* 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
 
 Test classes: Assignment
-Formats: raw, xml
-
-Extracting info about specific instances
-----------------------------------------
+Formats: raw and xml

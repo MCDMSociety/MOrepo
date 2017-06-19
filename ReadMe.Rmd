@@ -4,7 +4,7 @@ output: github_document
 
 ```{r, include=FALSE}
 library(MOrepoTools)
-knitr::opts_chunk$set(tidy = TRUE, opts=list(blank=FALSE, width.cutoff=120), cache = TRUE, 
+knitr::opts_chunk$set(tidy = TRUE, opts=list(blank=FALSE, width.cutoff=120), cache = FALSE, 
                       autodep = TRUE )
 knitr::opts_knit$set(width = 90)
 ```
@@ -26,7 +26,7 @@ Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadega
 
 Current maintainers of sub-repositories are `r vec2String(getMaintainers())`.
 
-Current contributors to the repository are `r vec2String(getContributorNames())`. 
+Current contributors to the repository are `r vec2String(getContributorNames())`. An overview over all contributions can be seen at [`repoOverview.md`](repoOverview.md).
 
 
 ## Usage
