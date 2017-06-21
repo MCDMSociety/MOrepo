@@ -15,7 +15,7 @@ Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadega
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
 
-Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze. An overview over all contributions can be seen at [`repoOverview.md`](repoOverview.md).
+Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze.
 
 Usage
 -----

@@ -26,7 +26,7 @@ Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadega
 
 Current maintainers of sub-repositories are `r vec2String(getMaintainers())`.
 
-Current contributors to the repository are `r vec2String(getContributorNames())`. An overview over all contributions can be seen at [`repoOverview.md`](repoOverview.md).
+Current contributors to the repository are `r vec2String(getContributorNames())`. 
 
 
 ## Usage
