@@ -25,10 +25,7 @@ Get instance files (use \code{metaInstances.json})
 \examples{
 getInstanceList("SSCFLP.*p64")
 getInstanceList(class = "Facility location")
-getInstanceList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
-getInstanceList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
-getInstanceList(".xml", contribution="Tuyttens00")
-getInstanceList(".xml", contribution="Tuyttens00", local = T)
+getInstanceList(contribution="Tuyttens00")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

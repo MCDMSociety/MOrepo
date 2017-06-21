@@ -52,7 +52,7 @@ setMetaInstances<-function() {
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @examples
-#' setMetaContributions()
+#' MOrepoTools:::setMetaContributions()
 setMetaContributions<-function() {
    repos<-jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json")
    baseURL<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos$repos, "/master/")
@@ -74,4 +74,42 @@ setMetaContributions<-function() {
    readr::write_lines(str, "metaContributions.json")
    message("Meta data for MOrepo saved to metaContributions.json")
 }
+
+
+
+# setMetaResults<-function() {
+#    lst <- list()
+#    lst$desc = "Meta file - Results at MOrepo (stored as a list of contributions)"
+#
+#    files <- getFileList(subdir = "results")
+#    files <- files[-grep("ReadMe", files)] # remove ReadMe files
+#    # subfolders
+#    folders <- sub("([^.]+/instances)/(.+)/.+$", "\\2", files)
+#    idx <- grep("/", folders)
+#    folders[-idx] <- ""
+#    folders[idx] <- sub("(.+)/(.+)$", "\\2", folders[idx])
+#    # instanceNames
+#    fileN <- basename(files)
+#    fileN <- sub("([^.]+)\\.[[:alnum:]]+$", "\\1", fileN) # remove file extension
+#    dat <- data.frame(instanceName = fileN, contributionName = NA, class = NA, tags = "",
+#                      subfolder = folders, stringsAsFactors = FALSE)
+#    # import meta data
+#    repoPaths <- getRepoPath()
+#    for (i in 1:length(repoPaths)) {
+#       meta<-jsonlite::fromJSON(paste0(repoPaths[i],"meta.json"))
+#       idx1 <- grep(meta$contributionName, dat$instanceName)
+#       dat$contributionName[idx1] <- meta$contributionName
+#       for (j in 1:length(meta$instanceGroups$subfolder)) {
+#          idx2 <- grep(meta$instanceGroups$subfolder[j], dat$subfolder)
+#          idx3 <- intersect(idx1,idx2)
+#          dat$class[idx3] <- meta$instanceGroups$class[j]
+#          dat$tags[idx3] <- paste0(unlist(meta$instanceGroups$tags[j]), collapse = "; ")
+#       }
+#    }
+#    lst$instances<-dat
+#    lst$colNames <- colnames(dat)
+#    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
+#    readr::write_lines(str, "metaInstances.json")
+#    message("Meta data for MOrepo saved to metaInstances.json")
+# }
 

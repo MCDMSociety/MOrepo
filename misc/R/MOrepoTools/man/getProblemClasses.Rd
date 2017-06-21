@@ -4,10 +4,14 @@
 \alias{getProblemClasses}
 \title{Get all the problem classes}
 \usage{
-getProblemClasses(local = FALSE)
+getProblemClasses(local = FALSE, contribution = NULL, results = FALSE)
 }
 \arguments{
 \item{local}{Use local repo.}
+
+\item{contribution}{Consider a specific contribution.}
+
+\item{results}{If TRUE return only problem classes with results.}
 }
 \value{
 All problem classes.
@@ -17,7 +21,9 @@ Get all the problem classes
 }
 \examples{
 getProblemClasses()
+getProblemClasses(results = TRUE)
 getProblemClasses(local = T)
+getProblemClasses(contribution = "Pedersen08")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

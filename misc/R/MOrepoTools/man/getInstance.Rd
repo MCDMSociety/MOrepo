@@ -25,7 +25,7 @@ The names of the instances.
 Download instances from GitHub
 }
 \examples{
-getInstance(name="Tuyttens", onlyList = T)
+getInstance(name="Tuyttens.*n10", onlyList = T)
 getInstance(name="Tuyttens")
 getInstance(class="Facility location", onlyList = T)
 }

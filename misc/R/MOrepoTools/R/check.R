@@ -77,12 +77,11 @@ checkContribution<-function() {
 
    if ("instances" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains test instances. ")
-      if (!file.exists("instances/ReadMe.md")) {
-         message("\n   Error: You need to add a file ReadMe.md in the instances folder!")
-         return(invisible(FALSE))
-      }
+      # if (!file.exists("instances/ReadMe.md")) {
+      #    message("\n   Error: You need to add a file ReadMe.md in the instances folder!")
+      #    return(invisible(FALSE))
+      # }
       message("Checking file and folders structure in instances ...", appendLF = FALSE)
-
       # Subfolders for each file format
       if (!all(unlist(meta$instanceGroups$format) %in% list.dirs(path = "./instances", full.names = FALSE, recursive = FALSE))) {
          message("\n   Error: The instances folder must have a subfolder for each instance file format (",

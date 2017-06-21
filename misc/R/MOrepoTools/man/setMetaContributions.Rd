@@ -11,7 +11,7 @@ Note use the entry \code{repos} in \code{metaContributions.json} to find out whi
 scan and then overwrite the file.
 }
 \examples{
-setMetaContributions()
+MOrepoTools:::setMetaContributions()
 }
 \author{
 Lars Relund \email{lars@relund.dk}

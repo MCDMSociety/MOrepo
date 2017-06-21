@@ -137,18 +137,28 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
 #' Get all the problem classes
 #'
 #' @param local Use local repo.
+#' @param contribution Consider a specific contribution.
+#' @param results If TRUE return only problem classes with results.
 #'
 #' @return All problem classes.
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
 #' getProblemClasses()
+#' getProblemClasses(results = TRUE)
 #' getProblemClasses(local = T)
-getProblemClasses<-function(local = FALSE) {
+#' getProblemClasses(contribution = "Pedersen08")
+getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
-   lst <- lapply(repos$repoInfo, function(x) x$instanceGroups$class)
-   lst <- unlist(lst)
+   repos <- repos$repoInfo
+   if (results) repos <- repos[!sapply(repos, function(x) is.null(x$resultContributions))]
+   if (is.null(contribution)) {
+      lst <- lapply(repos, function(x) x$instanceGroups$class)
+      lst <- unlist(lst)
+   } else {
+      lst <- repos[[contribution]]$instanceGroups$class
+   }
    return(unique(lst))
 }
 
@@ -162,6 +172,7 @@ getProblemClasses<-function(local = FALSE) {
 #' @param local Use local repos. Assume that repositories are placed in the father folder of the
 #'   current working dir.
 #' @param silent If true no output.
+#' @param withLinks Output will be with markdown links.
 #'
 #' @return A list (invisible).
 #' @author Lars Relund \email{lars@@relund.dk}
@@ -170,7 +181,7 @@ getProblemClasses<-function(local = FALSE) {
 #' getInstanceInfo()
 #' getInstanceInfo(class="Facility location")
 #' getInstanceInfo(contribution = c("Tuyttens00", "Gadegaard16"))
-getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE) {
+getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -179,6 +190,7 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
       repos <- repos[contribution]
       repos <- repos[!sapply(repos, is.null)]       #repos[!is.na(names(repos))]
    }
+   repos <- repos[!sapply(repos, function(x) is.null(x$instanceGroups))]
 
    metaList<-repos
    for (i in 1:length(metaList)) {
@@ -203,11 +215,15 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
    if (silent) return(invisible(metaList))
    for (i in 1:length(metaList)) {
       x <- metaList[[i]]
-      cat(paste0('\n### Instance group ',x$contributionName,':\n\n'))
+      if (!withLinks) {
+         cat(paste0('\n#### Contribution ',x$contributionName,'\n\n'))
+      } else {
+         cat(paste0('\n#### Contribution - [',x$contributionName,'](https://github.com/MCDMSociety/MOrepo-', x$contributionName, ')\n\n'))
+      }
       cat("Source: ")
       print(x$bib[1])
       cat("\n")
-      cat(paste0("Test classes: ", vec2String(unique(x$instanceGroups$class[!is.na(x$instanceGroups$class)])), "  \n"))
+      cat(paste0("Test problem classes: ", vec2String(unique(x$instanceGroups$class[!is.na(x$instanceGroups$class)])), "  \n"))
       if (!all(x$instanceGroups$subfolder=="")) {
          cat(paste0("Subfolders: ", vec2String(unique(x$instanceGroups$subfolder[!is.na(x$instanceGroups$subfolder)])), "  \n"))
       }
@@ -216,6 +232,74 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
    invisible(metaList)
 }
 
+
+
+#' Get info about the results.
+#'
+#' @param class Problem class of interest (if NULL consider all classes).
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param local Use local repos. Assume that repositories are placed in the father folder of the
+#'   current working dir.
+#' @param silent If true no output.
+#' @param withLinks Output will be with markdown links.
+#'
+#' @return A list (invisible).
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' getResultInfo()
+#' getResultInfo(withLinks = TRUE)
+#' getResultInfo(class="Assignment")
+#' getResultInfo(contribution = c("Pedersen08", "Gadegaard16"))
+getResultInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
+   RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
+   baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
+   repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
+   repos <- repos$repoInfo
+   reposAll <- repos
+   if (!is.null(contribution)) {
+      repos <- repos[contribution]
+      repos <- repos[!sapply(repos, is.null)]       #repos[!is.na(names(repos))]
+   }
+   repos <- repos[!sapply(repos, function(x) is.null(x$resultContributions))]
+
+   metaList<-repos
+   for (i in 1:length(metaList)) {
+      readr::write_file(metaList[[i]]$bib, "tmp.bib")
+      bib<-RefManageR::ReadBib("tmp.bib")
+      metaList[[i]]$bib <- bib
+   }
+
+   if (!is.null(class)) {
+      idx<-plyr::llply(metaList, .fun = function(x) {
+         for (r in x$resultContributions) {
+            if (class %in% getProblemClasses(contribution = r)) return(TRUE)
+         }
+         return(FALSE)
+      })
+      metaList<-metaList[unlist(idx)]
+   }
+
+   if (length(metaList)==0) stop("Error: no match for class ", paste0(class, collapse = ", "), "!")
+   if (silent) return(invisible(metaList))
+   for (i in 1:length(metaList)) {
+      x <- metaList[[i]]
+      if (!withLinks) {
+         cat(paste0('\n#### Contribution ',x$contributionName,'\n\n'))
+      } else {
+         cat(paste0('\n#### Contribution - [',x$contributionName,'](https://github.com/MCDMSociety/MOrepo-', x$contributionName, ')\n\n'))
+      }
+      cat("Source: ")
+      print(x$bib[1])
+      cat("\n")
+      if (!withLinks) {
+         cat(paste0("Results given for contributions: ", vec2String(x$resultContributions), "  \n"))
+      } else {
+         cat(paste0("Results given for contributions: ", vec2String(paste0("[", x$resultContributions, "](https://github.com/MCDMSociety/MOrepo-", x$resultContributions, ")")), "  \n"))
+      }
+   }
+   invisible(metaList)
+}
 
 
 
