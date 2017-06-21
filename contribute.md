@@ -14,9 +14,9 @@ We have created a [template repository](https://github.com/MCDMSociety/MOrepo-Te
 The structure of an contribution folder is as follows:
 
 -   If you contribute with new instances, an `instances` folder (see [Step2](#step-2---adding-test-instances-to-morepo)).
--   If you contribute with results, a `results` folder (see [Step 3](step-3---adding-results-to-morepo).
+-   If you contribute with results, a `results` folder (see [Step 3](step-3---adding-results-to-morepo)).
 -   A file `citation.bib` containing the citation details for the study in BibTeX format. The study could e.g. be a paper where the instances have been used or the results calculated. We do not recommend to add instances before you at least have written a report/note where the instances have been used.
--   A file `ReadMe.md` containing a presentation of the contribution. It must be written in [markdown](https://en.wikipedia.org/wiki/Markdown) which is just a plain text format.
+-   A file `ReadMe.md` containing a presentation of the contribution. It must be written in [markdown](https://en.wikipedia.org/wiki/Markdown) which is just a plain text format. It must contain as description of the test instances (including formats) and results (if any). You may browse the [sub-repositories](https://github.com/MCDMSociety) for examples.
 -   A file `meta.json` in [json format](https://en.wikipedia.org/wiki/JSON) with details about the contribution. For instance:
 
 <!-- -->
@@ -43,7 +43,8 @@ The structure of an contribution folder is as follows:
              "desc": "Instances for the bi-objective multi-modal assignment problem.",
              "creator" : "Lars Relund <junk@relund.dk>"
           }
-       ]
+       ],
+       "resultContributions": ["Pedersen08", "Tuyttens00"]
     }
 
 The file contains
@@ -52,9 +53,10 @@ The file contains
 -   `maintainer` (required): Name and e-mail of the maintainer of the sub-repository at GitHub (string).
 -   `rawDesc` (optional): Short description of the raw format (string).
 -   `algorithm` (optional): URL to the source code of the algorithm used in the study (string). It may be placed in this repository or somewhere else.
+-   `resultContributions` (required - if results): An array with entries of the contributions that results have been calculated from.
 -   `instanceGroups` (required - if new instances): An array with entries containing info about each group of instances (normally one entry for each sub-folder). Each entry contains
     -   `subfolder` (required): Sub-folder of an instance format folder (if none set it to an empty string '').
-    -   `class` (required): Problem class (string). Have a look at the current problem classes ???. If your instances don't fit here add a new one.
+    -   `class` (required): Problem class (string). Use the [currrent problem classes](#problem-classes). If your instances don't fit here add a new one.
     -   `objectives` (required): Number of objectives (number).
     -   `tags` (optional): An array with tags (use camel notation, not underscores).
     -   `format` (required): Array with file formats. The names must be equal the instance format folders, e.g. if have a raw and xml format then the `instances` folder must have two sub-folders named `raw` and `xml`.
@@ -68,7 +70,6 @@ If your study contains new test instances they should be added to the `instances
 
 The structure of the `instances` folder is as follows:
 
--   A file `ReadMe.md` containing a description of the instances and formats (markdown). You may browse the [sub-repositories](https://github.com/MCDMSociety) for examples.
 -   A folder for each file format (e.g. `raw` and `xml`). That is, different file formats may be used. If you have used a plain text/raw format then name this format `raw` and add a description to the `ReadMe.md` file. Each file format folder contains the sub-folders defined in the `instanceGroups` entry of the `meta.json` file. That is, if we consider the `meta.json` file above then folders `AP` and `MMAP`.
 -   Instance file names must start with the contribution name and end with the file format suffix.
 
@@ -165,7 +166,7 @@ You may create the json result files using tools you like. If you use R and MOre
 
 ``` r
 library(MOrepoTools)
-?createResultFile
+`?`(createResultFile)
 ```
 
 Step 4 - Adding other stuff
@@ -194,3 +195,24 @@ When you contribution is okay inform Lars Relund Nielsen <larsrn@econ.au.dk> tog
     git push -u origin master
 
 Remark: If you use [RStudio](https://www.rstudio.com/products/rstudio/) go to `Tools -> Project  Options -> Git/SVN` and type in `https://github.com/MCDMSociety/MOrepo-<contributionName>.git`. You can now do all [git stuff](https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) from within RStudio.
+
+Problem classes
+---------------
+
+Instances are classified into problem classes. The current classifications of MO optimization problems are
+
+-   Facility location
+-   Assignment.
+
+The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
+
+-   Knapsack
+-   Traveling salesman
+-   Set covering
+-   Set partitioning
+-   Set packing
+-   Shortest path
+-   Transhipment
+-   Multi-commodity flow
+-   Minimum cost network flow
+-   IP/MILP (general problems with a mixture of constraints)

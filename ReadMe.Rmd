@@ -5,7 +5,7 @@ output: github_document
 ```{r, include=FALSE}
 library(MOrepoTools)
 knitr::opts_chunk$set(tidy = TRUE, opts=list(blank=FALSE, width.cutoff=120), cache = FALSE, 
-                      autodep = TRUE )
+                      autodep = TRUE, collapse=TRUE)
 knitr::opts_knit$set(width = 90)
 ```
 
@@ -33,7 +33,7 @@ Current contributors to the repository are `r vec2String(getContributorNames())`
 
 Instances can be downloaded in different ways depending on usage:
 
-   - If you want the whole repository, download it as a zip file on GitHub.
+   - If you want a whole sub-repository, download it as a zip file on GitHub.
    - Browse to a single instance and download it using the raw format at GitHub.
    - Use the R package `MOrepoTools` to download instances.
    
@@ -45,7 +45,7 @@ install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
 
-To get an overview over the current probem classes run:
+To get an overview over the current problem classes run:
 
 ```{r, cache=TRUE}
 library(MOrepoTools)
@@ -59,33 +59,11 @@ Now download the Tuyttens00 contribution as a zip file using
 getContributionAsZip("Tuyttens00")
 ```
 
-Or download a selected instances 
+Or download selected instances 
 
 ```{r}
 getInstance(name="Tuyttens.*n10")
 ```
-
-
-
-
-## Problem classification
- 
-Instances are classified into different classifications. The current classifications of MO optimization problems are:
-
-`r paste("-", getProblemClasses(), collapse="\n")`
-
-The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be 
-
-- Knapsack
-- Traveling salesman
-- Set covering
-- Set partitioning
-- Set packing 
-- Shortest path
-- Transhipment
-- Multi-commodity flow
-- Minimum cost network flow
-- IP/MILP (general problems with a mixture of constraints) 
 
 
 
@@ -96,24 +74,40 @@ All researchers are welcome to contribute to `MOrepo`. The repository mainly con
 
 
 
+```{r, include=FALSE}
+dat <- getProblemClasses()
+```
+
+## Test instances @ MOrepo
+
+Currently MOrepo contains instances for problem classes `r vec2String(dat)`. The contributions listed after class are:
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+for (i in dat) {
+   cat("\n### Problem class ", i, "\n")
+   getInstanceInfo(class = i, withLinks = TRUE)
+}
+```
+
+## Results @ MOrepo
+
+```{r, include=FALSE}
+dat <- getProblemClasses(results = TRUE)
+```
+
+Currently MOrepo contains results for instances in problem classes `r vec2String(dat)`. The contributions listed after class are:
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+for (i in dat) {
+   cat("\n### Problem class ", i, "\n")
+   getResultInfo(class = i, withLinks = TRUE)
+}
+```
 
 
-
-
-
-<!-- ## Instance format 
-
+<!-- 
  
  - Free MPS format
- - Raw with desc
-
-
-
-
-
-
-
-
 
 ## Validators
 
@@ -125,25 +119,6 @@ R package
 - download solutions and plot
 - download citation
 - merge ndsets
-
-
-
- 
-
- 
- 
-## Instance numbering
-
-
-## Biblography
-
-
-
-
-
-
-
-
 
 
 The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc.   -->

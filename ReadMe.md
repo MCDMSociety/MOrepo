@@ -15,14 +15,14 @@ Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadega
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
 
-Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze. An overview over all contributions can be seen at [`repoOverview.md`](repoOverview.md)
+Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze. An overview over all contributions can be seen at [`repoOverview.md`](repoOverview.md).
 
 Usage
 -----
 
 Instances can be downloaded in different ways depending on usage:
 
--   If you want the whole repository, download it as a zip file on GitHub.
+-   If you want a whole sub-repository, download it as a zip file on GitHub.
 -   Browse to a single instance and download it using the raw format at GitHub.
 -   Use the R package `MOrepoTools` to download instances.
 
@@ -33,101 +33,106 @@ library(devtools)  # if the package is missing see ?install.package
 install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
-To get an overview over the current probem classes run:
+To get an overview over the current problem classes run:
 
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-```
-
-    ## [1] "Facility location" "Assignment"
-
-``` r
+## [1] "Facility location" "Assignment"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
+## 
+## ### Instance group Pedersen08:
+## 
+## Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion
+## Multi Modal Assignment Problem: Introduction, Analysis, and
+## Experimental Results". In: _Informs Journal on Computing_ 20.3, p.
+## 400â411. DOI: 10.1287/ijoc.1070.0253.
+## 
+## Test classes: Assignment  
+## Subfolders: AP and MMAP  
+## Formats: xml  
+## 
+## ### Instance group Tuyttens00:
+## 
+## Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance
+## of the MOSA Method for the Bicriteria Assignment Problem". In:
+## _Journal of Heuristics_ 6.3, pp. 295-310. DOI:
+## 10.1023/A:1009670112978.
+## 
+## Test classes: Assignment  
+## Formats: raw and xml
 ```
-
-    ## 
-    ## ### Instance group Pedersen08:
-    ## 
-    ## Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion
-    ## Multi Modal Assignment Problem: Introduction, Analysis, and
-    ## Experimental Results". In: _Informs Journal on Computing_ 20.3, p.
-    ## 400â411. DOI: 10.1287/ijoc.1070.0253.
-    ## 
-    ## Test classes: Assignment  
-    ## Subfolders: AP and MMAP  
-    ## Formats: xml  
-    ## 
-    ## ### Instance group Tuyttens00:
-    ## 
-    ## Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance
-    ## of the MOSA Method for the Bicriteria Assignment Problem". In:
-    ## _Journal of Heuristics_ 6.3, pp. 295-310. DOI:
-    ## 10.1023/A:1009670112978.
-    ## 
-    ## Test classes: Assignment  
-    ## Formats: raw and xml
 
 Now download the Tuyttens00 contribution as a zip file using
 
 ``` r
 getContributionAsZip("Tuyttens00")
+## Download MOrepo-Tuyttens00.zip ...
+## finished.
 ```
 
-    ## Download MOrepo-Tuyttens00.zip ...
-
-    ## finished.
-
-Or download a selected instances
+Or download selected instances
 
 ``` r
 getInstance(name = "Tuyttens.*n10")
+## Download Tuyttens00_AP_n10.raw ...finished
+## Download Tuyttens00_AP_n100.raw ...finished
+## [1] "Tuyttens00_AP_n10.raw"  "Tuyttens00_AP_n100.raw"
 ```
-
-    ## Download Tuyttens00_AP_n10.raw ...finished
-    ## Download Tuyttens00_AP_n100.raw ...finished
-
-    ## [1] "Tuyttens00_AP_n10.raw"  "Tuyttens00_AP_n100.raw"
-
-Problem classification
-----------------------
-
-Instances are classified into different classifications. The current classifications of MO optimization problems are:
-
--   Facility location
--   Assignment
-
-The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
-
--   Knapsack
--   Traveling salesman
--   Set covering
--   Set partitioning
--   Set packing
--   Shortest path
--   Transhipment
--   Multi-commodity flow
--   Minimum cost network flow
--   IP/MILP (general problems with a mixture of constraints)
 
 How to contribute
 -----------------
 
 All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instances and results from various sources. However, also generators, format converters, algorithms etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it.
 
-<!-- ## Instance format 
+Test instances @ MOrepo
+-----------------------
 
+Currently MOrepo contains instances for problem classes Facility location and Assignment. The contributions listed after class are:
+
+### Problem class Facility location
+
+#### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
+
+Source: Gadegaard, S, A. Klose and L. Nielsen (2016). "A bi-objective approach to discrete cost-bottleneck location problems". In: *Annals of Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
+
+Test problem classes: Facility location
+Subfolders: CFLP\_UFLP and SSCFLP
+Formats: raw
+
+### Problem class Assignment
+
+#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
+
+Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI: 10.1287/ijoc.1070.0253.
+
+Test problem classes: Assignment
+Subfolders: AP and MMAP
+Formats: xml
+
+#### Contribution - [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance of the MOSA Method for the Bicriteria Assignment Problem". In: *Journal of Heuristics* 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
+
+Test problem classes: Assignment
+Formats: raw and xml
+
+Results @ MOrepo
+----------------
+
+Currently MOrepo contains results for instances in problem classes Assignment. The contributions listed after class are:
+
+### Problem class Assignment
+
+#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
+
+Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI: 10.1287/ijoc.1070.0253.
+
+Results given for contributions: [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+<!-- 
  
  - Free MPS format
- - Raw with desc
-
-
-
-
-
-
-
-
 
 ## Validators
 
@@ -139,25 +144,6 @@ R package
 - download solutions and plot
 - download citation
 - merge ndsets
-
-
-
- 
-
- 
- 
-## Instance numbering
-
-
-## Biblography
-
-
-
-
-
-
-
-
 
 
 The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc.   -->
