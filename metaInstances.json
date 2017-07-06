@@ -12565,7 +12565,6 @@
     ["Pedersen08_MMAP_d8_e2-8_c0-500_m3_s0_97", "Pedersen08", "Assignment", "bi-MMAP; MMAP; multi-modal", "MMAP"],
     ["Pedersen08_MMAP_d8_e2-8_c0-500_m3_s0_98", "Pedersen08", "Assignment", "bi-MMAP; MMAP; multi-modal", "MMAP"],
     ["Pedersen08_MMAP_d8_e2-8_c0-500_m3_s0_99", "Pedersen08", "Assignment", "bi-MMAP; MMAP; multi-modal", "MMAP"],
-    [".gitignore", null, null, "", ".gitignore"],
     ["Tuyttens00_AP_n05", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
     ["Tuyttens00_AP_n10", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
     ["Tuyttens00_AP_n100", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
@@ -12595,7 +12594,17 @@
     ["Tuyttens00_AP_n60", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
     ["Tuyttens00_AP_n70", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
     ["Tuyttens00_AP_n80", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
-    ["Tuyttens00_AP_n90", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""]
+    ["Tuyttens00_AP_n90", "Tuyttens00", "Assignment", "ap; assignmentProblem; bi-AP", ""],
+    ["Stidsen17_kro100ab", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100ac", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100ad", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100ae", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100bc", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100bd", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100be", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100cd", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100ce", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""],
+    ["Stidsen17_kro100de", "Stidsen17", "Traveling Salesman", "BITSP; travelling-salesman-problem; BI-TSP", ""]
   ],
   "colNames": ["instanceName", "contributionName", "class", "tags", "subfolder"]
 }
