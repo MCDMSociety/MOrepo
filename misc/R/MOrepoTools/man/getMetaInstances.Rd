@@ -2,7 +2,7 @@
 % Please edit documentation in R/get.R
 \name{getMetaInstances}
 \alias{getMetaInstances}
-\title{Get data frame over all instances at MOrepo}
+\title{Get data frame with all instances at MOrepo}
 \usage{
 getMetaInstances()
 }

@@ -7,10 +7,12 @@
 setMetaInstances()
 }
 \description{
-Create the \code{metaInstances.json} file
+Must be run each time there is instance modifications.
 }
 \examples{
-setMetaInstances()
+\dontrun{
+MOrepoTools:::setMetaInstances()
+}
 }
 \author{
 Lars Relund \email{lars@relund.dk}

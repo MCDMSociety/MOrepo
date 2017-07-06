@@ -10,10 +10,7 @@
 #' @return The names of the instances.
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-#' @examples
-#' getInstance(name="Tuyttens.*n10", onlyList = TRUE)
-#' getInstance(name="Tuyttens")
-#' getInstance(class="Facility location", onlyList = T)
+#' @example inst/examples/examples.R
 getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALSE) {
    if (is.null(name) & is.null(class)) stop("Error: name or class argument must be specified!")
    if (!is.null(name)) {
@@ -141,11 +138,7 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
 #' @return All problem classes.
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-#' @examples
-#' getProblemClasses()
-#' getProblemClasses(results = TRUE)
-#' getProblemClasses(local = T)
-#' getProblemClasses(contribution = "Pedersen08")
+#' @example inst/examples/examples.R
 getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -175,10 +168,7 @@ getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE)
 #' @return A list (invisible).
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-#' @examples
-#' getInstanceInfo()
-#' getInstanceInfo(class="Facility location")
-#' getInstanceInfo(contribution = c("Tuyttens00", "Gadegaard16"))
+#' @example inst/examples/examples.R
 getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
@@ -244,11 +234,7 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
 #' @return A list (invisible).
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-#' @examples
-#' getResultInfo()
-#' getResultInfo(withLinks = TRUE)
-#' getResultInfo(class="Assignment")
-#' getResultInfo(contribution = c("Pedersen08", "Gadegaard16"))
+#' @example inst/examples/examples.R
 getResultInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
@@ -352,7 +338,6 @@ getContributorNames<-function(local = FALSE) {
 #' @export
 #' @examples
 #' getMaintainers()
-#' getMaintainers(local = T)
 getMaintainers<-function(local = FALSE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    meta<-jsonlite::fromJSON(paste0(baseURL, "metaContributions.json"))
@@ -392,8 +377,7 @@ getRepoPath<-function(local = FALSE) {
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-#' @examples
-#' getContributionAsZip(c("Tuyttens00", "Template"))
+#' @example inst/examples/examples.R
 getContributionAsZip<-function(contributionName) {
    path <- paste0("https://github.com/MCDMSociety/MOrepo-", contributionName, "/archive/master.zip")
    for (i in 1:length(path)) {
@@ -407,7 +391,7 @@ getContributionAsZip<-function(contributionName) {
 
 
 
-#' Get data frame over all instances at MOrepo
+#' Get data frame with all instances at MOrepo
 #'
 #' Use \code{metaInstances.json} as source.
 #'

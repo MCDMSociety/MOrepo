@@ -1,21 +1,17 @@
 #' Tools for the MOrepo at GitHub
 #'
-#' More about what it does (maybe more than one line) ~~ A concise (1-5 lines)
-#' description of the package ~~
+#' MOrepoTools is a R package with tools for the MOrepo at GitHub. It is not nesseary for
+#' downloading/uploading e.g. instances from MOrepo but it will make life mush easier for you.
 #'
-#' An overview of how to use the package, including the most
-#' important functions ~~
+#' You can used the package to get info and download instances
 #'
 #' @name MOrepoTools
 #' @aliases MOrepoTools-package MOrepoTools
 #' @docType package
 #' @author Lars Relund <lars@@relund.dk>
 #'
-#' @seealso ~~ Optional links to other man pages, e.g. ~~ ~~
-#' <pkg>:<pkg>-package ~~
 #' @keywords package
-#' @examples
-#' # ~~ simple examples of the most important functions ~~
+#' @example inst/examples/examples.R
 NULL
 
 

@@ -7,19 +7,55 @@
 \alias{MOrepoTools-package}
 \title{Tools for the MOrepo at GitHub}
 \description{
-More about what it does (maybe more than one line) ~~ A concise (1-5 lines)
-description of the package ~~
+MOrepoTools is a R package with tools for the MOrepo at GitHub. It is not nesseary for
+downloading/uploading e.g. instances from MOrepo but it will make life mush easier for you.
 }
 \details{
-An overview of how to use the package, including the most
-important functions ~~
+You can used the package to get info and download instances
 }
 \examples{
-# ~~ simple examples of the most important functions ~~
-}
-\seealso{
-~~ Optional links to other man pages, e.g. ~~ ~~
-<pkg>:<pkg>-package ~~
+## Info about MOrepo
+# Problem classes
+getProblemClasses()  # problem classes with instances
+getProblemClasses(results = TRUE)   # problem classes with results
+getProblemClasses(contribution = "Pedersen08")  # problem classes for a specific contribution
+
+# Info about instances
+getInstanceInfo() # all contributions with instances
+getInstanceInfo(class = "Assignment")   # contributions with instances for problem class Assignment
+getInstanceInfo(contribution = c("Tuyttens00", "Gadegaard16"))   # info about two contributions
+
+# Info about results
+getResultInfo()   # all contributions with results
+getResultInfo(withLinks = TRUE)   # add links to output
+getResultInfo(class="Assignment")   # contributions with results for problem class Assignment
+getResultInfo(contribution = c("Pedersen08", "Gadegaard16"))   # info about two contributions
+
+
+## Download
+# Download two contributions
+getContributionAsZip(c("Tuyttens00", "Template"))
+
+# Download specific instances
+getInstance(name="Tuyttens.*n10", onlyList = TRUE)  # only file locations returned (no downloading)
+\dontrun{
+getInstance(name="Tuyttens")}
+
+
+## Contributing to MOrepo
+# Adding a result file
+points <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
+ type = c('se', 'us', 'se', 'us', 'us', 'us', 'us', 'se'))
+createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
+   objectives = 2, points = points, card = 8, suppCard = 3, extCard = 3,
+   objectiveType = c("int", "int"), direction = c("min", "min"),
+   comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE
+)
+modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed comment")
+
+# Check your contribution
+\dontrun{
+   checkContribution()}
 }
 \author{
 Lars Relund <lars@relund.dk>

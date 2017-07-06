@@ -17,7 +17,6 @@ Get maintainers of all sub-repos at MOrepo (read from the metaContributions.json
 }
 \examples{
 getMaintainers()
-getMaintainers(local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

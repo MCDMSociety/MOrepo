@@ -1,10 +1,13 @@
 
 #' Create the \code{metaInstances.json} file
 #'
+#' Must be run each time there is instance modifications.
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @examples
-#' setMetaInstances()
+#' \dontrun{
+#' MOrepoTools:::setMetaInstances()
+#' }
 setMetaInstances<-function() {
    lst <- list()
    lst$desc = "Meta file - Instances at MOrepo"
@@ -52,7 +55,9 @@ setMetaInstances<-function() {
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @examples
+#' \dontrun{
 #' MOrepoTools:::setMetaContributions()
+#' }
 setMetaContributions<-function() {
    repos<-jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json")
    baseURL<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos$repos, "/master/")
