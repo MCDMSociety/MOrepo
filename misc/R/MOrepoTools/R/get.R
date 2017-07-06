@@ -11,7 +11,7 @@
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' getInstance(name="Tuyttens.*n10", onlyList = T)
+#' getInstance(name="Tuyttens.*n10", onlyList = TRUE)
 #' getInstance(name="Tuyttens")
 #' getInstance(class="Facility location", onlyList = T)
 getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALSE) {
@@ -26,6 +26,7 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
          dat <- getFileList(name, subdir = paste0("instances/", fileFormat, "/"), contribution = x$contributionName)
       })
       instances <- unlist(instances)
+      names(instances) <- NULL
    }
 
    if (onlyList) return(instances)
@@ -34,7 +35,7 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
    for (path in instances) {
       cat("Download", basename(path), "...")
       fName<-basename(path)
-      if (download.file(paste0(urlName,path), destfile = basename(path), quiet = TRUE)>0) {
+      if (utils::download.file(paste0(urlName,path), destfile = basename(path), quiet = TRUE)>0) {
          warning(paste("File",basename(path),"could not be downloaded!"))
       }
       cat("finished\n")
@@ -79,22 +80,18 @@ getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = 
 #' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
 #' @param subdir Restricts search to a specific subfolder in each repo. The path must end with a
 #'   slash (/).
-#' @param class Problem class. Ignored if \code{name} used.
 #' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
-#' @param local Use local repo.
+#' @param local Use local repo (assumed to be placed one folder up).
 #'
 #' @return The names of the files (including file path)
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
 #' getFileList("SSCFLP.*p6")
-#' getFileList(".json")
-#' getFileList(c(".json","ReadMe"))
+#' getFileList(c("meta.json","ReadMe"))
 #' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
-#' getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
+#' getFileList("n10", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
 #' getFileList(".xml", contribution="Tuyttens00")
-#' getFileList(".xml", contribution="Tuyttens00", local = T)
-#' getFileList(".json", local = T)
 getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE) {
    if (is.null(contribution)) {
       baseURL <- ifelse(local, "metaContributions.json",
@@ -125,7 +122,8 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
       } else {
          filelist <- list.files(path = contribution[i], full.names = TRUE, recursive = TRUE)
       }
-      unlist(lapply(paste0(subdir,name), grep, filelist, value = TRUE, ignore.case = TRUE))
+      if (subdir!="") filelist <- unlist(lapply(subdir, grep, filelist, value = TRUE, ignore.case = TRUE))
+      unlist(lapply(name, grep, filelist, value = TRUE, ignore.case = TRUE))
       #grep(paste0(subdir,name), filelist, value = TRUE, ignore.case = TRUE)
    }
 
@@ -330,7 +328,7 @@ getContributorNames<-function(local = FALSE) {
    # metaList<-NULL
    # for (f in fileN) {
    #    bib<-paste0(baseURL, f)
-   #    if (download.file(bib, destfile = "tmp.bib", quiet = TRUE)>0) {
+   #    if (utils::download.file(bib, destfile = "tmp.bib", quiet = TRUE)>0) {
    #       stop(paste("File",basename(bib),"could not be downloaded!"))
    #    } else {
    #       bib<-RefManageR::ReadBib("tmp.bib")
@@ -400,7 +398,7 @@ getContributionAsZip<-function(contributionName) {
    path <- paste0("https://github.com/MCDMSociety/MOrepo-", contributionName, "/archive/master.zip")
    for (i in 1:length(path)) {
       message("Download MOrepo-", contributionName[i], ".zip ... ", appendLF = FALSE)
-      if (download.file(path[i], destfile = paste0("MOrepo-", contributionName[i], ".zip"), quiet = TRUE)>0) {
+      if (utils::download.file(path[i], destfile = paste0("MOrepo-", contributionName[i], ".zip"), quiet = TRUE)>0) {
          warning("The contribution could not be downloaded! ")
       }
       message("finished.")

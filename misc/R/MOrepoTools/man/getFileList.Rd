@@ -14,9 +14,7 @@ slash (/).}
 
 \item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
 
-\item{local}{Use local repo.}
-
-\item{class}{Problem class. Ignored if \code{name} used.}
+\item{local}{Use local repo (assumed to be placed one folder up).}
 }
 \value{
 The names of the files (including file path)
@@ -26,13 +24,10 @@ Search repos and get a list of files
 }
 \examples{
 getFileList("SSCFLP.*p6")
-getFileList(".json")
-getFileList(c(".json","ReadMe"))
+getFileList(c("meta.json","ReadMe"))
 getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"))
-getFileList("ReadMe", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
+getFileList("n10", contribution=c("Gadegaard16", "Tuyttens00"), subdir = "instances/")
 getFileList(".xml", contribution="Tuyttens00")
-getFileList(".xml", contribution="Tuyttens00", local = T)
-getFileList(".json", local = T)
 }
 \author{
 Lars Relund \email{lars@relund.dk}

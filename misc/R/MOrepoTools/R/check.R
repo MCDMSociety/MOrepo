@@ -24,7 +24,7 @@ yesno<-function (...)
    message(paste0(..., collapse = ""))
    qs <- c(sample(yeses, 1), sample(nos, 1))
    rand <- sample(length(qs))
-   menu(qs[rand]) == which(rand == 1)
+   utils::menu(qs[rand]) == which(rand == 1)
 }
 
 

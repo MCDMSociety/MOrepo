@@ -165,13 +165,15 @@ modifyResultFile<-function(fileN, instanceName = NULL, contributionName = NULL, 
 
 #' Validate a result file based on schema.
 #'
-#' @param file Name of result file.
+#' @param file Name of result file (with path).
 #'
 #' @return Warnings and errors (if any).
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' MOrepoTools:::checkResult("Tuyttens00_AP_n05_result.json")
+#' \dontrun{
+#' checkResult("Tuyttens00_AP_n05_result.json")
+#' }
 checkResult<-function(file) {
    schema<-system.file("resultSchema.json", package = "MOrepoTools")
    jsonvalidate::json_validate(file, schema, verbose = TRUE, error = TRUE)

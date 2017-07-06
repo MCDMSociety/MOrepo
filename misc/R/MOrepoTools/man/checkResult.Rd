@@ -7,7 +7,7 @@
 checkResult(file)
 }
 \arguments{
-\item{file}{Name of result file.}
+\item{file}{Name of result file (with path).}
 }
 \value{
 Warnings and errors (if any).
@@ -16,7 +16,9 @@ Warnings and errors (if any).
 Validate a result file based on schema.
 }
 \examples{
-MOrepoTools:::checkResult("Tuyttens00_AP_n05_result.json")
+\dontrun{
+checkResult("Tuyttens00_AP_n05_result.json")
+}
 }
 \author{
 Lars Relund \email{lars@relund.dk}

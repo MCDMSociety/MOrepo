@@ -7,8 +7,10 @@ Authors@R: person("Lars", "Relund", email = "lars@relund.dk",
   role = c("aut", "cre"))
 URL: https://github.com/MCDMSociety/MOrepo/misc/R/MOrepoTools
 BugReports: https://github.com/MCDMSociety/MOrepo/issues
-Description: Tools for the MOrepo at GitHub
+Description: Tools for the MOrepo at GitHub.
 License: GPL (>= 3)
-Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr, readr
+Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr, readr, utils
+Suggests: knitr 
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+License: file LICENSE
