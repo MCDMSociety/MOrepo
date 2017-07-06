@@ -18,10 +18,6 @@ The repository consists of a main repository [`MOrepo`](https://github.com/MCDMS
 
 The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrieve info about test instance groups, results and problem classes. 
 
-<!-- - `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time. -->
-<!-- - `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances. -->
-<!-- - `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.  -->
-
 Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dta.dk> and Kim Allan Andersen <kia@econ.au.dk>. 
 
 Current maintainers of sub-repositories are `r vec2String(getMaintainers())`.
@@ -103,22 +99,3 @@ for (i in dat) {
    getResultInfo(class = i, withLinks = TRUE)
 }
 ```
-
-
-<!-- 
- 
- - Free MPS format
-
-## Validators
-
-
-R package
-
-- check a contribution
-- download a set of test instances
-- download solutions and plot
-- download citation
-- merge ndsets
-
-
-The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc.   -->

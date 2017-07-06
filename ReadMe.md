@@ -8,9 +8,6 @@ The repository consists of a main repository [`MOrepo`](https://github.com/MCDMS
 
 The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrieve info about test instance groups, results and problem classes.
 
-<!-- - `instances` - A folder containing the instance sets. Each instance set in contained in a subfolder for each paper using the instances the first time. -->
-<!-- - `results` - A folder containing results for the instances. Results may be a set of nondominated points (or an approximation), upper and lower bounds etc. Results are not stored in the `instances` folder since different papers may have results for the same instances. -->
-<!-- - `misc` - A folder with stuff that cannot be included into the two folders above such as R packages, generators, converters etc.  -->
 Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dta.dk> and Kim Allan Andersen <kia@econ.au.dk>.
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
@@ -41,25 +38,25 @@ getProblemClasses()  # current problem classes in MOrepo
 ## [1] "Facility location" "Assignment"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
-## ### Instance group Pedersen08:
+## #### Contribution Pedersen08
 ## 
 ## Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion
 ## Multi Modal Assignment Problem: Introduction, Analysis, and
-## Experimental Results". In: _Informs Journal on Computing_ 20.3, p.
-## 400â411. DOI: 10.1287/ijoc.1070.0253.
+## Experimental Results". In: _Informs Journal on Computing_ 20.3,
+## pp. 400-411. DOI: 10.1287/ijoc.1070.0253.
 ## 
-## Test classes: Assignment  
+## Test problem classes: Assignment  
 ## Subfolders: AP and MMAP  
 ## Formats: xml  
 ## 
-## ### Instance group Tuyttens00:
+## #### Contribution Tuyttens00
 ## 
 ## Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance
 ## of the MOSA Method for the Bicriteria Assignment Problem". In:
 ## _Journal of Heuristics_ 6.3, pp. 295-310. DOI:
 ## 10.1023/A:1009670112978.
 ## 
-## Test classes: Assignment  
+## Test problem classes: Assignment  
 ## Formats: raw and xml
 ```
 
@@ -129,21 +126,3 @@ Currently MOrepo contains results for instances in problem classes Assignment. T
 Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI: 10.1287/ijoc.1070.0253.
 
 Results given for contributions: [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
-
-<!-- 
- 
- - Free MPS format
-
-## Validators
-
-
-R package
-
-- check a contribution
-- download a set of test instances
-- download solutions and plot
-- download citation
-- merge ndsets
-
-
-The MCDM society would benefit from a joint multi-objective optimization repository with MOO instances and algorithms. In this talk we will present our ideas about the open-source Multi-Objective Optimization Repository (MOPR) and give an overview over current features and progress. The talk is also open for discussion about feature requests etc.   -->
