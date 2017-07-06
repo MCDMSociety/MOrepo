@@ -55,7 +55,7 @@ modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed commen
 
 # Check your contribution
 \dontrun{
-   checkContribution()}
+checkContribution()}
 }
 \author{
 Lars Relund <lars@relund.dk>

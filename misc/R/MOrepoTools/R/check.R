@@ -90,6 +90,7 @@ checkContribution<-function() {
       }
       # Subfolders in each file format folder (from meta.json)
       for (i in 1:length(meta$instanceGroups$subfolder)) {
+         if (meta$instanceGroups$subfolder[i]=="") next
          for (f in meta$instanceGroups$format[[i]]) {
             if (!(meta$instanceGroups$subfolder[i] %in% list.dirs(path = paste0("./instances/",f), full.names = FALSE, recursive = FALSE))) {
                message("\n   Error: The format folder ", f, " must have a subfolder named ", meta$instanceGroups$subfolder[i], " as specified in the meta.json file.")

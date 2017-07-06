@@ -14,7 +14,8 @@ setMetaInstances<-function() {
 
    # get all instances at GitHub
    files <- getFileList(subdir = "instances")
-   files <- files[-grep("ReadMe", files)] # remove ReadMe files
+   idx <- grep("ReadMe", files)
+   if (length(idx)>0) files <- files[-idx] # remove ReadMe files
    # subfolders
    folders <- sub("([^.]+/instances)/(.+)/.+$", "\\2", files)
    idx <- grep("/", folders)
