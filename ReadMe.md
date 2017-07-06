@@ -8,7 +8,7 @@ The repository consists of a main repository [`MOrepo`](https://github.com/MCDMS
 
 The main repository contains documentation about how to use and contribute to `MOrepo`. Moreover, a set of tools are given in the R package `MOrepoTools` which can be used to retrieve info about test instance groups, results and problem classes.
 
-Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dta.dk> and Kim Allan Andersen <kia@econ.au.dk>.
+Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stridsen <thst@dtu.dk> and Kim Allan Andersen <kia@econ.au.dk>.
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
 
