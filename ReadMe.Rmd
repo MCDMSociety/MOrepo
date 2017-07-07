@@ -43,7 +43,7 @@ install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 
 To get an overview over the current problem classes run:
 
-```{r, cache=TRUE}
+```{r}
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
@@ -57,7 +57,7 @@ getContributionAsZip("Tuyttens00")
 
 Or download selected instances 
 
-```{r}
+```{r, cache=TRUE}
 getInstance(name="Tuyttens.*n10")
 ```
 
@@ -80,7 +80,7 @@ Currently MOrepo contains instances for problem classes `r vec2String(dat)`. The
 
 ```{r, results='asis', echo=FALSE, tidy=FALSE}
 for (i in dat) {
-   cat("\n### Problem class ", i, "\n")
+   cat("\n### Problem class -", i, "\n")
    getInstanceInfo(class = i, withLinks = TRUE)
 }
 ```
@@ -95,7 +95,7 @@ Currently MOrepo contains results for instances in problem classes `r vec2String
 
 ```{r, results='asis', echo=FALSE, tidy=FALSE}
 for (i in dat) {
-   cat("\n### Problem class ", i, "\n")
+   cat("\n### Problem class -", i, "\n")
    getResultInfo(class = i, withLinks = TRUE)
 }
 ```

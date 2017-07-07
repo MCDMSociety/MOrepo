@@ -10,9 +10,9 @@ The main repository contains documentation about how to use and contribute to `M
 
 Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stidsen <thst@dtu.dk> and Kim Allan Andersen <kia@econ.au.dk>.
 
-Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk> and Lars Relund <junk@relund.dk>.
+Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk>, Lars Relund <junk@relund.dk> and Thomas Stidsen <thst@dtu.dk>.
 
-Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps and K. Van Nieuwenhuyze.
+Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps, K. Van Nieuwenhuyze and T. Stidsen.
 
 Usage
 -----
@@ -35,7 +35,7 @@ To get an overview over the current problem classes run:
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-## [1] "Facility location" "Assignment"
+## [1] "Facility Location"  "Assignment"         "Traveling Salesman"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08
@@ -85,19 +85,19 @@ All researchers are welcome to contribute to `MOrepo`. The repository mainly con
 Test instances @ MOrepo
 -----------------------
 
-Currently MOrepo contains instances for problem classes Facility location and Assignment. The contributions listed after class are:
+Currently MOrepo contains instances for problem classes Facility Location, Assignment and Traveling Salesman. The contributions listed after class are:
 
-### Problem class Facility location
+### Problem class - Facility Location
 
 #### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
 
 Source: Gadegaard, S, A. Klose and L. Nielsen (2016). "A bi-objective approach to discrete cost-bottleneck location problems". In: *Annals of Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
 
-Test problem classes: Facility location
+Test problem classes: Facility Location
 Subfolders: CFLP\_UFLP and SSCFLP
 Formats: raw
 
-### Problem class Assignment
+### Problem class - Assignment
 
 #### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
 
@@ -114,15 +114,24 @@ Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance of the 
 Test problem classes: Assignment
 Formats: raw and xml
 
+### Problem class - Traveling Salesman
+
+#### Contribution - [Stidsen17](https://github.com/MCDMSociety/MOrepo-Stidsen17)
+
+Source: Stidsen, T. and K. Andersen (2017). *A hybrid approach for Bi-Objective Optimization*. Optimization Online. Research rep. &lt;URL: <http://www.optimization-online.org/DB_HTML/2017/04/5940.html>&gt;.
+
+Test problem classes: Traveling Salesman
+Formats: raw
+
 Results @ MOrepo
 ----------------
 
 Currently MOrepo contains results for instances in problem classes Assignment. The contributions listed after class are:
 
-### Problem class Assignment
+### Problem class - Assignment
 
 #### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
 
-Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI: 10.1287/ijoc.1070.0253.
+Source: Pedersen, C, L. Nielsen and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and Experimental Results". In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI: [10.1287/ijoc.1070.0253](http://dx.doi.org/10.1287/ijoc.1070.0253).
 
 Results given for contributions: [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
