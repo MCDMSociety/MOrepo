@@ -84,7 +84,7 @@
           "creator": "Thomas Stidsen <thst@dtu.dk>"
         }
       ],
-      "bib": "@TechReport{Stidsen17,\n  author      = {Stidsen, T. and Andersen, K.A.},\n  title       = {A hybrid approach for Bi-Objective Optimization},\n  institution = {Optimization Online},\n  year        = {2017},\n  url         = {http://www.optimization-online.org/DB_HTML/2017/04/5940.html}\n}\n\n"
+      "bib": "@Misc{Stidsen17,\n  author       = {Stidsen, T. and Andersen, K.A.},\n  title        = {A hybrid approach for Bi-Objective Optimization},\n  howpublished = {Optimization Online},\n  year         = {2017},\n  type         = {resreport},\n  url          = {http://www.optimization-online.org/DB_HTML/2017/04/5940.html},\n}\n"
     }
   }
 }
