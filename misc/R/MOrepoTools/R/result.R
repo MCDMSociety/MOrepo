@@ -181,4 +181,108 @@ checkResult<-function(file) {
 
 
 
+#' Plot the nondominated set (two objectives) in criterion space.
+#'
+#' @param file Relative file path within the contribution (or just file path if local file).
+#' @param local Use local file (otherwise use the file at GitHub).
+#' @param contribution Name of contribution (if use files at GitHub).
+#' @param labels A vector of labels to be added.
+#' @param addTriangles Add triangles to the non-dominated points.
+#' @param latex If true make latex math labels for TikZ.
+#' @param addHull Add the convex hull of the non-dominated points and rays.
+#'
+#' @return A ggplot object.
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @import ggplot2
+#' @example inst/examples/examples.R
+plotNDSet<-function(file, contribution = NULL, local = FALSE, labels = NULL,
+                    addTriangles = FALSE, latex = FALSE, addHull = FALSE) {
+   if (!local) {
+      if (is.null(contribution)) stop("Argument contribution must be specified!")
+      path <- getFilePath(file, contribution)
+   }
+   dat<-jsonlite::fromJSON(path)
+   if (dat$objectives != 2) stop("Only two objectives supported!")
+   points <- dat$points
+   crit <- dat$direction[1]
+
+   myTheme <- theme_set(theme_bw())
+   myTheme <- theme_update(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                           panel.border = element_blank(),
+                           #axis.line = element_blank(),
+                           axis.line = element_line(colour = "black", size = 0.5, arrow = arrow(length = unit(0.3,"cm")) ),
+                           #axis.ticks = element_blank()
+                           #axis.text.x = element_text(margin = margin(r = 30))
+                           # axis.ticks.length = unit(0.5,"mm"),
+                           legend.position="none"
+   )
+
+   # Create criterion plot
+   p <- ggplot(points, aes_string(x = 'z1', y = 'z2') )
+   if (latex) p <- p + xlab("$z_1$") + ylab("$z_2$")
+   if (!latex) p <- p + xlab(expression(z[1])) + ylab(expression(z[2]))
+   p <- p + ggtitle(basename(path), subtitle = NULL)
+   #coord_cartesian(xlim = c(min(points$z1)-delta, max(points$z1)+delta), ylim = c(min(points$z2)-delta, max(points$z2)+delta), expand = F) +
+   if (addHull) {
+      if (length(unique(dat$direction))>1) stop("addHull don't support combined min and max objectives!")
+      tmp<-points[points$type == "se" & !duplicated(cbind(points$z1,points$z2), MARGIN = 1),]
+      delta=max( (max(points$z1)-min(points$z1))/10, (max(points$z2)-min(points$z2))/10 )
+      if (crit=="max") {
+         tmp<-rbind(tmp[1:2,],tmp,tmp[1,]) # add rows
+         tmp$z1[1] <- min(points$z1) - delta
+         tmp$z2[1] <- min(points$z2) - delta
+         tmp$z1[2] <- min(points$z1) - delta
+         tmp$z2[2] <- max(points$z2)
+         tmp$z1[length(tmp$z1)] <- max(points$z1)
+         tmp$z2[length(tmp$z1)] <- min(points$z2)- delta
+      }
+      if (crit=="min") {
+         tmp<-rbind(tmp[1,],tmp,tmp[1:2,]) # add rows
+         tmp$z1[length(tmp$z1)-1] <- max(points$z1) + delta
+         tmp$z2[length(tmp$z1)-1] <- min(points$z2)
+         tmp$z1[1] <- min(points$z1)
+         tmp$z2[1] <- max(points$z2) + delta
+         tmp$z1[length(tmp$z1)] <- max(points$z1) + delta
+         tmp$z2[length(tmp$z1)] <- max(points$z2) + delta
+      }
+      p <- p + geom_polygon(fill="gray90", data=tmp)
+   }
+   if (addTriangles) {
+      tmp<-points[points$type == "se" | points$type == "sne" | points$type == "s",]
+      if (length(tmp$z1)>1) { # triangles
+         for (r in 1:(dim(tmp)[1] - 1)) {
+            if (crit=="max") {
+               p <- p +
+                  geom_segment(x=tmp$z1[r],y=tmp$z2[r],xend=tmp$z1[r+1],yend=tmp$z2[r+1], colour="gray50") +
+                  geom_segment(x=tmp$z1[r],y=tmp$z2[r],xend=tmp$z1[r],yend=tmp$z2[r+1], colour="gray50") +
+                  geom_segment(x=tmp$z1[r],y=tmp$z2[r+1],xend=tmp$z1[r+1],yend=tmp$z2[r+1], colour="gray0")
+            }
+            if (crit=="min") {
+               p <- p +
+                  geom_segment(x=tmp$z1[r],y=tmp$z2[r],xend=tmp$z1[r+1],yend=tmp$z2[r+1], colour="gray50") +
+                  geom_segment(x=tmp$z1[r],y=tmp$z2[r],xend=tmp$z1[r+1],yend=tmp$z2[r], colour="gray50") +
+                  geom_segment(x=tmp$z1[r+1],y=tmp$z2[r],xend=tmp$z1[r+1],yend=tmp$z2[r+1], colour="gray0")
+            }
+         }
+      }
+   }
+
+   p <- p + geom_point(aes_string(shape = 'type'), size = 1) +
+      coord_fixed(ratio = 1) +
+      scale_colour_grey(start = 0.6, end = 0)
+   if (!is.null(labels)) {
+      if (length(labels) != length(points$z1)) stop("The length of labels must be equal to the number of points!")
+      points$lbl <- labels
+      nudgeC=-(max(points$z1)-min(points$z1))/100
+      p <- p + geom_text(data = points, aes_string(label = 'lbl'), nudge_x = nudgeC, nudge_y = nudgeC, hjust=1, size=3,
+                            colour = "gray50")
+   }
+   return(p)
+}
+
+
+
+
+
 

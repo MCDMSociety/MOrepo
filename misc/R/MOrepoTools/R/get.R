@@ -236,7 +236,7 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
 #' @export
 #' @example inst/examples/examples.R
 getResultInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
-   RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
+   RefManageR::BibOptions(sorting = "none", bib.style = "authoryear", style = "markdown")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
    repos <- repos$repoInfo
@@ -367,6 +367,28 @@ getRepoPath<-function(local = FALSE) {
       repos<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos, "/master/")
    }
    return(repos)
+}
+
+
+#' File path of a specific file at MOrepo.
+#'
+#' @param file Relative file path within the contribution.
+#' @param local Use local repo (urls becomes paths).
+#' @param contribution Contribution name.
+#'
+#' @return A vector of strings.
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @export
+#' @examples
+#' getFilePath("instances/raw/SSCFLP/Gadegaard16_SSCFLP_Holmberg_p64_0.raw", contribution = "Gadegaard16")
+getFilePath<-function(file, contribution, local = FALSE) {
+   if (length(contribution)>1) stop("Contribution must have length of one.")
+   if (local) {
+      p <- paste0("../MOrepo-", contribution, "/", file)
+   } else {
+      p<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", contribution, "/master/", file)
+   }
+   return(p)
 }
 
 

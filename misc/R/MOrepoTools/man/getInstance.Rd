@@ -53,6 +53,16 @@ getInstance(name="Tuyttens.*n10", onlyList = TRUE)  # only file locations return
 getInstance(name="Tuyttens")}
 
 
+## Plotting results
+plotNDSet("results/AP/Tuyttens00_AP_n10_result.json", contribution = "Pedersen08")
+plotNDSet("results/AP/Tuyttens00_AP_n10_result.json", contribution = "Pedersen08", labels = 1:16)
+plotNDSet("results/AP/Tuyttens00_AP_n10_result.json", contribution = "Pedersen08",
+          addTriangles = TRUE)
+plotNDSet("results/AP/Tuyttens00_AP_n10_result.json", contribution = "Pedersen08", addHull = TRUE)
+plotNDSet("results/AP/Tuyttens00_AP_n10_result.json", contribution = "Pedersen08", addHull = TRUE,
+          addTriangles = TRUE)
+
+
 ## Contributing to MOrepo
 # Adding a result file
 points <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
