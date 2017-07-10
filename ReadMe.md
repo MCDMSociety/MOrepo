@@ -116,7 +116,7 @@ Formats: raw and xml
 
 ### Problem class - Traveling Salesman
 
-#### Contribution - [Handsen00](https://github.com/MCDMSociety/MOrepo-Handsen00)
+#### Contribution - [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)
 
 Source: Hansen, M. (2000). "Use of Substitute Scalarizing Functions to Guide a Local Search Based Heuristic: The Case of moTSP". In: *Journal of Heuristics* 6.3, pp. 419-431. DOI: 10.1023/A:1009690717521.
 
