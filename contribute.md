@@ -66,11 +66,11 @@ The file contains
 Step 2 - Adding test instances to MOrepo
 ----------------------------------------
 
-If your study contains new test instances they should be added to the `instances` folder (remove it if you don't have any new instances). Instances are created for each study (paper/report/note) where the instances had been generated. Hence, if your study test instances used in previous multi-objective studies that not yet are a part of MOrepo, then kindly ask the authors of the previous study if you can include them in MOrepo (in a separate sub-repository). For instance if your study Gadegaard et. al. 2016 use instances from Nielsen et. al. 2014. Then create two contributions `MOrepo-Gadegaard16` (if new instances) and `MOrepo-Nielsen14` (with the old instances). As a result duplicated instance sets will not be generated.
+If your study contains new test instances they should be added to the `instances` folder (remove it if you don't have any new instances). Instances are created for each study (paper/report/note) where the instances had been generated. Hence, if your study use instances from a previous multi-objective study not yet part of MOrepo, then kindly ask the authors of the previous study if you can include them in MOrepo (in a separate sub-repository). For instance if your study Gadegaard et. al. 2016 use instances from Nielsen et. al. 2014. Then create two contributions `MOrepo-Gadegaard16` (if new instances) and `MOrepo-Nielsen14` (with the old instances). As a result duplicated instance sets will not be generated.
 
 The structure of the `instances` folder is as follows:
 
--   A folder for each file format (e.g. `raw` and `xml`). That is, different file formats may be used. If you have used a plain text/raw format then name this format `raw` and add a description to the `ReadMe.md` file. Each file format folder contains the sub-folders defined in the `instanceGroups` entry of the `meta.json` file. That is, if we consider the `meta.json` file above then folders `AP` and `MMAP`.
+-   A folder for each file format (e.g. `raw` and `xml`). That is, different file formats may be used for the same instance. If you have used a plain text/raw format then name this format `raw` and add a description to the `ReadMe.md` file. Each file format folder should contain the sub-folders defined in the `instanceGroups` entry of the `meta.json` file. That is, if we consider the `meta.json` file above then folders `AP` and `MMAP`.
 -   Instance file names must start with the contribution name and end with the file format suffix.
 
 The `instances` folder should not contain any compressed files.
@@ -201,8 +201,9 @@ Problem classes
 
 Instances are classified into problem classes. The current classifications of MO optimization problems are
 
--   Facility location
--   Assignment.
+-   Facility Location
+-   Assignment
+-   Traveling Salesman.
 
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be
 
