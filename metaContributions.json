@@ -70,8 +70,8 @@
       ],
       "bib": "@Article{Tuyttens00,\nauthor={Tuyttens, D. and Teghem, J. and Fortemps, Ph. and Nieuwenhuyze, K. Van},\ntitle={Performance of the MOSA Method for the Bicriteria Assignment Problem},\njournal={Journal of Heuristics},\nyear={2000},\nvolume={6},\nnumber={3},\npages={295--310},\ndoi={10.1023/A:1009670112978},\n}\n"
     },
-    "Stridsen17": {
-      "contributionName": "Stidsen17",
+    "Hansen00": {
+      "contributionName": "Handsen00",
       "maintainer": "Thomas Stidsen <thst@dtu.dk>",
       "instanceGroups": [
         {
@@ -81,10 +81,10 @@
           "tags": ["BITSP", "travelling-salesman-problem", "BI-TSP"],
           "format": "raw",
           "desc": "Instances for the bi-objective travelling salesman problem.",
-          "creator": "Thomas Stidsen <thst@dtu.dk>"
+          "creator": "Michael Hansen"
         }
       ],
-      "bib": "@Misc{Stidsen17,\n  author       = {Stidsen, T. and Andersen, K.A.},\n  title        = {A hybrid approach for Bi-Objective Optimization},\n  howpublished = {Optimization Online},\n  year         = {2017},\n  type         = {resreport},\n  url          = {http://www.optimization-online.org/DB_HTML/2017/04/5940.html},\n}\n"
+      "bib": "@Article{Hansen00,\nauthor=\"M.P. Hansen\",\ntitle=\"Use of Substitute Scalarizing Functions to Guide a Local Search Based Heuristic: The Case of moTSP\",\njournal=\"Journal of Heuristics\",\nyear=\"2000\",\nmonth=\"Aug\",\nday=\"01\",\nvolume=\"6\",\nnumber=\"3\",\npages=\"419--431\",\ndoi=\"10.1023/A:1009690717521\"\n}\n"
     }
   }
 }
