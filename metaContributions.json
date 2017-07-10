@@ -71,7 +71,7 @@
       "bib": "@Article{Tuyttens00,\nauthor={Tuyttens, D. and Teghem, J. and Fortemps, Ph. and Nieuwenhuyze, K. Van},\ntitle={Performance of the MOSA Method for the Bicriteria Assignment Problem},\njournal={Journal of Heuristics},\nyear={2000},\nvolume={6},\nnumber={3},\npages={295--310},\ndoi={10.1023/A:1009670112978},\n}\n"
     },
     "Hansen00": {
-      "contributionName": "Handsen00",
+      "contributionName": "Hansen00",
       "maintainer": "Thomas Stidsen <thst@dtu.dk>",
       "instanceGroups": [
         {
