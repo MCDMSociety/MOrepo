@@ -12,14 +12,14 @@ Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>, Sune Gadega
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard <sgadegaard@econ.au.dk>, Lars Relund <junk@relund.dk> and Thomas Stidsen <thst@dtu.dk>.
 
-Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps, K. Van Nieuwenhuyze and T. Stidsen.
+Current contributors to the repository are S.L. Gadegaard, A. Klose, L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph. Fortemps, K. Van Nieuwenhuyze and M.P. Hansen.
 
 Usage
 -----
 
 Instances can be downloaded in different ways depending on usage:
 
--   If you want a whole sub-repository, download it as a zip file on GitHub.
+-   If you want a whole sub-repository, download it as a zip file or clone it on GitHub.
 -   Browse to a single instance and download it using the raw format at GitHub.
 -   Use the R package `MOrepoTools` to download instances.
 
@@ -116,9 +116,9 @@ Formats: raw and xml
 
 ### Problem class - Traveling Salesman
 
-#### Contribution - [Stidsen17](https://github.com/MCDMSociety/MOrepo-Stidsen17)
+#### Contribution - [Handsen00](https://github.com/MCDMSociety/MOrepo-Handsen00)
 
-Source: Stidsen, T. and K. Andersen (2017). *A hybrid approach for Bi-Objective Optimization*. Optimization Online. Research rep. &lt;URL: <http://www.optimization-online.org/DB_HTML/2017/04/5940.html>&gt;.
+Source: Hansen, M. (2000). "Use of Substitute Scalarizing Functions to Guide a Local Search Based Heuristic: The Case of moTSP". In: *Journal of Heuristics* 6.3, pp. 419-431. DOI: 10.1023/A:1009690717521.
 
 Test problem classes: Traveling Salesman
 Formats: raw

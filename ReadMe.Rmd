@@ -29,7 +29,7 @@ Current contributors to the repository are `r vec2String(getContributorNames())`
 
 Instances can be downloaded in different ways depending on usage:
 
-   - If you want a whole sub-repository, download it as a zip file on GitHub.
+   - If you want a whole sub-repository, download it as a zip file or clone it on GitHub.
    - Browse to a single instance and download it using the raw format at GitHub.
    - Use the R package `MOrepoTools` to download instances.
    
