@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
