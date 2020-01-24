@@ -4,8 +4,15 @@
 \alias{plotNDSet}
 \title{Plot the nondominated set (two objectives) in criterion space.}
 \usage{
-plotNDSet(file, contribution = NULL, local = FALSE, labels = NULL,
-  addTriangles = FALSE, latex = FALSE, addHull = FALSE)
+plotNDSet(
+  file,
+  contribution = NULL,
+  local = FALSE,
+  labels = NULL,
+  addTriangles = FALSE,
+  latex = FALSE,
+  addHull = FALSE
+)
 }
 \arguments{
 \item{file}{Relative file path within the contribution (or just file path if local file).}

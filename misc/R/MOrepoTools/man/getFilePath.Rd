@@ -20,7 +20,8 @@ A vector of strings.
 File path of a specific file at MOrepo.
 }
 \examples{
-getFilePath("instances/raw/SSCFLP/Gadegaard16_SSCFLP_Holmberg_p64_0.raw", contribution = "Gadegaard16")
+getFilePath("instances/raw/SSCFLP/Gadegaard16_SSCFLP_Holmberg_p64_0.raw",
+             contribution = "Gadegaard16")
 }
 \author{
 Lars Relund \email{lars@relund.dk}

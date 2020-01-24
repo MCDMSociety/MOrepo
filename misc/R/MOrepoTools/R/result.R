@@ -201,7 +201,7 @@ plotNDSet<-function(file, contribution = NULL, local = FALSE, labels = NULL,
    if (!local) {
       if (is.null(contribution)) stop("Argument contribution must be specified!")
       path <- getFilePath(file, contribution)
-   }
+   } else path <- file
    dat<-jsonlite::fromJSON(path)
    if (dat$objectives != 2) stop("Only two objectives supported!")
    points <- dat$points

@@ -4,8 +4,7 @@
 \alias{getInstance}
 \title{Download instances from GitHub}
 \usage{
-getInstance(name = NULL, class = NULL, fileFormat = "raw",
-  onlyList = FALSE)
+getInstance(name = NULL, class = NULL, fileFormat = "raw", onlyList = FALSE)
 }
 \arguments{
 \item{name}{Name of the instance(s) or only parts of the name. May be an regular expression for

@@ -12,7 +12,8 @@ getFileList(name = "", subdir = "", contribution = NULL, local = FALSE)
 \item{subdir}{Restricts search to a specific subfolder in each repo. The path must end with a
 slash (/).}
 
-\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
+\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all
+folders.}
 
 \item{local}{Use local repo (assumed to be placed one folder up).}
 }

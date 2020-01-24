@@ -4,7 +4,10 @@
 \alias{setMetaContributions}
 \title{Create the \code{metaContributions.json} file}
 \usage{
-setMetaContributions()
+setMetaContributions(add = NULL)
+}
+\arguments{
+\item{add}{Contribution to add (without the prefix \verb{MOrepo-}) and then update.}
 }
 \description{
 Note use the entry \code{repos} in \code{metaContributions.json} to find out which sub-repos to
@@ -13,6 +16,7 @@ scan and then overwrite the file.
 \examples{
 \dontrun{
 MOrepoTools:::setMetaContributions()
+MOrepoTools:::setMetaContributions(add = "Adelgren16")
 }
 }
 \author{

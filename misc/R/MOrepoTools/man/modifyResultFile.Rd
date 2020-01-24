@@ -4,11 +4,25 @@
 \alias{modifyResultFile}
 \title{Modify the content of a result file}
 \usage{
-modifyResultFile(fileN, instanceName = NULL, contributionName = NULL,
-  objectives = NULL, points = NULL, card = NULL, suppCard = NULL,
-  extCard = NULL, objectiveType = NULL, direction = NULL,
-  comments = NULL, optimal = TRUE, cpu = NULL, valid = NULL,
-  version = NULL, misc = NULL, check = TRUE)
+modifyResultFile(
+  fileN,
+  instanceName = NULL,
+  contributionName = NULL,
+  objectives = NULL,
+  points = NULL,
+  card = NULL,
+  suppCard = NULL,
+  extCard = NULL,
+  objectiveType = NULL,
+  direction = NULL,
+  comments = NULL,
+  optimal = TRUE,
+  cpu = NULL,
+  valid = NULL,
+  version = NULL,
+  misc = NULL,
+  check = TRUE
+)
 }
 \arguments{
 \item{fileN}{File name including path.}
@@ -20,7 +34,7 @@ modifyResultFile(fileN, instanceName = NULL, contributionName = NULL,
 \item{objectives}{Number of objectives (number).}
 
 \item{points}{A data frame with the nondominated points. Column names must be \code{z1, z2, ..., zn,
-type} where column \code{zi} is the value of the i'th objective and column type contains
+  type} where column \code{zi} is the value of the i'th objective and column type contains
 strings which may be either \code{us} (unsupported), \code{se} (supported extreme), \code{s}
 (supported - may be extreme or nonextreme), \code{sne} (supported nonextreme), \code{NA}
 (unknown).}

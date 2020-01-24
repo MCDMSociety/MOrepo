@@ -4,13 +4,19 @@
 \alias{getResultInfo}
 \title{Get info about the results.}
 \usage{
-getResultInfo(class = NULL, contribution = NULL, local = FALSE,
-  silent = FALSE, withLinks = FALSE)
+getResultInfo(
+  class = NULL,
+  contribution = NULL,
+  local = FALSE,
+  silent = FALSE,
+  withLinks = FALSE
+)
 }
 \arguments{
 \item{class}{Problem class of interest (if NULL consider all classes).}
 
-\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
+\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all
+folders.}
 
 \item{local}{Use local repos. Assume that repositories are placed in the father folder of the
 current working dir.}

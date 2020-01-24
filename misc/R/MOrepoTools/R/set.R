@@ -54,16 +54,24 @@ setMetaInstances<-function() {
 #' Note use the entry \code{repos} in \code{metaContributions.json} to find out which sub-repos to
 #' scan and then overwrite the file.
 #'
+#' @param add Contribution to add (without the prefix `MOrepo-`) and then update.
+#'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @examples
 #' \dontrun{
 #' MOrepoTools:::setMetaContributions()
+#' MOrepoTools:::setMetaContributions(add = "Adelgren16")
 #' }
-setMetaContributions<-function() {
+setMetaContributions<-function(add = NULL) {
    repos<-jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json")
-   baseURL<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos$repos, "/master/")
-   repoInfo<-vector("list", length(baseURL))
-   names(repoInfo) <- repos$repos
+   contrib <- repos$repos
+   if (!is.null(add)) {
+      contrib <- unique(c(contrib, add))
+   }
+   repoInfo<-vector("list", length(contrib))
+   names(repoInfo) <- contrib
+   repos$repos <- contrib
+   baseURL<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", contrib, "/master/")
    for (i in 1:length(baseURL)) {
       repoInfo[[i]]<-jsonlite::fromJSON(paste0(baseURL[i],"meta.json"))
       bib<-paste0(baseURL[i], "citation.bib")

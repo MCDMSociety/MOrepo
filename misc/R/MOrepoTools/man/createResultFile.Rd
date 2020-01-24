@@ -4,10 +4,24 @@
 \alias{createResultFile}
 \title{Create a result file}
 \usage{
-createResultFile(instanceName, contributionName, objectives, points, card,
-  suppCard = NULL, extCard = NULL, objectiveType = rep("int", objectives),
-  direction = rep("min", objectives), comments = NULL, optimal = TRUE,
-  cpu = NULL, valid = TRUE, version = "1.0", other = "", misc = NULL)
+createResultFile(
+  instanceName,
+  contributionName,
+  objectives,
+  points,
+  card,
+  suppCard = NULL,
+  extCard = NULL,
+  objectiveType = rep("int", objectives),
+  direction = rep("min", objectives),
+  comments = NULL,
+  optimal = TRUE,
+  cpu = NULL,
+  valid = TRUE,
+  version = "1.0",
+  other = "",
+  misc = NULL
+)
 }
 \arguments{
 \item{instanceName}{Name of instance not including the file extension (string).}
@@ -17,7 +31,7 @@ createResultFile(instanceName, contributionName, objectives, points, card,
 \item{objectives}{Number of objectives (number).}
 
 \item{points}{A data frame with the nondominated points. Column names must be \code{z1, z2, ..., zn,
-type} where column \code{zi} is the value of the i'th objective and column type contains
+  type} where column \code{zi} is the value of the i'th objective and column type contains
 strings which may be either \code{us} (unsupported), \code{se} (supported extreme), \code{s}
 (supported - may be extreme or nonextreme), \code{sne} (supported nonextreme), \code{NA}
 (unknown).}

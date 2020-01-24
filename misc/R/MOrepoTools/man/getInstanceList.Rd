@@ -4,15 +4,15 @@
 \alias{getInstanceList}
 \title{Get instance files (use \code{metaInstances.json})}
 \usage{
-getInstanceList(name = "", class = NULL, contribution = NULL,
-  local = FALSE)
+getInstanceList(name = "", class = NULL, contribution = NULL, local = FALSE)
 }
 \arguments{
 \item{name}{Name of the file(s) or only parts of the name. May be an regular expression.}
 
 \item{class}{Problem class. Ignored if \code{name} used.}
 
-\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all folders.}
+\item{contribution}{Name of the contribution (without prefix MOrepo-). If NULL consider all
+folders.}
 
 \item{local}{Use local repo.}
 }

@@ -20,7 +20,8 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
       instances <- plyr::llply(info, function(x){
          idx <- x$instanceGroups$class == class
          name <- x$instanceGroups$subfolder[idx]
-         dat <- getFileList(name, subdir = paste0("instances/", fileFormat, "/"), contribution = x$contributionName)
+         dat <- getFileList(name, subdir = paste0("instances/", fileFormat, "/"),
+                            contribution = x$contributionName)
       })
       instances <- unlist(instances)
       names(instances) <- NULL
@@ -46,7 +47,8 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 #'
 #' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
 #' @param class Problem class. Ignored if \code{name} used.
-#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all
+#'   folders.
 #' @param local Use local repo.
 #'
 #' @return The names of the files (including file path)
@@ -77,7 +79,8 @@ getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = 
 #' @param name  Name of the file(s) or only parts of the name. May be an regular expression.
 #' @param subdir Restricts search to a specific subfolder in each repo. The path must end with a
 #'   slash (/).
-#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all
+#'   folders.
 #' @param local Use local repo (assumed to be placed one folder up).
 #'
 #' @return The names of the files (including file path)
@@ -92,19 +95,21 @@ getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = 
 getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE) {
    if (is.null(contribution)) {
       baseURL <- ifelse(local, "metaContributions.json",
-                        paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
+         paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
       repos<-jsonlite::fromJSON(baseURL)$repos
       if (local) {
          contribution<-paste0("../MOrepo-", repos, "/")
       } else {
-         contribution<-paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", repos, "/git/trees/master?recursive=1")
+         contribution<-paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", repos,
+                              "/git/trees/master?recursive=1")
       }
    } else {
       repos <- contribution
       if (local) {
          contribution <- paste0("../MOrepo-",contribution,"/")
       } else {
-         contribution <- paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", contribution, "/git/trees/master?recursive=1")
+         contribution <- paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", contribution,
+                                "/git/trees/master?recursive=1")
       }
    }
 
@@ -119,7 +124,8 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
       } else {
          filelist <- list.files(path = contribution[i], full.names = TRUE, recursive = TRUE)
       }
-      if (subdir!="") filelist <- unlist(lapply(subdir, grep, filelist, value = TRUE, ignore.case = TRUE))
+      if (subdir!="") filelist <- unlist(lapply(subdir, grep, filelist, value = TRUE,
+                                                ignore.case = TRUE))
       unlist(lapply(name, grep, filelist, value = TRUE, ignore.case = TRUE))
       #grep(paste0(subdir,name), filelist, value = TRUE, ignore.case = TRUE)
    }
@@ -159,7 +165,8 @@ getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE)
 #' Get info about the instances.
 #'
 #' @param class Problem class of interest (if NULL consider all classes).
-#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all
+#'   folders.
 #' @param local Use local repos. Assume that repositories are placed in the father folder of the
 #'   current working dir.
 #' @param silent If true no output.
@@ -169,7 +176,8 @@ getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE)
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @example inst/examples/examples.R
-getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
+getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE,
+                          silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -206,16 +214,23 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
       if (!withLinks) {
          cat(paste0('\n#### Contribution ',x$contributionName,'\n\n'))
       } else {
-         cat(paste0('\n#### Contribution - [',x$contributionName,'](https://github.com/MCDMSociety/MOrepo-', x$contributionName, ')\n\n'))
+         cat(paste0('\n#### Contribution - [', x$contributionName,
+                    '](https://github.com/MCDMSociety/MOrepo-', x$contributionName, ')\n\n'))
       }
       cat("Source: ")
       print(x$bib[1])
       cat("\n")
-      cat(paste0("Test problem classes: ", vec2String(unique(x$instanceGroups$class[!is.na(x$instanceGroups$class)])), "  \n"))
-      if (!all(x$instanceGroups$subfolder=="")) {
-         cat(paste0("Subfolders: ", vec2String(unique(x$instanceGroups$subfolder[!is.na(x$instanceGroups$subfolder)])), "  \n"))
+      cat(paste0("Test problem classes: ", vec2String(unique(
+         x$instanceGroups$class[!is.na(x$instanceGroups$class)]
+      )), "  \n"))
+      if (!all(x$instanceGroups$subfolder == "")) {
+         cat(paste0("Subfolders: ", vec2String(unique(
+            x$instanceGroups$subfolder[!is.na(x$instanceGroups$subfolder)]
+         )), "  \n"))
       }
-      cat(paste0("Formats: ", vec2String(unique(unlist(x$instanceGroups$format))), "  \n"))
+      cat(paste0("Formats: ", vec2String(unique(
+         unlist(x$instanceGroups$format)
+      )), "  \n"))
    }
    invisible(metaList)
 }
@@ -225,7 +240,8 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
 #' Get info about the results.
 #'
 #' @param class Problem class of interest (if NULL consider all classes).
-#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all folders.
+#' @param contribution Name of the contribution (without prefix MOrepo-). If NULL consider all
+#'   folders.
 #' @param local Use local repos. Assume that repositories are placed in the father folder of the
 #'   current working dir.
 #' @param silent If true no output.
@@ -235,7 +251,8 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE, sile
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @example inst/examples/examples.R
-getResultInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent = FALSE, withLinks = FALSE) {
+getResultInfo<-function(class = NULL, contribution = NULL,
+                        local = FALSE, silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear", style = "markdown")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -269,17 +286,41 @@ getResultInfo<-function(class = NULL, contribution = NULL, local = FALSE, silent
    for (i in 1:length(metaList)) {
       x <- metaList[[i]]
       if (!withLinks) {
-         cat(paste0('\n#### Contribution ',x$contributionName,'\n\n'))
+         cat(paste0('\n#### Contribution ', x$contributionName, '\n\n'))
       } else {
-         cat(paste0('\n#### Contribution - [',x$contributionName,'](https://github.com/MCDMSociety/MOrepo-', x$contributionName, ')\n\n'))
+         cat(
+            paste0(
+               '\n#### Contribution - [',
+               x$contributionName,
+               '](https://github.com/MCDMSociety/MOrepo-',
+               x$contributionName,
+               ')\n\n'
+            )
+         )
       }
       cat("Source: ")
       print(x$bib[1])
       cat("\n")
       if (!withLinks) {
-         cat(paste0("Results given for contributions: ", vec2String(x$resultContributions), "  \n"))
+         cat(paste0(
+            "Results given for contributions: ",
+            vec2String(x$resultContributions),
+            "  \n"
+         ))
       } else {
-         cat(paste0("Results given for contributions: ", vec2String(paste0("[", x$resultContributions, "](https://github.com/MCDMSociety/MOrepo-", x$resultContributions, ")")), "  \n"))
+         cat(paste0(
+            "Results given for contributions: ",
+            vec2String(
+               paste0(
+                  "[",
+                  x$resultContributions,
+                  "](https://github.com/MCDMSociety/MOrepo-",
+                  x$resultContributions,
+                  ")"
+               )
+            ),
+            "  \n"
+         ))
       }
    }
    invisible(metaList)
@@ -359,7 +400,7 @@ getMaintainers<-function(local = FALSE) {
 #' getRepoPath()
 getRepoPath<-function(local = FALSE) {
    baseURL <- ifelse(local, "metaContributions.json",
-                     paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
+      paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json"))
    repos<-jsonlite::fromJSON(baseURL)$repos
    if (local) {
       repos<-paste0("../MOrepo-", repos, "/")
@@ -380,13 +421,15 @@ getRepoPath<-function(local = FALSE) {
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' getFilePath("instances/raw/SSCFLP/Gadegaard16_SSCFLP_Holmberg_p64_0.raw", contribution = "Gadegaard16")
+#' getFilePath("instances/raw/SSCFLP/Gadegaard16_SSCFLP_Holmberg_p64_0.raw",
+#'              contribution = "Gadegaard16")
 getFilePath<-function(file, contribution, local = FALSE) {
    if (length(contribution)>1) stop("Contribution must have length of one.")
    if (local) {
       p <- paste0("../MOrepo-", contribution, "/", file)
    } else {
-      p<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", contribution, "/master/", file)
+      p<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-",
+                contribution, "/master/", file)
    }
    return(p)
 }
@@ -401,10 +444,19 @@ getFilePath<-function(file, contribution, local = FALSE) {
 #' @export
 #' @example inst/examples/examples.R
 getContributionAsZip<-function(contributionName) {
-   path <- paste0("https://github.com/MCDMSociety/MOrepo-", contributionName, "/archive/master.zip")
+   path <-
+      paste0(
+         "https://github.com/MCDMSociety/MOrepo-",
+         contributionName,
+         "/archive/master.zip"
+      )
    for (i in 1:length(path)) {
       message("Download MOrepo-", contributionName[i], ".zip ... ", appendLF = FALSE)
-      if (utils::download.file(path[i], destfile = paste0("MOrepo-", contributionName[i], ".zip"), quiet = TRUE)>0) {
+      if (utils::download.file(
+         path[i],
+         destfile = paste0("MOrepo-", contributionName[i], ".zip"),
+         quiet = TRUE
+      ) > 0) {
          warning("The contribution could not be downloaded! ")
       }
       message("finished.")
@@ -422,7 +474,8 @@ getContributionAsZip<-function(contributionName) {
 #' @examples
 #' getMetaInstances()
 getMetaInstances<-function() {
-   instances <- jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaInstances.json")
+   instances <- jsonlite::fromJSON(
+      "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaInstances.json")
    instances$instances <- as.data.frame(instances$instances)
    colnames(instances$instances) <- instances$colNames
    instances <- instances$instances
