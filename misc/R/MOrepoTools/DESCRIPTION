@@ -1,16 +1,27 @@
 Package: MOrepoTools
 Type: Package
-Title: Tools for MOrepo
+Title: Tools for the MOrepo at GitHub
 Version: 1.0
 Date: 2017-04-01
 Authors@R: person("Lars", "Relund", email = "lars@relund.dk",
   role = c("aut", "cre"))
 URL: https://github.com/MCDMSociety/MOrepo/misc/R/MOrepoTools
 BugReports: https://github.com/MCDMSociety/MOrepo/issues
-Description: Tools for the MOrepo at GitHub.
+Description: MOrepoTools is a R package with tools for the MOrepo at GitHub. It is not nesseary 
+  for downloading/uploading e.g. instances from MOrepo but it will make life mush easier for you.
 License: GPL (>= 3)
-Imports: RCurl, httr, jsonlite, RefManageR, jsonvalidate, plyr, readr, utils, ggplot2
+Encoding: UTF-8
+Imports: 
+  RCurl, 
+  httr, 
+  jsonlite, 
+  RefManageR, 
+  jsonvalidate, 
+  plyr, 
+  readr, 
+  utils, 
+  ggplot2
 Suggests: knitr 
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
-License: file LICENSE
+RoxygenNote: 7.0.2
+Roxygen: list(markdown = TRUE)
