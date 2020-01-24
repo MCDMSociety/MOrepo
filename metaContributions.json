@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
@@ -85,6 +85,61 @@
         }
       ],
       "bib": "@Article{Hansen00,\nauthor=\"M.P. Hansen\",\ntitle=\"Use of Substitute Scalarizing Functions to Guide a Local Search Based Heuristic: The Case of moTSP\",\njournal=\"Journal of Heuristics\",\nyear=\"2000\",\nmonth=\"Aug\",\nday=\"01\",\nvolume=\"6\",\nnumber=\"3\",\npages=\"419--431\",\ndoi=\"10.1023/A:1009690717521\"\n}\n"
+    },
+    "Adelgren16": {
+      "contributionName": "Adelgren16",
+      "maintainer": "Nathan Adelgren <nadelgren@edinboro.edu>",
+      "instanceGroups": [
+        {
+          "subfolder": "LP_1",
+          "class": "MILP",
+          "objectives": 2,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        },
+        {
+          "subfolder": "LP_2",
+          "class": "MILP",
+          "objectives": 3,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        },
+        {
+          "subfolder": "LP_3",
+          "class": "MILP",
+          "objectives": 4,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        },
+        {
+          "subfolder": "LP_4",
+          "class": "MILP",
+          "objectives": 5,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        },
+        {
+          "subfolder": "LP_5",
+          "class": "MILP",
+          "objectives": 6,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        },
+        {
+          "subfolder": "LP_6",
+          "class": "MILP",
+          "objectives": 7,
+          "format": "lp",
+          "desc": "Instances extended from single-objective instances from MIPlib 2010. Note that we do NOT claim to have created these instances -- we have only added additional objectives.",
+          "creator": "Nathan Adelgren <nadelgren@edinboro.edu>"
+        }
+      ],
+      "bib": "@Misc{Adelgren16,\n  author       = {Adelgren, N. and Gupte, A.},\n  title        = {Branch-and-bound for biobjective mixed-integer programming},\n  howpublished = {Optimization Online},\n  year         = {2016},\n  type         = {resreport},\n  url          = {http://www.optimization-online.org/DB_HTML/2016/10/5676.html},\n}\n"
     }
   }
 }
