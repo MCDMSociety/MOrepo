@@ -54,8 +54,8 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    comments = NULL, optimal = TRUE, cpu = NULL, valid = TRUE, version = "1.0", other = "", misc = NULL,
    print = FALSE)
 {
-   lst$version <- version
    lst <- list()
+   lst$version <- version
    lst$contributionName <- contributionName
    lst$instanceName <- instanceName
    lst$objectives <- objectives
