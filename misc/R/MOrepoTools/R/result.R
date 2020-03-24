@@ -65,7 +65,7 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    if (length(direction)!=objectives) stop("Error: Length of direction must be ", objectives)
    lst$direction <- direction
    lst$optimal <- optimal
-   if (!is.null(cpu)) lst$cpu <- list(sec = cpu[1], machineSpec = cpu[2])
+   if (!is.null(cpu)) lst$cpu <- list(sec = as.numeric(cpu[1]), machineSpec = cpu[2])
    lst$valid <- valid
    if (card != length(points$z1)) stop("Error: card is not equal the number of points!")
    lst$card <- card
