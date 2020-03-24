@@ -30,42 +30,52 @@
 #'   strings which may be either \code{us} (unsupported), \code{se} (supported extreme), \code{s}
 #'   (supported - may be extreme or nonextreme), \code{sne} (supported nonextreme), \code{NA}
 #'   (unknown).
+#' @param print Also print the file (good for checking).
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @examples
-#' points <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
+#' pts <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
 #'    type = c('se', 'us', 'se', 'us', 'us', 'us', 'us', 'se'))
 #' createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
-#'    objectives = 2, points = points, card = 8, suppCard = 3, extCard = 3,
+#'    objectives = 2, points = pts, card = nrow(pts), suppCard = 3, extCard = 3,
 #'    objectiveType = c("int", "int"), direction = c("min", "min"),
-#'    comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE
+#'    comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE,
+#' )
+#' createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
+#'    objectives = 2, points = pts, card = nrow(pts), suppCard = 3, extCard = 3,
+#'    objectiveType = c("int", "int"), direction = c("min", "min"),
+#'    comments = "Adding a misc list", optimal = TRUE,
+#'    misc = list(a = 23, b = "text", c = 3.8, d = list(f = "sublist", g = 6), h = c(1,2,3)),
+#'    print = TRUE
 #' )
 createResultFile<-function(instanceName, contributionName, objectives, points, card, suppCard = NULL,
    extCard = NULL, objectiveType = rep("int", objectives), direction = rep("min", objectives),
-   comments = NULL, optimal = TRUE, cpu = NULL, valid = TRUE, version = "1.0", other = "", misc = NULL)
+   comments = NULL, optimal = TRUE, cpu = NULL, valid = TRUE, version = "1.0", other = "", misc = NULL,
+   print = FALSE)
 {
-   lst <- list()
    lst$version <- version
-   if (!is.null(comments)) lst$comments <- comments
+   lst <- list()
    lst$contributionName <- contributionName
    lst$instanceName <- instanceName
    lst$objectives <- objectives
    if (length(objectiveType)!=objectives) stop("Error: Length of objectiveType must be ", objectives)
    lst$objectiveType <- objectiveType
+   if (!is.null(comments)) lst$comments <- comments
    if (length(direction)!=objectives) stop("Error: Length of direction must be ", objectives)
    lst$direction <- direction
    lst$optimal <- optimal
-   if (!is.null(suppCard)) lst$suppCard <- suppCard
-   if (!is.null(extCard)) lst$extCard <- extCard
+   if (!is.null(cpu)) lst$cpu <- list(sec = cpu[1], machineSpec = cpu[2])
+   lst$valid <- valid
    if (card != length(points$z1)) stop("Error: card is not equal the number of points!")
    lst$card <- card
+   if (!is.null(suppCard)) lst$suppCard <- suppCard
+   if (!is.null(extCard)) lst$extCard <- extCard
    lst$points <- points
-   if (!is.null(cpu)) lst$cpu <- list(cpu = cpu[1], machineSpec = cpu[2])
    if (!is.null(misc)) lst$misc <- misc
-   lst$valid <- valid
    str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA)
-   if (other!="") other <- paste0("_", other, "_")
+   if (other!="") other <- paste0("_", other)
+   if (print) cat(str,"\n")
    fileN <- paste0(instanceName, other, "_result.json")
    readr::write_lines(str, fileN)
    message("Results written to ", paste0(instanceName, other, "_result.json"))
