@@ -160,7 +160,7 @@ modifyResultFile<-function(fileN, instanceName = NULL, contributionName = NULL, 
    if (!is.null(cpu)) lst$cpu <- list(cpu = cpu[1], machineSpec = cpu[2])
    if (!is.null(misc)) lst$misc <- misc
    if (!is.null(valid)) lst$valid <- valid
-   str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA)
+   str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA, na = "null")
    readr::write_lines(str, fileN)
    message("Modified ", fileN)
    if (check) {
