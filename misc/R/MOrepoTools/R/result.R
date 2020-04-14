@@ -73,7 +73,7 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    if (!is.null(extCard)) lst$extCard <- extCard
    lst$points <- points
    if (!is.null(misc)) lst$misc <- misc
-   str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA)
+   str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA, na = "null")
    if (other!="") other <- paste0("_", other)
    if (print) cat(str,"\n")
    fileN <- paste0(instanceName, other, "_result.json")

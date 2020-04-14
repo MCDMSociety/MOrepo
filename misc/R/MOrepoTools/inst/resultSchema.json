@@ -83,8 +83,8 @@
                      "z1": { "type": "number" },
                      "z2": { "type": "number" },
                      "type": {
-                        "type": "string",
-                        "enum": ["us", "se", "s", "sne"]
+                        "type": ["string", "null"],
+                        "enum": ["us", "se", "s", "sne", null]
                      }
                 },
                 "patternProperties": {
