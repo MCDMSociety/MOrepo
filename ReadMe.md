@@ -21,9 +21,8 @@ contribute to `MOrepo`. Moreover, a set of tools are given in the R
 package `MOrepoTools` which can be used to retrieve info about test
 instance groups, results and problem classes.
 
-Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk>,
-Sune Gadegaard <sgadegaard@econ.au.dk>, Thomas Stidsen <thst@dtu.dk> and
-Kim Allan Andersen <kia@econ.au.dk>.
+Maintainers of `MOrepo` are Lars Relund Nielsen <larsrn@econ.au.dk> and
+Sune Gadegaard <sgadegaard@econ.au.dk>.
 
 Current maintainers of sub-repositories are Sune Lauth Gadegaard
 <sgadegaard@econ.au.dk>, Lars Relund <junk@relund.dk>, Thomas Stidsen
@@ -60,14 +59,18 @@ To get an overview over the current problem classes run:
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-## [1] "Facility Location"  "Assignment"         "Traveling Salesman" "MILP"
+## [1] "Facility Location"  "Assignment"         "Traveling Salesman"
+## [4] "MILP"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08
 ## 
-## Source: Pedersen, C, L. Nielsen, and K. Andersen (2008). "The Bicriterion Multi Modal Assignment Problem: Introduction,
-## Analysis, and Experimental Results". In: _Informs Journal on Computing_ 20.3, pp. 400-411. DOI:
-## [10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
+## Source:
+## Warning: partial match of 'len' to 'lengths'
+## Pedersen, C, L. Nielsen, and K. Andersen (2008). "The Bicriterion Multi
+## Modal Assignment Problem: Introduction, Analysis, and Experimental
+## Results". In: _Informs Journal on Computing_ 20.3, pp. 400-411. DOI:
+## 10.1287/ijoc.1070.0253.
 ## 
 ## Test problem classes: Assignment  
 ## Subfolders: AP and MMAP  
@@ -75,9 +78,11 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## 
 ## #### Contribution Tuyttens00
 ## 
-## Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance of the MOSA Method for the Bicriteria Assignment
-## Problem". In: _Journal of Heuristics_ 6.3, pp. 295-310. DOI:
-## [10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
+## Source:
+## Warning: partial match of 'len' to 'lengths'
+## Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). "Performance of the
+## MOSA Method for the Bicriteria Assignment Problem". In: _Journal of
+## Heuristics_ 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
 ## 
 ## Test problem classes: Assignment  
 ## Formats: raw and xml
@@ -118,10 +123,13 @@ listed after class are:
 
 #### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
 
-Source: Gadegaard, S, A. Klose, and L. Nielsen (2016). “A bi-objective
-approach to discrete cost-bottleneck location problems”. In: *Annals of
-Operations Research*, pp. 1-23. DOI:
-[10.1007/s10479-016-2360-8](https://doi.org/10.1007%2Fs10479-016-2360-8).
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Gadegaard, S, A. Klose, and L. Nielsen (2016). “A bi-objective approach
+to discrete cost-bottleneck location problems”. In: *Annals of
+Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
 
 Test problem classes: Facility Location  
 Subfolders: CFLP\_UFLP and SSCFLP  
@@ -131,11 +139,14 @@ Formats: raw
 
 #### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
 
-Source: Pedersen, C, L. Nielsen, and K. Andersen (2008). “The
-Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
-Experimental Results”. In: *Informs Journal on Computing* 20.3,
-pp. 400-411. DOI:
-[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Pedersen, C, L. Nielsen, and K. Andersen (2008). “The Bicriterion Multi
+Modal Assignment Problem: Introduction, Analysis, and Experimental
+Results”. In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI:
+10.1287/ijoc.1070.0253.
 
 Test problem classes: Assignment  
 Subfolders: AP and MMAP  
@@ -143,10 +154,13 @@ Formats: xml
 
 #### Contribution - [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
 
-Source: Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). “Performance
-of the MOSA Method for the Bicriteria Assignment Problem”. In: *Journal
-of Heuristics* 6.3, pp. 295-310. DOI:
-[10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Tuyttens, D, J. Teghem, P. Fortemps, et al. (2000). “Performance of the
+MOSA Method for the Bicriteria Assignment Problem”. In: *Journal of
+Heuristics* 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
 
 Test problem classes: Assignment  
 Formats: raw and xml
@@ -155,10 +169,13 @@ Formats: raw and xml
 
 #### Contribution - [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)
 
-Source: Hansen, M. (2000). “Use of Substitute Scalarizing Functions to
-Guide a Local Search Based Heuristic: The Case of moTSP”. In: *Journal
-of Heuristics* 6.3, pp. 419-431. DOI:
-[10.1023/A:1009690717521](https://doi.org/10.1023%2FA%3A1009690717521).
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Hansen, M. (2000). “Use of Substitute Scalarizing Functions to Guide a
+Local Search Based Heuristic: The Case of moTSP”. In: *Journal of
+Heuristics* 6.3, pp. 419-431. DOI: 10.1023/A:1009690717521.
 
 Test problem classes: Traveling Salesman  
 Formats: raw
@@ -167,10 +184,13 @@ Formats: raw
 
 #### Contribution - [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)
 
-Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
-biobjective mixed-integer programming*. Optimization Online. Research
-rep. URL:
-<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Adelgren, N. and A. Gupte (2016). *Branch-and-bound for biobjective
+mixed-integer programming*. Optimization Online. Research rep. \<URL:
+<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>\>.
 
 Test problem classes: MILP  
 Subfolders: LP\_1, LP\_2, LP\_3, LP\_4, LP\_5 and LP\_6  
@@ -185,12 +205,26 @@ Assignment. The contributions listed after class are:
 
 #### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
 
-Source: Pedersen, C, L. Nielsen, and K. Andersen (2008). “The
-Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
-Experimental Results”. In: *Informs Journal on Computing* 20.3,
-pp. 400-411. DOI:
+Source:
+
+    ## Warning: partial match of 'len' to 'lengths'
+
+Pedersen, C, L. Nielsen, and K. Andersen (2008). “The Bicriterion Multi
+Modal Assignment Problem: Introduction, Analysis, and Experimental
+Results”. In: *Informs Journal on Computing* 20.3, pp. 400-411. DOI:
 [10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
 
 Results given for contributions:
 [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and
 [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+## How to cite
+
+To cite use
+
+    @Electronic{MOrepo,
+      Title                    = {Multi-Objective Optimization Repository (MOrepo)},
+      Author                   = {L. R. Nielsen},
+      Url                      = {https://github.com/MCDMSociety/MOrepo},
+      Year                     = {2017}
+    }
