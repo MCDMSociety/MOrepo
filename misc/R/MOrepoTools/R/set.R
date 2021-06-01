@@ -63,10 +63,13 @@ setMetaInstances<-function() {
 #' MOrepoTools:::setMetaContributions(add = "Adelgren16")
 #' }
 setMetaContributions<-function(add = NULL) {
-   repos<-jsonlite::fromJSON("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json")
+   repos<-jsonlite::fromJSON("contributions.json")
    contrib <- repos$repos
    if (!is.null(add)) {
       contrib <- unique(c(contrib, add))
+      repos$repos <- contrib
+      str<-jsonlite::toJSON(repos, auto_unbox = TRUE, pretty = TRUE, digits = NA)
+      readr::write_lines(str, "contributions.json")
    }
    repoInfo<-vector("list", length(contrib))
    names(repoInfo) <- contrib
