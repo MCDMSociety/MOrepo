@@ -1,4 +1,11 @@
-
+library(MOrepoTools)
+MOrepoTools:::setMetaContributions()
+for(i in 1:10){
+   try({
+      MOrepoTools:::setMetaInstances()
+      break
+   }, silent = FALSE)
+}
 
 ## rename/move files
 a <- list.files(path = "./instances/", pattern = "*$_*$", recursive = T, full.names = T)
