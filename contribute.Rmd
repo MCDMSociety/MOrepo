@@ -263,19 +263,19 @@ git push -u origin master
  
 Instances are classified into problem classes. The current classifications of MO optimization problems are
 
-`r paste0("   - ", getProblemClasses(), collapse="\n")`.
+`r paste0("   - ", getProblemClasses(), collapse="\n")`
 
 The set of problem classes is expanded as new problem instances is added to the repository. For instance problem classes may be 
-- Knapsack
-- Set Covering
-- Set Partitioning
-- Set Packing
-- Shortest Path
-- Transhipment
-- Multi-Commodity Flow
-- Minimum Cost Network Flow
-- MILP (general mixed integer linear programming problems)
-- IP (general integer programming problems including combinatorial optimization)
+
+  - Set Covering 
+  - Set Partitioning 
+  - Set Packing 
+  - Shortest Path 
+  - Transhipment
+  - Multi-Commodity Flow 
+  - Minimum Cost Network Flow
+  - MILP (general mixed integer linear programming problems)
+  - IP (general integer programming problems)
 
 
 
