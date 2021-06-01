@@ -9,8 +9,8 @@ editor_options:
 ```{r, include=FALSE}
 library(MOrepoTools)
 library(bibtex)
-knitr::opts_chunk$set(tidy = TRUE, opts=list(blank=FALSE, width.cutoff=120), cache = FALSE, 
-                      autodep = TRUE, collapse=TRUE)
+knitr::opts_chunk$set(opts=list(blank=FALSE, width.cutoff=120), cache = FALSE, 
+                      autodep = TRUE, collapse=TRUE, error = TRUE)
 knitr::opts_knit$set(width = 90)
 ```
 
