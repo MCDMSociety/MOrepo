@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix that are part of MOrepo",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
@@ -140,6 +140,31 @@
         }
       ],
       "bib": "@Misc{Adelgren16,\n  author       = {Adelgren, N. and Gupte, A.},\n  title        = {Branch-and-bound for biobjective mixed-integer programming},\n  howpublished = {Optimization Online},\n  year         = {2016},\n  type         = {resreport},\n  url          = {http://www.optimization-online.org/DB_HTML/2016/10/5676.html},\n}\n"
+    },
+    "Forget20": {
+      "contributionName": "Forget20",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "AP",
+          "class": "Assignment",
+          "objectives": 2,
+          "tags": ["ap", "assignmentProblem", "bi-AP"],
+          "format": "raw",
+          "desc": "Instances for the bi-objective assignment problem.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "MMAP",
+          "class": "Assignment",
+          "objectives": 2,
+          "tags": ["bi-MMAP", "MMAP", "multi-modal"],
+          "format": "raw",
+          "desc": "Instances for the bi-objective multi-modal assignment problem.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        }
+      ],
+      "bib": "@Misc{Forget20,\n\tauthor       = {Nicolas Forget and Sune Lauth Gadegaard and Kathrin Klamroth and Lars Relund Nielsen and Anthony Przybylski},\n\ttitle        = {Branch-and-bound and objective branching with three objectives},\n\thowpublished = {\\url{http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf}},\n\tmonth        = {dec},\n\tyear         = {2020},\n\tnote         = {{P}reprint},\n\tpublisher    = {\\url{optimization-online.org}}\n}\n"
     }
   }
 }
