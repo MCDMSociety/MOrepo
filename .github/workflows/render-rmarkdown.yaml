@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-      - '**.Rmd'
+      - '*.Rmd'
       - 'contributions.json'
       - 'renv.lock'
 
