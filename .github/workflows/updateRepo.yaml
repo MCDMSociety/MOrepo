@@ -1,4 +1,4 @@
-name: R script Skjern 1
+name: Update Meta files
 
 on:
   push:
