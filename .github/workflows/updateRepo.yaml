@@ -34,7 +34,12 @@ jobs:
         run: |
           library(MOrepoTools)
           MOrepoTools:::setMetaContributions()
-          MOrepoTools:::setMetaInstances()
+          for(i in 1:10){
+            try({
+              r <- MOrepoTools:::setMetaInstances()
+              break
+            }, silent = FALSE)
+          }
         shell: Rscript {0}
 
       - name: Commit results
