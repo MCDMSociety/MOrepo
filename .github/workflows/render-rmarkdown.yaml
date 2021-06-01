@@ -2,7 +2,8 @@ on:
   push:
     paths:
       - '*.Rmd'
-      - 'contributions.json'
+      - 'metaContributions.json'
+      - 'metaInstances.json'
       - 'renv.lock'
 
 jobs:
