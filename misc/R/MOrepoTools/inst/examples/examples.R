@@ -22,8 +22,6 @@ getContributionAsZip(c("Tuyttens00", "Template"))
 
 # Download specific instances
 getInstance(name="Tuyttens.*n10", onlyList = TRUE)  # only file locations returned (no downloading)
-\dontrun{
-getInstance(name="Tuyttens")}
 
 
 ## Plotting results
@@ -49,4 +47,5 @@ modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed commen
 
 # Check your contribution
 \dontrun{
-checkContribution()}
+checkContribution()
+}
