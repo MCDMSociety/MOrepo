@@ -45,9 +45,9 @@ jobs:
           git push origin || echo "No changes to commit"
 
       - name: Sleep for 60 seconds
-        uses: jakejarvis/wait-action@master
+        uses: juliangruber/sleep-action@v1
         with:
-          time: '60s'
+          time: 60s
 
       - name: Run R script
         run: |
