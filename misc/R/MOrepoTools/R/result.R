@@ -78,7 +78,7 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    if (print) cat(str,"\n")
    fileN <- paste0(instanceName, "_result", other, ".json")
    readr::write_lines(str, fileN)
-   message("Results written to ", fileN))
+   message("Results written to ", fileN)
    message("Validate the file against schema ... ", appendLF = F)
    checkResult(fileN)
    message("ok.")
