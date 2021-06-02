@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - contributions.json
+      - .github/workflows/updateRepo.yaml
 
 jobs:
   render:
