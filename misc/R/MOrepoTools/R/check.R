@@ -81,18 +81,18 @@ checkContribution<-function() {
       #    message("\n   Error: You need to add a file ReadMe.md in the instances folder!")
       #    return(invisible(FALSE))
       # }
-      message("Checking file and folders structure in instances ...", appendLF = FALSE)
+      message("Checking file and folders structure in instances folder ...", appendLF = FALSE)
       # Subfolders for each file format
       if (!all(unlist(meta$instanceGroups$format) %in% list.dirs(path = "./instances", full.names = FALSE, recursive = FALSE))) {
          message("\n   Error: The instances folder must have a subfolder for each instance file format (",
-                 paste0(meta$instanceGroups$format[[1]], collapse = ", "), ") specified in the meta.json file.")
+                 paste0(unlist(meta$instanceGroups$format), collapse = ", "), ") specified in the meta.json file.")
          return(invisible(FALSE))
       }
       # Subfolders in each file format folder (from meta.json)
       for (i in 1:length(meta$instanceGroups$subfolder)) {
          if (meta$instanceGroups$subfolder[i]=="") next
          for (f in meta$instanceGroups$format[[i]]) {
-            if (!(meta$instanceGroups$subfolder[i] %in% list.dirs(path = paste0("./instances/",f), full.names = FALSE, recursive = FALSE))) {
+            if (!(meta$instanceGroups$subfolder[i] %in% list.dirs(path = paste0("./instances/",f), full.names = FALSE, recursive = TRUE))) {
                message("\n   Error: The format folder ", f, " must have a subfolder named ", meta$instanceGroups$subfolder[i], " as specified in the meta.json file.")
                return(invisible(FALSE))
             }
@@ -122,8 +122,9 @@ checkContribution<-function() {
       # Subfolder name contained in filename for all instances
       for (f in meta$instanceGroups$format[[1]]) {
          for (d in meta$instanceGroups$subfolder)
-            if (length(grep(d, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
-               message("\n   Error: Filenames in subfolder ", d, " must all contain ", d, "!")
+            d1 <- str_replace(d, "/(.*)", "")
+            if (length(grep(d1, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
+               message("\n   Error: Filenames in subfolder ", d, " must all contain ", d1, "!")
                return(invisible(FALSE))
             }
       }
@@ -134,12 +135,22 @@ checkContribution<-function() {
             return(invisible(FALSE))
          }
       }
+      # Is all instance folders in meta
+      metaDirs <- expand.grid(meta$instanceGroups$format[[1]], meta$instanceGroups$subfolder)
+      metaDirs <- paste0(metaDirs[,1], "/", metaDirs[,2])
+      dirs <- str_replace(list.dirs(path = "./instances/", full.names = FALSE, recursive = TRUE), ".*/", "")
+      for (f in dirs) {
+         if (!any(str_detect(metaDirs, f))) {
+            message("\n   Error: subfolder ", f, " not listed in meta.json!")
+            return(invisible(FALSE))
+         }
+      }
       message(" ok.")
    }
 
    if ("results" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains results of test instances. ")
-      files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE )
+      files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE)
       message("Validate the result files against schema ... ")
       for (f in files) {
          message("Validate ", f, " ...", appendLF = FALSE)
@@ -147,11 +158,12 @@ checkContribution<-function() {
          message(" ok.")
       }
       message("Check if there is an instance file in MOrepo for each result file ... ", appendLF = FALSE)
-      instances <- getMetaInstances()
+      instances <- c(
+         getMetaInstances()$instanceName,
+         sub("(.*)\\..*$", "\\1",  basename(list.files(path = "instances", all.files = TRUE, recursive = TRUE)))
+      )
       res <- sapply(files, function(x) {
-         name <- basename(x)
-         name <- sub("(.*)_result.*$", "\\1", name)
-         if (!(name %in% instances$instanceName)) {
+         if (!(x %in% instances)) {
             message("\n   Error: File ", x, " does not correspond to and instance file!")
             return(FALSE)
          } else return(TRUE)
