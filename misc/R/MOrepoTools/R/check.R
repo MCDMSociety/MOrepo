@@ -138,9 +138,9 @@ checkContribution<-function() {
       # Is all instance folders in meta
       metaDirs <- expand.grid(meta$instanceGroups$format[[1]], meta$instanceGroups$subfolder)
       metaDirs <- paste0(metaDirs[,1], "/", metaDirs[,2])
-      dirs <- str_replace(list.dirs(path = "./instances/", full.names = FALSE, recursive = TRUE), ".*/", "")
+      dirs <- stringr::str_replace(list.dirs(path = "./instances/", full.names = FALSE, recursive = TRUE), ".*/", "")
       for (f in dirs) {
-         if (!any(str_detect(metaDirs, f))) {
+         if (!any(stringr::str_detect(metaDirs, f))) {
             message("\n   Error: subfolder ", f, " not listed in meta.json!")
             return(invisible(FALSE))
          }
