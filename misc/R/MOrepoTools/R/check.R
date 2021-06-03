@@ -122,7 +122,7 @@ checkContribution<-function() {
       # Subfolder name contained in filename for all instances
       for (f in meta$instanceGroups$format[[1]]) {
          for (d in meta$instanceGroups$subfolder)
-            d1 <- str_replace(d, "/(.*)", "")
+            d1 <- stringr::str_replace(d, "/(.*)", "")
             if (length(grep(d1, list.files(paste0("./instances/",f,"/",d)), invert = TRUE))>0) {
                message("\n   Error: Filenames in subfolder ", d, " must all contain ", d1, "!")
                return(invisible(FALSE))
