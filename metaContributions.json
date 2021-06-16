@@ -143,7 +143,7 @@
     },
     "Forget20": {
       "contributionName": "Forget20",
-      "maintainer": "Lars Relund <junk@relund.dk>",
+      "maintainer": "Lars Relund <lars@relund.dk>",
       "rawDesc": "A structured text file with numbers (see ReadMe)",
       "instanceGroups": [
         {
