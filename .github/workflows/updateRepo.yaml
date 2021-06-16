@@ -6,6 +6,7 @@ on:
       - contributions.json
       - .github/workflows/updateRepo.yaml
       - ReadMe.Rmd
+      - contribute.Rmd
 
 jobs:
   render:
