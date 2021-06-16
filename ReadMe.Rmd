@@ -1,7 +1,7 @@
 ---
 output: 
    github_document:
-      html_preview: false
+      html_preview: true
 editor_options: 
   chunk_output_type: console
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(opts=list(blank=FALSE, width.cutoff=120), cache = FALSE,
 knitr::opts_knit$set(width = 90)
 ```
 
-```{r How to update the repo (done using GitHub actions), eval=FALSE}
+```{r How to update the repo (done using GitHub actions), eval=FALSE, echo=FALSE}
 MOrepoTools:::setMetaContributions()
 for(i in 1:10){
    try({
