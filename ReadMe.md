@@ -30,7 +30,8 @@ Current maintainers of sub-repositories are Sune Lauth Gadegaard
 
 Current contributors to the repository are S.L. Gadegaard, A. Klose,
 L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph.
-Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren and A. Gupte.
+Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte, N.
+Forget, K. Klamroth and A. Przybylski.
 
 ## Usage
 
@@ -59,8 +60,9 @@ To get an overview over the current problem classes run:
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-## [1] "Facility Location"  "Assignment"         "Traveling Salesman"
-## [4] "MILP"
+## [1] "Facility Location"                 "Assignment"                       
+## [3] "Traveling Salesman"                "MILP"                             
+## [5] "Knapsack"                          "Facility Location (uncapacitated)"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08
@@ -81,7 +83,17 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## Heuristics_ 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
 ## 
 ## Test problem classes: Assignment  
-## Formats: raw and xml
+## Formats: raw and xml  
+## 
+## #### Contribution Forget20
+## 
+## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020). _Branch-and-bound
+## and objective branching with three objectives_. Optimization Online.
+## <URL: http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+## 
+## Test problem classes: Assignment, Knapsack and Facility Location (uncapacitated)  
+## Subfolders: AP, KP and UFLP  
+## Formats: raw
 ```
 
 Now download the Tuyttens00 contribution as a zip file using
@@ -110,8 +122,8 @@ it.
 ## Test instances @ MOrepo
 
 Currently MOrepo contains instances for problem classes Facility
-Location, Assignment, Traveling Salesman and MILP. The contributions
-listed after class are:
+Location, Assignment, Traveling Salesman, MILP, Knapsack and Facility
+Location (uncapacitated). The contributions listed after class are:
 
 ### Problem class - Facility Location
 
@@ -122,7 +134,7 @@ approach to discrete cost-bottleneck location problems”. In: *Annals of
 Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
 
 Test problem classes: Facility Location  
-Subfolders: CFLP\_UFLP and SSCFLP  
+Subfolders: CFLP_UFLP and SSCFLP  
 Formats: raw
 
 ### Problem class - Assignment
@@ -148,6 +160,18 @@ In: *Journal of Heuristics* 6.3, pp. 295-310. DOI:
 Test problem classes: Assignment  
 Formats: raw and xml
 
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. \<URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+
+Test problem classes: Assignment, Knapsack and Facility Location
+(uncapacitated)  
+Subfolders: AP, KP and UFLP  
+Formats: raw
+
 ### Problem class - Traveling Salesman
 
 #### Contribution - [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)
@@ -165,17 +189,46 @@ Formats: raw
 
 Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
 biobjective mixed-integer programming*. Optimization Online. Research
-rep. &lt;URL:
-<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>&gt;.
+rep. \<URL:
+<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>\>.
 
 Test problem classes: MILP  
-Subfolders: LP\_1, LP\_2, LP\_3, LP\_4, LP\_5 and LP\_6  
+Subfolders: LP_1, LP_2, LP_3, LP_4, LP_5 and LP_6  
 Formats: lp
+
+### Problem class - Knapsack
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. \<URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+
+Test problem classes: Assignment, Knapsack and Facility Location
+(uncapacitated)  
+Subfolders: AP, KP and UFLP  
+Formats: raw
+
+### Problem class - Facility Location (uncapacitated)
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. \<URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+
+Test problem classes: Assignment, Knapsack and Facility Location
+(uncapacitated)  
+Subfolders: AP, KP and UFLP  
+Formats: raw
 
 ## Results @ MOrepo
 
 Currently MOrepo contains results for instances in problem classes
-Assignment. The contributions listed after class are:
+Assignment, Knapsack and Facility Location (uncapacitated). The
+contributions listed after class are:
 
 ### Problem class - Assignment
 
@@ -190,6 +243,43 @@ Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
 Results given for contributions:
 [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and
 [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+
+Results given for contributions:
+[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) and
+[dfsa](https://github.com/MCDMSociety/MOrepo-dfsa)
+
+### Problem class - Knapsack
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+
+Results given for contributions:
+[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) and
+[dfsa](https://github.com/MCDMSociety/MOrepo-dfsa)
+
+### Problem class - Facility Location (uncapacitated)
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+
+Results given for contributions:
+[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) and
+[dfsa](https://github.com/MCDMSociety/MOrepo-dfsa)
 
 ## How to cite
 
