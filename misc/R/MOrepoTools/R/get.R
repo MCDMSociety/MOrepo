@@ -58,7 +58,7 @@ getInstance <- function(name=NULL, class=NULL, fileFormat="raw", onlyList = FALS
 #' getInstanceList("SSCFLP.*p64")
 #' getInstanceList(class = "Facility location")
 #' getInstanceList(contribution="Tuyttens00")
-getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = FALSE) {
+getInstanceList<-function(name = "", class = NULL, contribution = NULL, local = TRUE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    files<-jsonlite::fromJSON(paste0(baseURL,"metaInstances.json"))
    colnames(files$instances) <- files$colNames
@@ -145,7 +145,7 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @example inst/examples/examples.R
-getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE) {
+getProblemClasses<-function(local = TRUE, contribution = NULL, results = FALSE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
    repos <- repos$repoInfo
@@ -176,7 +176,7 @@ getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE)
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
 #' @example inst/examples/examples.R
-getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE,
+getInstanceInfo<-function(class = NULL, contribution = NULL, local = TRUE,
                           silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
@@ -252,7 +252,7 @@ getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE,
 #' @export
 #' @example inst/examples/examples.R
 getResultInfo<-function(class = NULL, contribution = NULL,
-                        local = FALSE, silent = FALSE, withLinks = FALSE) {
+                        local = TRUE, silent = FALSE, withLinks = FALSE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear", style = "markdown")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -380,7 +380,7 @@ getContributorNames<-function(local = TRUE) {
 #' @export
 #' @examples
 #' getMaintainers()
-getMaintainers<-function(local = FALSE) {
+getMaintainers<-function(local = TRUE) {
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    meta<-jsonlite::fromJSON(paste0(baseURL, "metaContributions.json"))
    lst<-lapply(meta$repoInfo, FUN = function(x) paste(x$maintainer))
