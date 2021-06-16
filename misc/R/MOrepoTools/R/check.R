@@ -166,6 +166,7 @@ checkContribution<-function(validateResults = TRUE) {
          getMetaInstances()$instanceName,
          sub("(.*)\\..*$", "\\1",  basename(list.files(path = "instances", all.files = TRUE, recursive = TRUE)))
       )
+      files <- unique(sub(".*/(.*)_result.*$", "\\1",  files))
       res <- sapply(files, function(x) {
          if (!(x %in% instances)) {
             message("\n   Error: File ", x, " does not correspond to and instance file!")
