@@ -39,9 +39,9 @@
       "RemoteRepo": "MOrepo",
       "RemoteUsername": "MCDMSociety",
       "RemoteRef": "HEAD",
-      "RemoteSha": "e6086bc283f2ed2240f1038cd02f4f5b26b4d2b9",
+      "RemoteSha": "1df4fdc90c5ba4b3e03b33f3a3780b8867c438ae",
       "RemoteSubdir": "misc/R/MOrepoTools",
-      "Hash": "fb989c5330348b09a2cc639d2d8f9854"
+      "Hash": "bdd5818c3872072a34b8c9634ab754fe"
     },
     "Matrix": {
       "Package": "Matrix",
