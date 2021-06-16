@@ -73,6 +73,24 @@ jobs:
           git commit metaInstances.json -m 'Update meta instances' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
 
+      - name: Updtate meta file with results
+        run: |
+          library(MOrepoTools)
+          for(i in 1:10){
+            try({
+              r <- MOrepoTools:::setMetaResults()
+              break
+            }, silent = FALSE)
+          }
+        shell: Rscript {0}
+
+      - name: Commit results
+        run: |
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git commit metaResults.json -m 'Update meta results' || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+
       - name: Render Rmarkdown files
         run: |
           Rscript -e 'rmarkdown::render("ReadMe.Rmd", output_format = "github_document", output_file = "ReadMe.md")'

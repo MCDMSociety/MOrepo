@@ -1,3 +1,35 @@
+#' Create the \code{metaResults.json} file
+#'
+#' Must be run each time there is result modifications.
+#'
+#' @author Lars Relund \email{lars@@relund.dk}
+#' @examples
+#' \dontrun{
+#' MOrepoTools:::setMetaResults()
+#' }
+#' @import tidyverse
+setMetaResults<-function() {
+   lst <- list()
+   lst$desc = "Meta file - Results at MOrepo"
+
+   # get all instances at GitHub
+   dat <- tibble(files = getFileList(subdir = "results")) %>%
+      filter(str_detect(files, ".json"))
+   dat <- dat %>%
+      mutate(resultName = str_remove(basename(files), ".json"),
+         # instanceName = str_remove(basename(files), "_result.*json"),
+         # contributionName = str_replace(files, "^.*?-(.*?)/.*$", "\\1"),
+         subfolder = str_replace(files, "^.*/results/(.*)$", "\\1"),
+         subfolder = str_replace(subfolder, basename(subfolder), ""),
+         subfolder = str_replace(subfolder, "^(.*)/$", "\\1")) %>%
+      select(-files)
+
+   lst$results<-dat
+   str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
+   readr::write_lines(str, "metaResults.json")
+   message("Meta file with results for MOrepo saved to metaResults.json")
+}
+
 
 #' Create the \code{metaInstances.json} file
 #'
@@ -43,7 +75,7 @@ setMetaInstances<-function() {
    lst$colNames <- colnames(dat)
    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
    readr::write_lines(str, "metaInstances.json")
-   message("Meta data for MOrepo saved to metaInstances.json")
+   message("Meta file with instances for MOrepo saved to metaInstances.json")
 }
 
 
