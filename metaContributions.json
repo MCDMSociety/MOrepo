@@ -166,7 +166,7 @@
         },
         {
           "subfolder": "UFLP",
-          "class": "Facility Location (uncapacitated)",
+          "class": "Facility Location",
           "objectives": 3,
           "tags": ["uflp", "uncapacitatedFacilityLocationProblem", "tri-UFLP"],
           "format": "raw",
@@ -174,7 +174,7 @@
           "creator": "Nicolas Forget <nforget@econ.au.dk>"
         }
       ],
-      "resultContributions": ["Forget20", "dfsa"],
+      "resultContributions": "Forget20",
       "bib": "@TechReport{Forget20,\n  author      = {N. Forget and S.L. Gadegaard and K. Klamroth and L.R. Nielsen and A. Przybylski},\n  institution = {Optimization Online},\n  title       = {Branch-and-bound and objective branching with three objectives},\n  year        = {2020},\n  month       = {dec},\n  url         = {http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf},\n}\n"
     }
   }
