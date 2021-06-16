@@ -32,9 +32,11 @@ yesno<-function (...)
 #'
 #' You must run this function in the root of your contribution.
 #'
+#' @param validateResults If true the result files are validated against schema.
+#'
 #' @author Lars Relund \email{lars@@relund.dk}
 #' @export
-checkContribution<-function() {
+checkContribution<-function(validateResults = TRUE) {
    message("Your working directory is ", getwd())
    if (!yesno("Is that the location of your contribution?")) {
       message("\n   Error: Change working directory!")
@@ -151,11 +153,13 @@ checkContribution<-function() {
    if ("results" %in% list.dirs(full.names = FALSE, recursive = FALSE)) {
       message("Your contribution contains results of test instances. ")
       files <- list.files(path = "results", pattern = ".json$", all.files = TRUE, recursive = TRUE, full.names = TRUE)
-      message("Validate the result files against schema ... ")
-      for (f in files) {
-         message("Validate ", f, " ...", appendLF = FALSE)
-         checkResult(f)
-         message(" ok.")
+      if (validateResults) {
+         message("Validate the result files against schema ... ")
+         for (f in files) {
+            message("Validate ", f, " ...", appendLF = FALSE)
+            checkResult(f)
+            message(" ok.")
+         }
       }
       message("Check if there is an instance file in MOrepo for each result file ... ", appendLF = FALSE)
       instances <- c(
