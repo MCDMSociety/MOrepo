@@ -23,8 +23,8 @@ setMetaResults<-function() {
          subfolder = str_replace(subfolder, basename(subfolder), ""),
          subfolder = str_replace(subfolder, "^(.*)/$", "\\1")) %>%
       select(-files)
-
    lst$results<-dat
+   lst$colNames <- colnames(dat)
    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
    readr::write_lines(str, "metaResults.json")
    message("Meta file with results for MOrepo saved to metaResults.json")
