@@ -144,27 +144,38 @@
     "Forget20": {
       "contributionName": "Forget20",
       "maintainer": "Lars Relund <junk@relund.dk>",
+      "rawDesc": "A structured text file with numbers (see ReadMe)",
       "instanceGroups": [
         {
           "subfolder": "AP",
           "class": "Assignment",
-          "objectives": 2,
-          "tags": ["ap", "assignmentProblem", "bi-AP"],
+          "objectives": 3,
+          "tags": ["ap", "assignmentProblem", "tri-AP"],
           "format": "raw",
-          "desc": "Instances for the bi-objective assignment problem.",
+          "desc": "Instances for the tri-objective assignment problem.",
           "creator": "Nicolas Forget <nforget@econ.au.dk>"
         },
         {
-          "subfolder": "MMAP",
-          "class": "Assignment",
-          "objectives": 2,
-          "tags": ["bi-MMAP", "MMAP", "multi-modal"],
+          "subfolder": "KP",
+          "class": "Knapsack",
+          "objectives": 3,
+          "tags": ["kp", "knapsackProblem", "tri-KP"],
           "format": "raw",
-          "desc": "Instances for the bi-objective multi-modal assignment problem.",
+          "desc": "Instances for the tri-objective knapsack problem.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "UFLP",
+          "class": "Facility Location (uncapacitated)",
+          "objectives": 3,
+          "tags": ["uflp", "uncapacitatedFacilityLocationProblem", "tri-UFLP"],
+          "format": "raw",
+          "desc": "Instances for the tri-objective uncapacitated facility location problem.",
           "creator": "Nicolas Forget <nforget@econ.au.dk>"
         }
       ],
-      "bib": "@Misc{Forget20,\n\tauthor       = {Nicolas Forget and Sune Lauth Gadegaard and Kathrin Klamroth and Lars Relund Nielsen and Anthony Przybylski},\n\ttitle        = {Branch-and-bound and objective branching with three objectives},\n\thowpublished = {\\url{http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf}},\n\tmonth        = {dec},\n\tyear         = {2020},\n\tnote         = {{P}reprint},\n\tpublisher    = {\\url{optimization-online.org}}\n}\n"
+      "resultContributions": ["Forget20", "dfsa"],
+      "bib": "@TechReport{Forget20,\n  author      = {N. Forget and S.L. Gadegaard and K. Klamroth and L.R. Nielsen and A. Przybylski},\n  institution = {Optimization Online},\n  title       = {Branch-and-bound and objective branching with three objectives},\n  year        = {2020},\n  month       = {dec},\n  url         = {http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf},\n}\n"
     }
   }
 }
