@@ -107,7 +107,9 @@ Or download selected instances
 
 ``` r
 getInstance(name="Tuyttens.*n10")
-## Error in FUN(X[[i]], ...): Forbidden (HTTP 403).
+## Download Tuyttens00_AP_n10.raw ...finished
+## Download Tuyttens00_AP_n100.raw ...finished
+## [1] "Tuyttens00_AP_n10.raw"  "Tuyttens00_AP_n100.raw"
 ```
 
 ## How to contribute
