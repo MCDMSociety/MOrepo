@@ -337,7 +337,7 @@ getResultInfo<-function(class = NULL, contribution = NULL,
 #' @export
 #' @examples
 #' getContributorNames()
-getContributorNames<-function(local = FALSE) {
+getContributorNames<-function(local = TRUE) {
    RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
@@ -347,6 +347,7 @@ getContributorNames<-function(local = FALSE) {
       bib<-RefManageR::ReadBib("tmp.bib")
       authors<-c(authors, paste(bib$author))
    }
+
    return(unique(authors))
    # fileN<-getFileList("citation.bib", local = local)
    # baseURL <- ifelse(local, "file://./",  "https://raw.githubusercontent.com/MCDMSociety/" )
