@@ -18,7 +18,7 @@ setMetaResults<-function() {
    dat <- dat %>%
       mutate(resultName = str_remove(basename(files), ".json"),
          # instanceName = str_remove(basename(files), "_result.*json"),
-         # contributionName = str_replace(files, "^.*?-(.*?)/.*$", "\\1"),
+         contributionName = str_replace(files, "^.*?-(.*?)/.*$", "\\1"),
          subfolder = str_replace(files, "^.*/results/(.*)$", "\\1"),
          subfolder = str_replace(subfolder, basename(subfolder), ""),
          subfolder = str_replace(subfolder, "^(.*)/$", "\\1")) %>%
