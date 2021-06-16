@@ -170,7 +170,7 @@ checkContribution<-function(validateResults = TRUE) {
       res <- sapply(files, function(x) {
          if (!(x %in% instances)) {
             message("\n   Error: File ", x, " does not correspond to and instance file!")
-            return(FALSE)
+            return(invisible(FALSE))
          } else return(TRUE)
       })
       if (all(res) == FALSE) return(invisible(FALSE))
@@ -179,7 +179,7 @@ checkContribution<-function(validateResults = TRUE) {
       repos <- unique(sub("(.*?)-.*$", "\\1",  files))
       if (length(setdiff(meta$resultContributions, repos)) != 0) {
          message("\n   Error: Contributions don't match! Please modify the resultContributions field in meta.json.")
-         return(FALSE)
+         return(invisible(FALSE))
       }
       message(" ok.")
    }
