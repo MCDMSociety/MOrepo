@@ -321,6 +321,8 @@ classifications of MO optimization problems are
 -   Assignment
 -   Traveling Salesman
 -   MILP
+-   Knapsack
+-   Facility Location (uncapacitated)
 
 The set of problem classes is expanded as new problem instances is added
 to the repository. For instance problem classes may be
