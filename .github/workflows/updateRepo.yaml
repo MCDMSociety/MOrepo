@@ -5,6 +5,7 @@ on:
     paths:
       - contributions.json
       - .github/workflows/updateRepo.yaml
+      - ReadMe.Rmd
 
 jobs:
   render:
