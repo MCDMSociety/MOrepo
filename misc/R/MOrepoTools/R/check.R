@@ -175,6 +175,13 @@ checkContribution<-function(validateResults = TRUE) {
       })
       if (all(res) == FALSE) return(invisible(FALSE))
       message(" ok.")
+      message("Are result contributions added to meta.json ... ", appendLF = FALSE)
+      repos <- unique(sub("(.*?)-.*$", "\\1",  files))
+      if (length(setdiff(meta$resultContributions, repos)) != 0) {
+         message("\n   Error: Contributions don't match! Please modify the resultContributions field in meta.json.")
+         return(FALSE)
+      }
+      message(" ok.")
    }
 
    message("Everything seems to be okay :-)")
