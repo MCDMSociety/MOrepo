@@ -47,7 +47,6 @@ createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pederse
 )
 modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed comment")
 
-# Check your contribution
-\dontrun{
-checkContribution()
-}
+## Check your contribution
+# checkContribution()
+
