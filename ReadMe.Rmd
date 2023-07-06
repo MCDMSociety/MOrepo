@@ -76,12 +76,6 @@ Now download the Tuyttens00 contribution as a zip file using
 getContributionAsZip("Tuyttens00")
 ```
 
-Or download selected instances 
-
-```{r, cache=TRUE}
-getInstance(name="Tuyttens.*n10")
-```
-
 
 
 ## How to contribute

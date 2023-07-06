@@ -38,11 +38,11 @@ Forget, K. Klamroth and A. Przybylski.
 
 Instances can be downloaded in different ways depending on usage:
 
--   If you want a whole sub-repository, download it as a zip file or
-    clone it on GitHub.
--   Browse to a single instance and download it using the raw format at
-    GitHub.
--   Use the R package `MOrepoTools` to download instances.
+- If you want a whole sub-repository, download it as a zip file or clone
+  it on GitHub.
+- Browse to a single instance and download it using the raw format at
+  GitHub.
+- Use the R package `MOrepoTools` to download instances.
 
 We recommend the last option and illustrate how it works. You don’t need
 much knowledge about R to use the package. But of course it is
@@ -89,7 +89,7 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## 
 ## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020). _Branch-and-bound
 ## and objective branching with three objectives_. Optimization Online.
-## <URL: http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+## <http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 ## 
 ## Test problem classes: Assignment, Knapsack and Facility Location  
 ## Subfolders: AP, KP and UFLP  
@@ -141,8 +141,8 @@ Formats: raw
 
 Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
 *Branch-and-bound and objective branching with three objectives*.
-Optimization Online. \<URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+Optimization Online.
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -175,8 +175,8 @@ Formats: raw and xml
 
 Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
 *Branch-and-bound and objective branching with three objectives*.
-Optimization Online. \<URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+Optimization Online.
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -199,8 +199,7 @@ Formats: raw
 
 Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
 biobjective mixed-integer programming*. Optimization Online. Research
-rep. \<URL:
-<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>\>.
+rep. <http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
 
 Test problem classes: MILP  
 Subfolders: LP_1, LP_2, LP_3, LP_4, LP_5 and LP_6  
@@ -212,8 +211,8 @@ Formats: lp
 
 Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
 *Branch-and-bound and objective branching with three objectives*.
-Optimization Online. \<URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>\>.
+Optimization Online.
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
