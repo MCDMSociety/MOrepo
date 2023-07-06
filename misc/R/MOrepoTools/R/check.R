@@ -186,3 +186,4 @@ checkContribution<-function(validateResults = TRUE) {
 
    message("Everything seems to be okay :-)")
 }
+

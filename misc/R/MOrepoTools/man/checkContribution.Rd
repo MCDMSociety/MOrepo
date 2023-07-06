@@ -4,7 +4,10 @@
 \alias{checkContribution}
 \title{Check if a contribution convey with the guidelines.}
 \usage{
-checkContribution()
+checkContribution(validateResults = TRUE)
+}
+\arguments{
+\item{validateResults}{If true the result files are validated against schema.}
 }
 \description{
 You must run this function in the root of your contribution.

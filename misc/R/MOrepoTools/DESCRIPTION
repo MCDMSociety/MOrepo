@@ -11,19 +11,19 @@ Description: MOrepoTools is a R package with tools for the MOrepo at GitHub. It 
   for downloading/uploading e.g. instances from MOrepo but it will make life mush easier for you.
 License: GPL (>= 3)
 Encoding: UTF-8
+Depends:
+  ggplot2
 Imports: 
-  tidyverse,
-  RCurl, 
   httr, 
   jsonlite, 
   RefManageR, 
-  bibtex,
   jsonvalidate, 
   plyr, 
   readr, 
-  utils, 
-  ggplot2
+  rlang,
+  magrittr,
+  utils
 Suggests: knitr 
 VignetteBuilder: knitr
-RoxygenNote: 7.0.2
+RoxygenNote: 7.2.3
 Roxygen: list(markdown = TRUE)

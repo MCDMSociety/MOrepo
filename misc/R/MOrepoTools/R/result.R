@@ -293,6 +293,10 @@ plotNDSet<-function(file, contribution = NULL, local = FALSE, labels = NULL,
 
 
 
+validateResults <- function(){
+
+}
+
 
 
 

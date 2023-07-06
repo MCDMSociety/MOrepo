@@ -20,7 +20,8 @@ createResultFile(
   valid = TRUE,
   version = "1.0",
   other = "",
-  misc = NULL
+  misc = NULL,
+  print = FALSE
 )
 }
 \arguments{
@@ -66,17 +67,26 @@ with results on the same instance from other contributions.}
 
 \item{misc}{If not NULL, an entry you may use as you like (vector, list etc.). It could e.g.
 contain an object with more detailed entries about the experiment.}
+
+\item{print}{Also print the file (good for checking).}
 }
 \description{
-Create a result file named \code{<instanceName>_<other>_result.json} in json format.
+Create a result file named \code{<instanceName>_result_<other>.json} in json format.
 }
 \examples{
-points <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
+pts <- data.frame(z1 = c(27, 30, 31, 34, 42, 43, 49, 51), z2 = c(56, 53, 36, 33, 30, 25, 23, 9),
    type = c('se', 'us', 'se', 'us', 'us', 'us', 'us', 'se'))
 createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
-   objectives = 2, points = points, card = 8, suppCard = 3, extCard = 3,
+   objectives = 2, points = pts, card = nrow(pts), suppCard = 3, extCard = 3,
    objectiveType = c("int", "int"), direction = c("min", "min"),
-   comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE
+   comments = "Results from the paper by Pedersen et. al (2008)", optimal = TRUE,
+)
+createResultFile(instanceName = "Tuyttens00_AP_n05", contributionName = "Pedersen08",
+   objectives = 2, points = pts, card = nrow(pts), suppCard = 3, extCard = 3,
+   objectiveType = c("int", "int"), direction = c("min", "min"),
+   comments = "Adding a misc list", optimal = TRUE,
+   misc = list(a = 23, b = "text", c = 3.8, d = list(f = "sublist", g = 6), h = c(1,2,3)),
+   print = TRUE
 )
 }
 \author{

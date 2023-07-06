@@ -1,4 +1,6 @@
 ## Info about MOrepo
+## Working dir must be the MOrepo dir
+
 # Problem classes
 getProblemClasses()  # problem classes with instances
 getProblemClasses(results = TRUE)   # problem classes with results

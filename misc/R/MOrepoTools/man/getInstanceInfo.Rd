@@ -33,6 +33,8 @@ Get info about the instances.
 }
 \examples{
 ## Info about MOrepo
+## Working dir must be the MOrepo dir
+
 # Problem classes
 getProblemClasses()  # problem classes with instances
 getProblemClasses(results = TRUE)   # problem classes with results
@@ -56,8 +58,6 @@ getContributionAsZip(c("Tuyttens00", "Template"))
 
 # Download specific instances
 getInstance(name="Tuyttens.*n10", onlyList = TRUE)  # only file locations returned (no downloading)
-\dontrun{
-getInstance(name="Tuyttens")}
 
 
 ## Plotting results
@@ -83,7 +83,8 @@ modifyResultFile("Tuyttens00_AP_n05_result.json", comments = "New changed commen
 
 # Check your contribution
 \dontrun{
-checkContribution()}
+checkContribution()
+}
 }
 \author{
 Lars Relund \email{lars@relund.dk}

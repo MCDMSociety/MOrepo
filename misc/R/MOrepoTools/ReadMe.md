@@ -18,6 +18,7 @@ devtools::install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 Have a look at the documentation:
 
 ``` r
+library("MOrepoTools")
 ?MOrepoTools
 ```
 
