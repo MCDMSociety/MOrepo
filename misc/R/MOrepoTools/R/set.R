@@ -3,8 +3,7 @@
 #' Must be run each time there is result modifications.
 #'
 #' @author Lars Relund \email{lars@@relund.dk}
-#' @importFrom magrittr %>%
-#' @importFrom rlang .data
+#' @import magrittr
 #' @examples
 #' \dontrun{
 #' MOrepoTools:::setMetaResults()

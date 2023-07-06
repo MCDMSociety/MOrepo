@@ -20,7 +20,6 @@ Imports:
   jsonvalidate, 
   plyr, 
   readr, 
-  rlang,
   magrittr,
   utils
 Suggests: knitr 
