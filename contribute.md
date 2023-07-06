@@ -22,24 +22,24 @@ and afterwards start modifying/adding files.
 
 The structure of an contribution folder is as follows:
 
--   If you contribute with new instances, an `instances` folder (see
-    [Step2](#step-2---adding-test-instances-to-morepo)).
--   If you contribute with results, a `results` folder (see [Step
-    3](step-3---adding-results-to-morepo)).
--   A file `citation.bib` containing the citation details for the study
-    in BibTeX format. The study could e.g. be a paper where the
-    instances have been used or the results calculated. We do not
-    recommend to add instances before you at least have written a
-    report/note where the instances have been used.
--   A file `ReadMe.md` containing a presentation of the contribution. It
-    must be written in
-    [markdown](https://en.wikipedia.org/wiki/Markdown) which is just a
-    plain text format. It must contain as description of the test
-    instances (including formats) and results (if any). You may browse
-    the [sub-repositories](https://github.com/MCDMSociety) for examples.
--   A file `meta.json` in [json
-    format](https://en.wikipedia.org/wiki/JSON) with details about the
-    contribution. For instance:
+- If you contribute with new instances, an `instances` folder (see
+  [Step2](#step-2---adding-test-instances-to-morepo)).
+- If you contribute with results, a `results` folder (see [Step
+  3](step-3---adding-results-to-morepo)).
+- A file `citation.bib` containing the citation details for the study in
+  BibTeX format. The study could e.g. be a paper where the instances
+  have been used or the results calculated. We do not recommend to add
+  instances before you at least have written a report/note where the
+  instances have been used.
+- A file `ReadMe.md` containing a presentation of the contribution. It
+  must be written in [markdown](https://en.wikipedia.org/wiki/Markdown)
+  which is just a plain text format. It must contain as description of
+  the test instances (including formats) and results (if any). You may
+  browse the [sub-repositories](https://github.com/MCDMSociety) for
+  examples.
+- A file `meta.json` in [json
+  format](https://en.wikipedia.org/wiki/JSON) with details about the
+  contribution. For instance:
 
 <!-- -->
 
@@ -71,35 +71,34 @@ The structure of an contribution folder is as follows:
 
 The file contains
 
--   `contributionName` (required): The name of the the contribution
-    (string). We recommend to use the first author of the study and
-    year.
--   `maintainer` (required): Name and e-mail of the maintainer of the
-    sub-repository at GitHub (string).
--   `rawDesc` (optional): Short description of the raw format (string).
--   `algorithm` (optional): URL to the source code of the algorithm used
-    in the study (string). It may be placed in this repository or
-    somewhere else.
--   `resultContributions` (required - if results): An array with entries
-    of the contributions that results have been calculated from.
--   `instanceGroups` (required - if new instances): An array with
-    entries containing info about each group of instances (normally one
-    entry for each sub-folder). Each entry contains
-    -   `subfolder` (required): Sub-folder of an instance format folder
-        (if none set it to an empty string ’’).
-    -   `class` (required): Problem class (string). Use the [currrent
-        problem classes](#problem-classes). If your instances don’t fit
-        here add a new one.
-    -   `objectives` (required): Number of objectives (number).
-    -   `tags` (optional): An array with tags (use camel notation, not
-        underscores).
-    -   `format` (required): Array with file formats. The names must be
-        equal the instance format folders, e.g. if have a raw and xml
-        format then the `instances` folder must have two sub-folders
-        named `raw` and `xml`.
-    -   `creator` (required): Name and e-mail of the creator of the
-        instances (string). Normally, the authors of the study.
-    -   `desc` (required): Description of the instance group (string).
+- `contributionName` (required): The name of the the contribution
+  (string). We recommend to use the first author of the study and year.
+- `maintainer` (required): Name and e-mail of the maintainer of the
+  sub-repository at GitHub (string).
+- `rawDesc` (optional): Short description of the raw format (string).
+- `algorithm` (optional): URL to the source code of the algorithm used
+  in the study (string). It may be placed in this repository or
+  somewhere else.
+- `resultContributions` (required - if results): An array with entries
+  of the contributions that results have been calculated from.
+- `instanceGroups` (required - if new instances): An array with entries
+  containing info about each group of instances (normally one entry for
+  each sub-folder). Each entry contains
+  - `subfolder` (required): Sub-folder of an instance format folder (if
+    none set it to an empty string ’’).
+  - `class` (required): Problem class (string). Use the [currrent
+    problem classes](#problem-classes). If your instances don’t fit here
+    add a new one.
+  - `objectives` (required): Number of objectives (number).
+  - `tags` (optional): An array with tags (use camel notation, not
+    underscores).
+  - `format` (required): Array with file formats. The names must be
+    equal the instance format folders, e.g. if have a raw and xml format
+    then the `instances` folder must have two sub-folders named `raw`
+    and `xml`.
+  - `creator` (required): Name and e-mail of the creator of the
+    instances (string). Normally, the authors of the study.
+  - `desc` (required): Description of the instance group (string).
 
 ## Step 2 - Adding test instances
 
@@ -117,15 +116,15 @@ instance sets will not be generated.
 
 The structure of the `instances` folder is as follows:
 
--   A folder for each file format (e.g. `raw` and `xml`). That is,
-    different file formats may be used for the same instance. If you
-    have used a plain text/raw format then name this format `raw` and
-    add a description to the `ReadMe.md` file. Each file format folder
-    should contain the sub-folders defined in the `instanceGroups` entry
-    of the `meta.json` file. That is, if we consider the `meta.json`
-    file above then folders `AP` and `MMAP`.
--   Instance file names must start with the contribution name and end
-    with the file format suffix.
+- A folder for each file format (e.g. `raw` and `xml`). That is,
+  different file formats may be used for the same instance. If you have
+  used a plain text/raw format then name this format `raw` and add a
+  description to the `ReadMe.md` file. Each file format folder should
+  contain the sub-folders defined in the `instanceGroups` entry of the
+  `meta.json` file. That is, if we consider the `meta.json` file above
+  then folders `AP` and `MMAP`.
+- Instance file names must start with the contribution name and end with
+  the file format suffix.
 
 The `instances` folder should not contain any compressed files.
 
@@ -143,46 +142,46 @@ want to store different approximations of the nondominated set.
 (not including the file extension). The result file has the following
 structure:
 
--   `version` (required): Result format version (string). Currently
-    version must be set to 1.0.
--   `instanceName` (required): Name of instance not including the file
-    extension (string).
--   `contributionName` (required): The name of the the contribution
-    (string).
--   `objectives` (required): Number of objectives (number).
--   `objectiveType` (required): Array with strings `int`, `float` or
-    `null` (unknown) giving the numeric types of the objectives. Must
-    have the same length as the number of objectives (array, null).
--   `direction` (required): Array with strings `min` or `max` giving the
-    direction of the objectives. Must have the same length as the number
-    of objectives (array).
--   `comments` (optional): Misc comments about the results (string).
--   `optimal` (required): `true` if an exact optimal solution, `false`
-    is know an approximation, `null` if unknown, i.e. may be optimal
-    (boolean, null).
--   `suppCard` (optional): Number of supported nondominated points
-    (number). This is with respect to the solution found.
--   `extCard` (optional): Number of extreme supported nondominated
-    points (number)
--   `card` (required): Number of points
--   `cpu` (optional): In general you cannot compare cpu times for
-    different machines. But you may create plots of results run on the
-    same machine. An object with \* `sec`: Cpu time in seconds
-    (number). \* `machineSpec`: Machine specification, e.g. Intel Xeon
-    2.67 GHz, 6 GB RAM, Red Hat Enterprise Linux v4.0 OS (string).  
--   `points` (required): Array with nondominated points objects (array).
-    Each point object consists of  
-    `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend
-    to `z3` if three objectives) and type which may be either `us`
-    (unsupported), `se` (supported extreme), `s` (supported - may be
-    extreme or nonextreme), `sne` (supported nonextreme), `null`
-    (unknown). The type entry
--   `valid` (required): If true the results are considered valid. If
-    false the results may be in conflict with results on the same
-    instance from other contributions.
--   `misc` (optional): An entry you may use as you like. It could
-    e.g. contain an object with more detailed entries about the
-    experiment.
+- `version` (required): Result format version (string). Currently
+  version must be set to 1.0.
+- `instanceName` (required): Name of instance not including the file
+  extension (string).
+- `contributionName` (required): The name of the the contribution
+  (string).
+- `objectives` (required): Number of objectives (number).
+- `objectiveType` (required): Array with strings `int`, `float` or
+  `null` (unknown) giving the numeric types of the objectives. Must have
+  the same length as the number of objectives (array, null).
+- `direction` (required): Array with strings `min` or `max` giving the
+  direction of the objectives. Must have the same length as the number
+  of objectives (array).
+- `comments` (optional): Misc comments about the results (string).
+- `optimal` (required): `true` if an exact optimal solution, `false` is
+  know an approximation, `null` if unknown, i.e. may be optimal
+  (boolean, null).
+- `suppCard` (optional): Number of supported nondominated points
+  (number). This is with respect to the solution found.
+- `extCard` (optional): Number of extreme supported nondominated points
+  (number)
+- `card` (required): Number of points
+- `cpu` (optional): In general you cannot compare cpu times for
+  different machines. But you may create plots of results run on the
+  same machine. An object with \* `sec`: Cpu time in seconds (number).
+  \* `machineSpec`: Machine specification, e.g. Intel Xeon 2.67 GHz, 6
+  GB RAM, Red Hat Enterprise Linux v4.0 OS (string).  
+- `points` (required): Array with nondominated points objects (array).
+  Each point object consists of  
+  `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend
+  to `z3` if three objectives) and type which may be either `us`
+  (unsupported), `se` (supported extreme), `s` (supported - may be
+  extreme or nonextreme), `sne` (supported nonextreme), `null`
+  (unknown). The type entry
+- `valid` (required): If true the results are considered valid. If false
+  the results may be in conflict with results on the same instance from
+  other contributions.
+- `misc` (optional): An entry you may use as you like. It could
+  e.g. contain an object with more detailed entries about the
+  experiment.
 
 An example could be:
 
@@ -284,7 +283,7 @@ just open this project file in RStudio and run the above code.
 When you contribution is okay and ready for submission to MOrepo, do
 either
 
-1.  Inform Lars Relund Nielsen <larsrn@econ.au.dk> together with your
+1)  Inform Lars Relund Nielsen <larsrn@econ.au.dk> together with your
     GitHub username. He will create the sub-repository at GitHub and
     inform you (you may also do this before Step 1, if you would like to
     work with git from the start). Remark: If you use
@@ -304,7 +303,7 @@ git remote add origin https://github.com/MCDMSociety/MOrepo-<contributionName>.g
 git push -u origin master
 ```
 
-2.  If you already have added the repository to GitHub under your own
+2)  If you already have added the repository to GitHub under your own
     user name, then inform Lars Relund Nielsen <larsrn@econ.au.dk> and
     he will add you as a contributor to MCDMSocity. Next, open the
     settings for the repository at GitHub and
@@ -317,21 +316,21 @@ git push -u origin master
 Instances are classified into problem classes. The current
 classifications of MO optimization problems are
 
--   Facility Location
--   Assignment
--   Traveling Salesman
--   MILP
--   Knapsack
+- Facility Location
+- Assignment
+- Traveling Salesman
+- MILP
+- Knapsack
 
 The set of problem classes is expanded as new problem instances is added
 to the repository. For instance problem classes may be
 
--   Set Covering
--   Set Partitioning
--   Set Packing
--   Shortest Path
--   Transhipment
--   Multi-Commodity Flow
--   Minimum Cost Network Flow
--   MILP (general mixed integer linear programming problems)
--   IP (general integer programming problems)
+- Set Covering
+- Set Partitioning
+- Set Packing
+- Shortest Path
+- Transhipment
+- Multi-Commodity Flow
+- Minimum Cost Network Flow
+- MILP (general mixed integer linear programming problems)
+- IP (general integer programming problems)

@@ -31,8 +31,14 @@ Current maintainers of sub-repositories are Sune Lauth Gadegaard
 
 Current contributors to the repository are S.L. Gadegaard, A. Klose,
 L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph.
-Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte, N.
-Forget, K. Klamroth and A. Przybylski.
+Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte and
+list(list(given = “N.”, family = “Forget”, role = NULL, email = NULL,
+comment = NULL), list(given = “S.L.”, family = “Gadegaard”, role = NULL,
+email = NULL, comment = NULL), list(given = “K.”, family = “Klamroth”,
+role = NULL, email = NULL, comment = NULL), list(given = “L.R.”, family
+= “Nielsen”, role = NULL, email = NULL, comment = NULL), list(given =
+“A.”, family = “Przybylski”, role = NULL, email = NULL, comment =
+NULL)).
 
 ## Usage
 
@@ -87,9 +93,10 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## 
 ## #### Contribution Forget20
 ## 
-## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020). _Branch-and-bound
-## and objective branching with three objectives_. Optimization Online.
-## <http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022). "Branch-and-bound
+## and objective branching with three or more objectives". In: _Computers
+## and Operations Research_ 148, p. 106012. DOI:
+## 10.1016/j.cor.2022.106012.
 ## 
 ## Test problem classes: Assignment, Knapsack and Facility Location  
 ## Subfolders: AP, KP and UFLP  
@@ -101,13 +108,6 @@ Now download the Tuyttens00 contribution as a zip file using
 ``` r
 getContributionAsZip("Tuyttens00")
 ## Download MOrepo-Tuyttens00.zip ... finished.
-```
-
-Or download selected instances
-
-``` r
-getInstance(name="Tuyttens.*n10")
-## Error in FUN(X[[i]], ...): Forbidden (HTTP 403).
 ```
 
 ## How to contribute
@@ -139,10 +139,10 @@ Formats: raw
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online.
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI: 10.1016/j.cor.2022.106012.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -173,10 +173,10 @@ Formats: raw and xml
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online.
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI: 10.1016/j.cor.2022.106012.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -209,10 +209,10 @@ Formats: lp
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online.
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI: 10.1016/j.cor.2022.106012.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -240,10 +240,11 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI:
+[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
@@ -252,10 +253,11 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI:
+[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
@@ -264,10 +266,11 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
+“Branch-and-bound and objective branching with three or more
+objectives”. In: *Computers and Operations Research* 148, p. 106012.
+DOI:
+[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
