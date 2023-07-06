@@ -1,3 +1,7 @@
+devtools::install("./misc/R/MOrepoTools/")
+
+devtools::install_local("./misc/R/MOrepoTools/", force = T)
+detach(package:MOrepoTools)
 library(MOrepoTools)
 MOrepoTools:::setMetaContributions()
 for(i in 1:10){
@@ -6,6 +10,15 @@ for(i in 1:10){
       break
    }, silent = FALSE)
 }
+for(i in 1:10){
+   try({
+      r <- MOrepoTools:::setMetaResults()
+      break
+   }, silent = FALSE)
+}
+
+
+
 
 ## rename/move files
 a <- list.files(path = "./instances/", pattern = "*$_*$", recursive = T, full.names = T)

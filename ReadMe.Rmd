@@ -62,7 +62,6 @@ library(devtools)   # if the package is missing see ?install.package
 install_github("MCDMSociety/MOrepo/misc/R/MOrepoTools")
 ```
 
-
 To get an overview over the current problem classes run:
 
 ```{r}

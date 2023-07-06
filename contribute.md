@@ -4,7 +4,7 @@
 All researchers are welcome to contribute to MOrepo with instances,
 results etc. Each contribution will be added as a sub-repository to the
 [MCDMSociety](https://github.com/MCDMSociety) organization at GitHub.
-Name the repository `MOrepo-<first_author><year>`
+Name the repository `MOrepo-<first_author><shortyear>`
 e.g. `MOrepo-Gadegaard16`.
 
 As maintainers of MOrepo we will do our best to help you in the process.
