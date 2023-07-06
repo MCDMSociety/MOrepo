@@ -33,7 +33,7 @@
       "RemoteRepo": "MOrepo",
       "RemoteUsername": "MCDMSociety",
       "RemoteRef": "HEAD",
-      "RemoteSha": "e84970dd1e0e1fe8013b58bf26809e203776e2ca",
+      "RemoteSha": "c696e8e0cb0f52bb40458f6cfa5fcab2448f2f3e",
       "RemoteSubdir": "misc/R/MOrepoTools",
       "Requirements": [
         "RefManageR",
@@ -46,7 +46,7 @@
         "readr",
         "utils"
       ],
-      "Hash": "7e7e230a9a0aed6642f2ad2ac9623e4c"
+      "Hash": "5540ddae2f9b2a2f5321d94b04a87b23"
     },
     "Matrix": {
       "Package": "Matrix",
