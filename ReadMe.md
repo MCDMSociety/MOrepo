@@ -61,8 +61,9 @@ To get an overview over the current problem classes run:
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-## [1] "Facility Location"  "Assignment"         "Traveling Salesman"
-## [4] "MILP"               "Knapsack"
+## [1] "Facility Location"   "Assignment"          "Traveling Salesman" 
+## [4] "MILP"                "Knapsack"            "Production planning"
+## [7] "Facility location"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08
@@ -118,8 +119,9 @@ it.
 ## Test instances @ MOrepo
 
 Currently MOrepo contains instances for problem classes Facility
-Location, Assignment, Traveling Salesman, MILP and Knapsack. The
-contributions listed after class are:
+Location, Assignment, Traveling Salesman, MILP, Knapsack, Production
+planning and Facility location. The contributions listed after class
+are:
 
 ### Problem class - Facility Location
 
@@ -217,6 +219,34 @@ Optimization Online. URL:
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
 Formats: raw
+
+### Problem class - Production planning
+
+#### Contribution - [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)
+
+Source: Forget, N., S. Gadegaard, and L. Nielsen (2021). *Linear
+relaxation based branch-and-bound for multi-objective integer
+programming with warm-starting*. Optimizaton Online. URL:
+<http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
+
+Test problem classes: Production planning and Facility location  
+Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
+UFLP/5obj  
+Formats: fgt
+
+### Problem class - Facility location
+
+#### Contribution - [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)
+
+Source: Forget, N., S. Gadegaard, and L. Nielsen (2021). *Linear
+relaxation based branch-and-bound for multi-objective integer
+programming with warm-starting*. Optimizaton Online. URL:
+<http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
+
+Test problem classes: Production planning and Facility location  
+Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
+UFLP/5obj  
+Formats: fgt
 
 ## Results @ MOrepo
 
