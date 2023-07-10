@@ -29,11 +29,6 @@ jobs:
       - name: Cache Renv packages
         uses: r-lib/actions/setup-renv@v2
 
-      - name: Install packages
-        run: |
-          R -e 'install.packages("renv")'
-          R -e 'renv::restore()'
-
       - name: Update meta file with contributions
         run: |
           library(MOrepoTools)
