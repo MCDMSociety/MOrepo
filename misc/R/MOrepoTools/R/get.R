@@ -207,7 +207,7 @@ getProblemClasses<-function(local = FALSE, contribution = NULL, results = FALSE)
 #' @example inst/examples/examples.R
 getInstanceInfo<-function(class = NULL, contribution = NULL, local = FALSE,
                           silent = FALSE, withLinks = FALSE) {
-   RefManageR::BibOptions(sorting = "none", bib.style = "authoryear")
+   RefManageR::BibOptions(sorting = "none", bib.style = "authoryear", style = "markdown")
    baseURL <- ifelse(local, "",  "https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/")
    repos<-jsonlite::fromJSON(paste0(baseURL,"metaContributions.json"))
    repos <- repos$repoInfo
