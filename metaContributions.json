@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix that are part of MOrepo.",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20", "Forget21"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
@@ -176,6 +176,67 @@
       ],
       "resultContributions": "Forget20",
       "bib": "@TechReport{Forget20,\n  author      = {N. Forget and S.L. Gadegaard and K. Klamroth and L.R. Nielsen and A. Przybylski},\n  institution = {Optimization Online},\n  title       = {Branch-and-bound and objective branching with three objectives},\n  year        = {2020},\n  month       = {dec},\n  url         = {http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf},\n}\n"
+    },
+    "Forget21": {
+      "contributionName": "Forget21",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "PPP/3obj",
+          "class": "Production planning",
+          "objectives": 3,
+          "tags": ["ppp", "productionPlaningProblem"],
+          "format": "fgt",
+          "desc": "Instances for the production planing problem with 3 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "PPP/4obj",
+          "class": "Production planning",
+          "objectives": 4,
+          "tags": ["ppp", "productionPlaningProblem"],
+          "format": "fgt",
+          "desc": "Instances for the production planing problem with 4 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "PPP/5obj",
+          "class": "Production planning",
+          "objectives": 5,
+          "tags": ["ppp", "productionPlaningProblem"],
+          "format": "fgt",
+          "desc": "Instances for the production planing problem with 5 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "UFLP/3obj",
+          "class": "Facility location",
+          "objectives": 3,
+          "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
+          "format": "fgt",
+          "desc": "Instances for the uncapacitated facility location problem with 3 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "UFLP/4obj",
+          "class": "Facility location",
+          "objectives": 4,
+          "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
+          "format": "fgt",
+          "desc": "Instances for the uncapacitated facility location problem with 4 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "UFLP/5obj",
+          "class": "Facility location",
+          "objectives": 5,
+          "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
+          "format": "fgt",
+          "desc": "Instances for the uncapacitated facility location problem with 5 objectives.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        }
+      ],
+      "bib": "@TechReport{Forget21,\n  author      = {Forget, N. and Gadegaard, S.L. and Nielsen, L.R.},\n  institution = {Optimizaton Online},\n  title       = {Linear relaxation based branch-and-bound for multi-objective integer programming with warm-starting},\n  year        = {2021},\n  abstract    = {In this paper we propose a generic branch-and-bound algorithm for solving multi-objective integer linear programming problems. % In the recent literature, competitive frameworks has been proposed for bi-objective 0-1 problems, and many of these frameworks rely on the use of the linear relaxation to obtain lower bound sets. When increasing the number of objective functions, however, the polyhedral structure of the linear relaxation becomes more complex, and consequently requires more computational effort to obtain. In this paper we overcome this obstacle by speeding up the computations. To do so, in each branching node we use information available from its farther node to warm-start a Bensons-like algorithm. We show that the proposed algorithm significantly reduces the CPU time of the framework on several different problem classes with three, four and five objective functions. Moreover, we point out difficulties that arise when non-binary integer variables are introduced in the models, and test our algorithm on problem that contains non-binary integer variables too.},\n  journal     = {Optimization Online},\n  keywords    = {forget21a.pdf},\n  url         = {http://www.optimization-online.org/DB_HTML/2021/08/8531.html},\n}"
     }
   }
 }
