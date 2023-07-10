@@ -376,7 +376,6 @@ getContributorNames<-function(local = FALSE) {
       bib<-RefManageR::ReadBib("tmp.bib")
       authors<-c(authors, paste(bib$author))
    }
-
    return(unique(authors))
    # fileN<-getFileList("citation.bib", local = local)
    # baseURL <- ifelse(local, "file://./",  "https://raw.githubusercontent.com/MCDMSociety/" )

@@ -31,14 +31,8 @@ Current maintainers of sub-repositories are Sune Lauth Gadegaard
 
 Current contributors to the repository are S.L. Gadegaard, A. Klose,
 L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph.
-Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte and
-list(list(given = “N.”, family = “Forget”, role = NULL, email = NULL,
-comment = NULL), list(given = “S.L.”, family = “Gadegaard”, role = NULL,
-email = NULL, comment = NULL), list(given = “K.”, family = “Klamroth”,
-role = NULL, email = NULL, comment = NULL), list(given = “L.R.”, family
-= “Nielsen”, role = NULL, email = NULL, comment = NULL), list(given =
-“A.”, family = “Przybylski”, role = NULL, email = NULL, comment =
-NULL)).
+Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte, N.
+Forget, K. Klamroth and A. Przybylski.
 
 ## Usage
 
@@ -76,7 +70,8 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). "The Bicriterion
 ## Multi Modal Assignment Problem: Introduction, Analysis, and
 ## Experimental Results". In: _Informs Journal on Computing_ 20.3, pp.
-## 400-411. DOI: 10.1287/ijoc.1070.0253.
+## 400-411. DOI:
+## [10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
 ## 
 ## Test problem classes: Assignment  
 ## Subfolders: AP and MMAP  
@@ -86,17 +81,18 @@ getInstanceInfo(class = "Assignment")  # info about instances for the assignment
 ## 
 ## Source: Tuyttens, D., J. Teghem, P. Fortemps, et al. (2000). "Performance of
 ## the MOSA Method for the Bicriteria Assignment Problem". In: _Journal of
-## Heuristics_ 6.3, pp. 295-310. DOI: 10.1023/A:1009670112978.
+## Heuristics_ 6.3, pp. 295-310. DOI:
+## [10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
 ## 
 ## Test problem classes: Assignment  
 ## Formats: raw and xml  
 ## 
 ## #### Contribution Forget20
 ## 
-## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022). "Branch-and-bound
-## and objective branching with three or more objectives". In: _Computers
-## and Operations Research_ 148, p. 106012. DOI:
-## 10.1016/j.cor.2022.106012.
+## Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020). _Branch-and-bound
+## and objective branching with three objectives_. Optimization Online.
+## URL:
+## [http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf](http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf).
 ## 
 ## Test problem classes: Assignment, Knapsack and Facility Location  
 ## Subfolders: AP, KP and UFLP  
@@ -131,7 +127,8 @@ contributions listed after class are:
 
 Source: Gadegaard, S., A. Klose, and L. Nielsen (2016). “A bi-objective
 approach to discrete cost-bottleneck location problems”. In: *Annals of
-Operations Research*, pp. 1-23. DOI: 10.1007/s10479-016-2360-8.
+Operations Research*, pp. 1-23. DOI:
+[10.1007/s10479-016-2360-8](https://doi.org/10.1007%2Fs10479-016-2360-8).
 
 Test problem classes: Facility Location  
 Subfolders: CFLP_UFLP and SSCFLP  
@@ -139,10 +136,10 @@ Formats: raw
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI: 10.1016/j.cor.2022.106012.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -155,7 +152,8 @@ Formats: raw
 Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). “The
 Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
 Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
-400-411. DOI: 10.1287/ijoc.1070.0253.
+400-411. DOI:
+[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
 
 Test problem classes: Assignment  
 Subfolders: AP and MMAP  
@@ -166,17 +164,17 @@ Formats: xml
 Source: Tuyttens, D., J. Teghem, P. Fortemps, et al. (2000).
 “Performance of the MOSA Method for the Bicriteria Assignment Problem”.
 In: *Journal of Heuristics* 6.3, pp. 295-310. DOI:
-10.1023/A:1009670112978.
+[10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
 
 Test problem classes: Assignment  
 Formats: raw and xml
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI: 10.1016/j.cor.2022.106012.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -188,7 +186,8 @@ Formats: raw
 
 Source: Hansen, M. (2000). “Use of Substitute Scalarizing Functions to
 Guide a Local Search Based Heuristic: The Case of moTSP”. In: *Journal
-of Heuristics* 6.3, pp. 419-431. DOI: 10.1023/A:1009690717521.
+of Heuristics* 6.3, pp. 419-431. DOI:
+[10.1023/A:1009690717521](https://doi.org/10.1023%2FA%3A1009690717521).
 
 Test problem classes: Traveling Salesman  
 Formats: raw
@@ -199,7 +198,8 @@ Formats: raw
 
 Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
 biobjective mixed-integer programming*. Optimization Online. Research
-rep. <http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
+rep. URL:
+<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
 
 Test problem classes: MILP  
 Subfolders: LP_1, LP_2, LP_3, LP_4, LP_5 and LP_6  
@@ -209,10 +209,10 @@ Formats: lp
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI: 10.1016/j.cor.2022.106012.
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Test problem classes: Assignment, Knapsack and Facility Location  
 Subfolders: AP, KP and UFLP  
@@ -240,11 +240,10 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI:
-[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
@@ -253,11 +252,10 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI:
-[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
@@ -266,11 +264,10 @@ Results given for contributions:
 
 #### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2022).
-“Branch-and-bound and objective branching with three or more
-objectives”. In: *Computers and Operations Research* 148, p. 106012.
-DOI:
-[10.1016/j.cor.2022.106012](https://doi.org/10.1016%2Fj.cor.2022.106012).
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
 
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
