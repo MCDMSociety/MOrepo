@@ -28,6 +28,7 @@ setMetaResults<-function() {
    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
    readr::write_lines(str, "metaResults.json")
    message("Meta file with results for MOrepo saved to metaResults.json")
+   return(TRUE)
 }
 
 
@@ -76,8 +77,8 @@ setMetaInstances<-function() {
    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)
    readr::write_lines(str, "metaInstances.json")
    message("Meta file with instances for MOrepo saved to metaInstances.json")
+   return(TRUE)
 }
-
 
 
 
@@ -122,6 +123,7 @@ setMetaContributions<-function(add = NULL) {
    str<-jsonlite::toJSON(repos, auto_unbox = TRUE, pretty = TRUE, digits = NA)
    readr::write_lines(str, "metaContributions.json")
    message("Meta data for MOrepo saved to metaContributions.json")
+   return(TRUE)
 }
 
 
