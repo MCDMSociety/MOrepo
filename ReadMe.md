@@ -55,21 +55,20 @@ file](contribute.md) which describes different ways to do it.
 MOrepo contains instances for different problem classes. The
 contributions listed after class are:
 
-| Problem class | Repository |
-|:---|:---|
-| Facility Location | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Traveling Salesman | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00) |
-| MILP | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16) |
-| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Production planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
-| Facility location | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+| Problem class       | Repository                                                                                                                                                                                 |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Facility Location   | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20), [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)   |
+| Assignment          | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Traveling Salesman  | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)                                                                                                                                 |
+| MILP                | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)                                                                                                                             |
+| Knapsack            | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                                                                                 |
+| Production Planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)                                                                                                                                 |
 
 ### Detailed information
 
 MOrepo contains instances for problem classes Facility Location,
-Assignment, Traveling Salesman, MILP, Knapsack, Production planning and
-Facility location. A detailed description of the contributions are:
+Assignment, Traveling Salesman, MILP, Knapsack and Production Planning.
+A detailed description of the contributions are:
 
 #### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
 
@@ -143,7 +142,7 @@ relaxation based branch-and-bound for multi-objective integer
 programming with warm-starting*. Optimizaton Online. URL:
 <http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
 
-Test problem classes: Production planning and Facility location  
+Test problem classes: Production Planning and Facility Location  
 Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
 UFLP/5obj  
 Formats: fgt
@@ -152,11 +151,11 @@ Formats: fgt
 
 MOrepo contains results for some of the instances in problem classes:
 
-| Problem class | Repository |
-|:---|:---|
-| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Problem class     | Repository                                                                                                                 |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------|
+| Assignment        | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Knapsack          | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
+| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
 
 ### Detailed information
 
@@ -216,8 +215,7 @@ To get an overview over the current problem classes run:
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
 ## [1] "Facility Location"   "Assignment"          "Traveling Salesman" 
-## [4] "MILP"                "Knapsack"            "Production planning"
-## [7] "Facility location"
+## [4] "MILP"                "Knapsack"            "Production Planning"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08

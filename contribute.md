@@ -321,8 +321,7 @@ classifications of MO optimization problems are
 - Traveling Salesman
 - MILP
 - Knapsack
-- Production planning
-- Facility location
+- Production Planning
 
 The set of problem classes is expanded as new problem instances is added
 to the repository. For instance problem classes may be
