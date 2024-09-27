@@ -55,15 +55,15 @@ file](contribute.md) which describes different ways to do it.
 MOrepo contains instances for different problem classes. The
 contributions listed after class are:
 
-| Problem class       | Repository                                                                                                                                                                                 |
-|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Facility Location   | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                               |
-| Assignment          | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Traveling Salesman  | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)                                                                                                                                 |
-| MILP                | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)                                                                                                                             |
-| Knapsack            | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                                                                                 |
-| Production planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)                                                                                                                                 |
-| Facility location   | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)                                                                                                                                 |
+| Problem class | Repository |
+|:---|:---|
+| Facility Location | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Traveling Salesman | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00) |
+| MILP | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Production planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+| Facility location | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
 
 ### Detailed information
 
@@ -152,11 +152,11 @@ Formats: fgt
 
 MOrepo contains results for some of the instances in problem classes:
 
-| Problem class     | Repository                                                                                                                 |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------|
-| Assignment        | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Knapsack          | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
-| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
+| Problem class | Repository |
+|:---|:---|
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
 
 ### Detailed information
 

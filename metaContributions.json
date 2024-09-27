@@ -183,7 +183,7 @@
       "instanceGroups": [
         {
           "subfolder": "PPP/3obj",
-          "class": "Production planning",
+          "class": "Production Planning",
           "objectives": 3,
           "tags": ["ppp", "productionPlaningProblem"],
           "format": "fgt",
@@ -192,7 +192,7 @@
         },
         {
           "subfolder": "PPP/4obj",
-          "class": "Production planning",
+          "class": "Production Planning",
           "objectives": 4,
           "tags": ["ppp", "productionPlaningProblem"],
           "format": "fgt",
@@ -201,7 +201,7 @@
         },
         {
           "subfolder": "PPP/5obj",
-          "class": "Production planning",
+          "class": "Production Planning",
           "objectives": 5,
           "tags": ["ppp", "productionPlaningProblem"],
           "format": "fgt",
@@ -210,7 +210,7 @@
         },
         {
           "subfolder": "UFLP/3obj",
-          "class": "Facility location",
+          "class": "Facility Location",
           "objectives": 3,
           "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
           "format": "fgt",
@@ -219,7 +219,7 @@
         },
         {
           "subfolder": "UFLP/4obj",
-          "class": "Facility location",
+          "class": "Facility Location",
           "objectives": 4,
           "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
           "format": "fgt",
@@ -228,7 +228,7 @@
         },
         {
           "subfolder": "UFLP/5obj",
-          "class": "Facility location",
+          "class": "Facility Location",
           "objectives": 5,
           "tags": ["uflp", "uncapacitatedFacilityLocationProblem"],
           "format": "fgt",
