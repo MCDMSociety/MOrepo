@@ -26,13 +26,13 @@
     },
     "MOrepoTools": {
       "Package": "MOrepoTools",
-      "Version": "1.0",
+      "Version": "1.0.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "MOrepo",
       "RemoteUsername": "MCDMSociety",
-      "RemoteSha": "d2c14c9e770efd8b4760e5fd46c72e048ce742b4",
+      "RemoteSha": "02cb21b9c7f35c20d1bcefc803cd1dc74c192a23",
       "RemoteSubdir": "misc/R/MOrepoTools",
       "Requirements": [
         "RefManageR",
@@ -45,7 +45,7 @@
         "readr",
         "utils"
       ],
-      "Hash": "c7ba7b6822c9e2412b82946a01b87326"
+      "Hash": "31142124af55fd16305ed599a4959149"
     },
     "Matrix": {
       "Package": "Matrix",
