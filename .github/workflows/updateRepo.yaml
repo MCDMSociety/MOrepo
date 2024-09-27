@@ -50,6 +50,7 @@ jobs:
       - name: Updtate meta file with instances
         run: |
           library(MOrepoTools)
+          r <- FALSE
           for(i in 1:10){
             try({
               r <- MOrepoTools:::setMetaInstances()
@@ -69,6 +70,7 @@ jobs:
       - name: Updtate meta file with results
         run: |
           library(MOrepoTools)
+          r <- FALSE
           for(i in 1:10){
             try({
               r <- MOrepoTools:::setMetaResults()
