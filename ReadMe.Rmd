@@ -32,7 +32,6 @@ for(i in 1:10){
 ```
 
 
-
 # Multi-Objective Optimization Repository (MOrepo)
 
 This repository is a response to the needs of researchers from the MCDM society to access multi-objective (MO) optimization instances. The repository contains instances, results, generators etc. for different MO problems and is continuously updated. The repository can be used as a test set for testing new algorithms, validating existing results and for reproducibility. All researchers within MO optimization are welcome to contribute. 
