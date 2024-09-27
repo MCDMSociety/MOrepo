@@ -44,8 +44,162 @@ Instances can be downloaded in different ways depending on usage:
   GitHub.
 - Use the R package `MOrepoTools` to download instances.
 
-We recommend the last option and illustrate how it works. You don’t need
-much knowledge about R to use the package. But of course it is
+All researchers are welcome to contribute to `MOrepo`. The repository
+mainly contains MO test instances and results from various sources.
+However, also generators, format converters, algorithms etc. related to
+MO optimization are welcome. Have a look at the [contribute
+file](contribute.md) which describes different ways to do it.
+
+## Test instances @ MOrepo
+
+MOrepo contains instances for different problem classes. The
+contributions listed after class are:
+
+| Problem class | Repository |
+|:---|:---|
+| Facility Location | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Traveling Salesman | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00) |
+| MILP | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Production planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+| Facility location | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+
+### Detailed information
+
+MOrepo contains instances for problem classes Facility Location,
+Assignment, Traveling Salesman, MILP, Knapsack, Production planning and
+Facility location. A detailed description of the contributions are:
+
+#### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
+
+Source: Gadegaard, S., A. Klose, and L. Nielsen (2016). “A bi-objective
+approach to discrete cost-bottleneck location problems”. In: *Annals of
+Operations Research*, pp. 1-23. DOI:
+[10.1007/s10479-016-2360-8](https://doi.org/10.1007%2Fs10479-016-2360-8).
+
+Test problem classes: Facility Location  
+Subfolders: CFLP_UFLP and SSCFLP  
+Formats: raw
+
+#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
+
+Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). “The
+Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
+Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
+400-411. DOI:
+[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
+
+Test problem classes: Assignment  
+Subfolders: AP and MMAP  
+Formats: xml
+
+#### Contribution - [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+Source: Tuyttens, D., J. Teghem, P. Fortemps, et al. (2000).
+“Performance of the MOSA Method for the Bicriteria Assignment Problem”.
+In: *Journal of Heuristics* 6.3, pp. 295-310. DOI:
+[10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
+
+Test problem classes: Assignment  
+Formats: raw and xml
+
+#### Contribution - [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)
+
+Source: Hansen, M. (2000). “Use of Substitute Scalarizing Functions to
+Guide a Local Search Based Heuristic: The Case of moTSP”. In: *Journal
+of Heuristics* 6.3, pp. 419-431. DOI:
+[10.1023/A:1009690717521](https://doi.org/10.1023%2FA%3A1009690717521).
+
+Test problem classes: Traveling Salesman  
+Formats: raw
+
+#### Contribution - [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)
+
+Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
+biobjective mixed-integer programming*. Optimization Online. Research
+rep. URL:
+<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
+
+Test problem classes: MILP  
+Subfolders: LP_1, LP_2, LP_3, LP_4, LP_5 and LP_6  
+Formats: lp
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+
+Test problem classes: Assignment, Knapsack and Facility Location  
+Subfolders: AP, KP and UFLP  
+Formats: raw
+
+#### Contribution - [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)
+
+Source: Forget, N., S. Gadegaard, and L. Nielsen (2021). *Linear
+relaxation based branch-and-bound for multi-objective integer
+programming with warm-starting*. Optimizaton Online. URL:
+<http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
+
+Test problem classes: Production planning and Facility location  
+Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
+UFLP/5obj  
+Formats: fgt
+
+## Results @ MOrepo
+
+MOrepo contains results for some of the instances in problem classes:
+
+| Problem class | Repository |
+|:---|:---|
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+
+### Detailed information
+
+MOrepo contains results for some of the instances in problem classes
+Assignment, Knapsack and Facility Location. The contributions are:
+
+#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
+
+Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). “The
+Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
+Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
+400-411. DOI:
+[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
+
+Results given for contributions:
+[Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and
+[Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
+
+#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
+*Branch-and-bound and objective branching with three objectives*.
+Optimization Online. URL:
+<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
+
+Results given for contributions:
+[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
+
+## How to cite
+
+To cite use
+
+    @Electronic{MOrepo,
+      Title                    = {Multi-Objective Optimization Repository (MOrepo)},
+      Author                   = {L. R. Nielsen},
+      Url                      = {https://github.com/MCDMSociety/MOrepo},
+      Year                     = {2017}
+    }
+
+## Use the R to download instances.
+
+You may use the R package `MOrepoTools` to download instances. You don’t
+need much knowledge about R to use the package. But of course it is
 preferable. You need [R](https://www.r-project.org/) and preferable
 [RStudio](https://www.rstudio.com/) installed on your computer. First
 you have to install the `MOrepoTools` package. From the R command line
@@ -106,209 +260,3 @@ Now download the Tuyttens00 contribution as a zip file using
 getContributionAsZip("Tuyttens00")
 ## Download MOrepo-Tuyttens00.zip ... finished.
 ```
-
-## How to contribute
-
-All researchers are welcome to contribute to `MOrepo`. The repository
-mainly contains MO test instances and results from various sources.
-However, also generators, format converters, algorithms etc. related to
-MO optimization are welcome. Have a look at the documentation file
-[`contribute.md`](contribute.md) which describes different ways to do
-it.
-
-## Test instances @ MOrepo
-
-Currently MOrepo contains instances for problem classes Facility
-Location, Assignment, Traveling Salesman, MILP, Knapsack, Production
-planning and Facility location. The contributions listed after class
-are:
-
-### Problem class - Facility Location
-
-#### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
-
-Source: Gadegaard, S., A. Klose, and L. Nielsen (2016). “A bi-objective
-approach to discrete cost-bottleneck location problems”. In: *Annals of
-Operations Research*, pp. 1-23. DOI:
-[10.1007/s10479-016-2360-8](https://doi.org/10.1007%2Fs10479-016-2360-8).
-
-Test problem classes: Facility Location  
-Subfolders: CFLP_UFLP and SSCFLP  
-Formats: raw
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Test problem classes: Assignment, Knapsack and Facility Location  
-Subfolders: AP, KP and UFLP  
-Formats: raw
-
-### Problem class - Assignment
-
-#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
-
-Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). “The
-Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
-Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
-400-411. DOI:
-[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
-
-Test problem classes: Assignment  
-Subfolders: AP and MMAP  
-Formats: xml
-
-#### Contribution - [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
-
-Source: Tuyttens, D., J. Teghem, P. Fortemps, et al. (2000).
-“Performance of the MOSA Method for the Bicriteria Assignment Problem”.
-In: *Journal of Heuristics* 6.3, pp. 295-310. DOI:
-[10.1023/A:1009670112978](https://doi.org/10.1023%2FA%3A1009670112978).
-
-Test problem classes: Assignment  
-Formats: raw and xml
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Test problem classes: Assignment, Knapsack and Facility Location  
-Subfolders: AP, KP and UFLP  
-Formats: raw
-
-### Problem class - Traveling Salesman
-
-#### Contribution - [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)
-
-Source: Hansen, M. (2000). “Use of Substitute Scalarizing Functions to
-Guide a Local Search Based Heuristic: The Case of moTSP”. In: *Journal
-of Heuristics* 6.3, pp. 419-431. DOI:
-[10.1023/A:1009690717521](https://doi.org/10.1023%2FA%3A1009690717521).
-
-Test problem classes: Traveling Salesman  
-Formats: raw
-
-### Problem class - MILP
-
-#### Contribution - [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)
-
-Source: Adelgren, N. and A. Gupte (2016). *Branch-and-bound for
-biobjective mixed-integer programming*. Optimization Online. Research
-rep. URL:
-<http://www.optimization-online.org/DB_HTML/2016/10/5676.html>.
-
-Test problem classes: MILP  
-Subfolders: LP_1, LP_2, LP_3, LP_4, LP_5 and LP_6  
-Formats: lp
-
-### Problem class - Knapsack
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Test problem classes: Assignment, Knapsack and Facility Location  
-Subfolders: AP, KP and UFLP  
-Formats: raw
-
-### Problem class - Production planning
-
-#### Contribution - [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)
-
-Source: Forget, N., S. Gadegaard, and L. Nielsen (2021). *Linear
-relaxation based branch-and-bound for multi-objective integer
-programming with warm-starting*. Optimizaton Online. URL:
-<http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
-
-Test problem classes: Production planning and Facility location  
-Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
-UFLP/5obj  
-Formats: fgt
-
-### Problem class - Facility location
-
-#### Contribution - [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)
-
-Source: Forget, N., S. Gadegaard, and L. Nielsen (2021). *Linear
-relaxation based branch-and-bound for multi-objective integer
-programming with warm-starting*. Optimizaton Online. URL:
-<http://www.optimization-online.org/DB_HTML/2021/08/8531.html>.
-
-Test problem classes: Production planning and Facility location  
-Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
-UFLP/5obj  
-Formats: fgt
-
-## Results @ MOrepo
-
-Currently MOrepo contains results for instances in problem classes
-Assignment, Knapsack and Facility Location. The contributions listed
-after class are:
-
-### Problem class - Assignment
-
-#### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
-
-Source: Pedersen, C., L. Nielsen, and K. Andersen (2008). “The
-Bicriterion Multi Modal Assignment Problem: Introduction, Analysis, and
-Experimental Results”. In: *Informs Journal on Computing* 20.3, pp.
-400-411. DOI:
-[10.1287/ijoc.1070.0253](https://doi.org/10.1287%2Fijoc.1070.0253).
-
-Results given for contributions:
-[Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08) and
-[Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00)
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Results given for contributions:
-[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-### Problem class - Knapsack
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Results given for contributions:
-[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-### Problem class - Facility Location
-
-#### Contribution - [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-Source: Forget, N., S. Gadegaard, K. Klamroth, et al. (2020).
-*Branch-and-bound and objective branching with three objectives*.
-Optimization Online. URL:
-<http://www.optimization-online.org/DB_FILE/2020/12/8158.pdf>.
-
-Results given for contributions:
-[Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
-
-## How to cite
-
-To cite use
-
-    @Electronic{MOrepo,
-      Title                    = {Multi-Objective Optimization Repository (MOrepo)},
-      Author                   = {L. R. Nielsen},
-      Url                      = {https://github.com/MCDMSociety/MOrepo},
-      Year                     = {2017}
-    }

@@ -9,8 +9,9 @@ editor_options:
 ```{r, include=FALSE}
 library(MOrepoTools)
 library(bibtex)
+library(kableExtra)
 knitr::opts_chunk$set(opts=list(blank=FALSE, width.cutoff=120), cache = FALSE, 
-                      autodep = TRUE, collapse=TRUE, error = TRUE)
+                      autodep = TRUE, collapse=TRUE, error = FALSE)
 knitr::opts_knit$set(width = 90)
 ```
 
@@ -46,7 +47,6 @@ Current maintainers of sub-repositories are `r vec2String(getMaintainers())`.
 
 Current contributors to the repository are `r vec2String(getContributorNames())`. 
 
-
 ## Usage
 
 Instances can be downloaded in different ways depending on usage:
@@ -54,8 +54,84 @@ Instances can be downloaded in different ways depending on usage:
    - If you want a whole sub-repository, download it as a zip file or clone it on GitHub.
    - Browse to a single instance and download it using the raw format at GitHub.
    - Use the R package `MOrepoTools` to download instances.
+
+All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instances and results from various sources. However, also generators, format converters, algorithms etc. related to MO optimization are welcome. Have a look at the [contribute file](contribute.md) which describes different ways to do it. 
+
+## Test instances @ MOrepo
+
+```{r, include=FALSE}
+dat <- getProblemClasses()
+```
+
+MOrepo contains instances for different problem classes. The contributions listed after class are:
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+tab <- tibble::tibble("Problem class" = NA_character_, "Repository" = NA_character_, .rows = 0)
+for (i in dat) {
+   res <- getInstanceInfo(class = i, silent = TRUE)
+   repo <- stringr::str_c("[", purrr::map_chr(res, function(x) x$contributionName), "]")
+   url <- stringr::str_c("(", "https://github.com/MCDMSociety/MOrepo-", names(res), ")")
+   str <- stringr::str_c(repo, url, collapse = ", ")
+   tab <- dplyr::bind_rows(tab, c(`Problem class` = i, Repository = str))
+}
+kbl(tab, format = "pipe")
+```
+
+### Detailed information
+
+MOrepo contains instances for problem classes `r vec2String(dat)`. A detailed description of the contributions are:
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+getInstanceInfo(withLinks = TRUE)
+```
+
+
+## Results @ MOrepo
+
+MOrepo contains results for some of the instances in problem classes:
+
+```{r, include=FALSE}
+dat <- getProblemClasses(results = TRUE)
+```
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+tab <- tibble::tibble("Problem class" = NA_character_, "Repository" = NA_character_, .rows = 0)
+for (i in dat) {
+   res <- getResultInfo(class = i, silent = TRUE)
+   repo <- stringr::str_c("[", purrr::map_chr(res, function(x) x$contributionName), "]")
+   url <- stringr::str_c("(", "https://github.com/MCDMSociety/MOrepo-", names(res), ")")
+   str <- stringr::str_c(repo, url, collapse = ", ")
+   tab <- dplyr::bind_rows(tab, c(`Problem class` = i, Repository = str))
+}
+kbl(tab, format = "pipe")
+```
+
+### Detailed information
+
+MOrepo contains results for some of the instances in problem classes `r vec2String(dat)`. The contributions are:
+
+```{r, results='asis', echo=FALSE, tidy=FALSE}
+getResultInfo(withLinks = TRUE)
+```
+
+
+## How to cite
+
+To cite use 
+
+```
+@Electronic{MOrepo,
+  Title                    = {Multi-Objective Optimization Repository (MOrepo)},
+  Author                   = {L. R. Nielsen},
+  Url                      = {https://github.com/MCDMSociety/MOrepo},
+  Year                     = {2017}
+}
+```
+
+
+## Use the R to download instances.
    
-We recommend the last option and illustrate how it works. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R command line write:
+You may use the R package `MOrepoTools` to download instances. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R command line write:
 
 ```{r, eval=FALSE}
 library(devtools)   # if the package is missing see ?install.package 
@@ -78,54 +154,5 @@ getContributionAsZip("Tuyttens00")
 
 
 
-## How to contribute
-
-All researchers are welcome to contribute to `MOrepo`. The repository mainly contains MO test instances and results from various sources. However, also generators, format converters, algorithms etc. related to MO optimization are welcome. Have a look at the documentation file [`contribute.md`](contribute.md) which describes different ways to do it. 
-
-
-
-
-```{r, include=FALSE}
-dat <- getProblemClasses()
-```
-
-## Test instances @ MOrepo
-
-Currently MOrepo contains instances for problem classes `r vec2String(dat)`. The contributions listed after class are:
-
-```{r, results='asis', echo=FALSE, tidy=FALSE}
-for (i in dat) {
-   cat("\n### Problem class -", i, "\n")
-   getInstanceInfo(class = i, withLinks = TRUE)
-}
-```
-
-## Results @ MOrepo
-
-```{r, include=FALSE}
-dat <- getProblemClasses(results = TRUE)
-```
-
-Currently MOrepo contains results for instances in problem classes `r vec2String(dat)`. The contributions listed after class are:
-
-```{r, results='asis', echo=FALSE, tidy=FALSE}
-for (i in dat) {
-   cat("\n### Problem class -", i, "\n")
-   getResultInfo(class = i, withLinks = TRUE)
-}
-```
-
-## How to cite
-
-To cite use 
-
-```
-@Electronic{MOrepo,
-  Title                    = {Multi-Objective Optimization Repository (MOrepo)},
-  Author                   = {L. R. Nielsen},
-  Url                      = {https://github.com/MCDMSociety/MOrepo},
-  Year                     = {2017}
-}
-```
 
 
