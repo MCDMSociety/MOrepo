@@ -118,7 +118,11 @@ checkContribution<-function(validateResults = TRUE) {
       for (f in meta$instanceGroups$format[[1]]) {
          if (length(grep(meta$contributionName, basename(list.files(paste0("./instances/",f), recursive = TRUE)), invert = TRUE))>0) {
             message("\n   Error: Files in folder ", f, " must all start with prefix ", meta$contributionName, "!")
-            return(invisible(FALSE))
+            if (yesno("Should I add the prefix for you?")) {
+               addPrefix(meta$contributionName, path = "instances", recursiv = TRUE)
+            } else {
+               return(invisible(FALSE))
+            }
          }
       }
       # Subfolder name contained in filename for all instances
@@ -188,4 +192,24 @@ checkContribution<-function(validateResults = TRUE) {
 
    message("Everything seems to be okay :-)")
 }
+
+
+
+#' Add prefix to files in a folder
+#'
+#' @param prefix Prefix to add.
+#' @param path Subfolder path.
+#' @param recursiv Change files in subfolders too.
+#'
+#' @return NULL
+#' @export
+addPrefix <- function(prefix, path = "instances", recursiv = TRUE) {
+   paths <- fs::dir_info(path, recurse = recursiv, type = "file")$path
+   paths <- paths[!str_detect(fs::path_file(paths), str_c("^", prefix))]
+   newPaths <- fs::path(fs::path_dir(paths), str_c(prefix, "-", fs::path_file(paths)))
+   paths <- fs::file_move(paths, newPaths)
+   message("Added prefix to files")
+}
+
+
 

@@ -1,7 +1,7 @@
 Package: MOrepoTools
 Type: Package
 Title: Tools for the MOrepo at GitHub
-Version: 1.0.1
+Version: 1.0.2
 Date: 2017-04-01
 Authors@R: person("Lars", "Relund", email = "lars@relund.dk",
   role = c("aut", "cre"))
