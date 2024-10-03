@@ -103,5 +103,5 @@
             "description": "An entry you may use as you like"
         },
     },
-    "required": ["version", "instanceName", "contributionName", "objectives", "objectiveType", "optimal", "card", "points", "valid"]
+    "required": ["version", "instanceName", "contributionName", "objectives", "objectiveType", "optimal", "card", "valid"]
 }
