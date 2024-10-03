@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix that are part of MOrepo.",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20", "Forget21"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20", "Forget21", "Lyngesen24"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
@@ -237,6 +237,86 @@
         }
       ],
       "bib": "@TechReport{Forget21,\n  author      = {Forget, N. and Gadegaard, S.L. and Nielsen, L.R.},\n  institution = {Optimizaton Online},\n  title       = {Linear relaxation based branch-and-bound for multi-objective integer programming with warm-starting},\n  year        = {2021},\n  abstract    = {In this paper we propose a generic branch-and-bound algorithm for solving multi-objective integer linear programming problems. % In the recent literature, competitive frameworks has been proposed for bi-objective 0-1 problems, and many of these frameworks rely on the use of the linear relaxation to obtain lower bound sets. When increasing the number of objective functions, however, the polyhedral structure of the linear relaxation becomes more complex, and consequently requires more computational effort to obtain. In this paper we overcome this obstacle by speeding up the computations. To do so, in each branching node we use information available from its farther node to warm-start a Bensons-like algorithm. We show that the proposed algorithm significantly reduces the CPU time of the framework on several different problem classes with three, four and five objective functions. Moreover, we point out difficulties that arise when non-binary integer variables are introduced in the models, and test our algorithm on problem that contains non-binary integer variables too.},\n  journal     = {Optimization Online},\n  keywords    = {forget21a.pdf},\n  url         = {http://www.optimization-online.org/DB_HTML/2021/08/8531.html},\n}"
+    },
+    "Lyngesen24": {
+      "contributionName": "Lyngesen24",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "sp/2obj",
+          "class": "Minkowski Sum - Subset",
+          "objectives": 2,
+          "tags": "minkowskiSumSubset",
+          "format": "json",
+          "desc": "Subsets used for the Minkowski sum problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "sp/3obj",
+          "class": "Minkowski Sum - Subset",
+          "objectives": 3,
+          "tags": "minkowskiSumSubset",
+          "format": "json",
+          "desc": "Subsets used for the Minkowski sum problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "sp/4obj",
+          "class": "Minkowski Sum - Subset",
+          "objectives": 4,
+          "tags": "minkowskiSumSubset",
+          "format": "json",
+          "desc": "Subsets used for the Minkowski sum problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "sp/5obj",
+          "class": "Minkowski Sum - Subset",
+          "objectives": 5,
+          "tags": "minkowskiSumSubset",
+          "format": "json",
+          "desc": "Subsets used for the Minkowski sum problem.",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "msp/2obj",
+          "class": "Minkowski Sum",
+          "objectives": 2,
+          "tags": ["minkowskiSum", "msp"],
+          "format": "json",
+          "desc": "Instance used for the Minkowski sum problem (a set of subsets).",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "msp/3obj",
+          "class": "Minkowski Sum",
+          "objectives": 3,
+          "tags": ["minkowskiSum", "msp"],
+          "format": "json",
+          "desc": "Instance used for the Minkowski sum problem (a set of subsets).",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "msp/4obj",
+          "class": "Minkowski Sum",
+          "objectives": 4,
+          "tags": ["minkowskiSum", "msp"],
+          "format": "json",
+          "desc": "Instance used for the Minkowski sum problem (a set of subsets).",
+          "creator": "Lars Relund <junk@relund.dk>"
+        },
+        {
+          "subfolder": "msp/5obj",
+          "class": "Minkowski Sum",
+          "objectives": 5,
+          "tags": ["minkowskiSum", "msp"],
+          "format": "json",
+          "desc": "Instance used for the Minkowski sum problem (a set of subsets).",
+          "creator": "Lars Relund <junk@relund.dk>"
+        }
+      ],
+      "resultContributions": "Lyngesen24",
+      "bib": "@ARTICLE{Lyngesen24,\nauthor = {Lyngesen, M. and Gadegaard S.L. and Nielsen, L.R.},\ntitle = {Generator sets for Minkowski Sums - Theory and Insights},\nyear = {2024},\njournal = {??},\ninstitution = {Department of Economics and Business Economics, BSS, Aarhus University}\n}\n"
     }
   }
 }
