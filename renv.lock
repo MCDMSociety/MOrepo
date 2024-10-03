@@ -26,13 +26,13 @@
     },
     "MOrepoTools": {
       "Package": "MOrepoTools",
-      "Version": "1.0.1",
+      "Version": "1.0.2",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "MOrepo",
       "RemoteUsername": "MCDMSociety",
-      "RemoteSha": "02cb21b9c7f35c20d1bcefc803cd1dc74c192a23",
+      "RemoteSha": "1f37782bfc248f13f79b4ab0a75ad2750cbea446",
       "RemoteSubdir": "misc/R/MOrepoTools",
       "Requirements": [
         "RefManageR",
@@ -45,7 +45,7 @@
         "readr",
         "utils"
       ],
-      "Hash": "31142124af55fd16305ed599a4959149"
+      "Hash": "948f3beea637e68e206e2f1fba190c4a"
     },
     "Matrix": {
       "Package": "Matrix",
@@ -612,14 +612,14 @@
     },
     "glue": {
       "Package": "glue",
-      "Version": "1.7.0",
+      "Version": "1.8.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "e0b3a53876554bd45879e596cdb10a52"
+      "Hash": "5899f1eaa825580172bb56c08266f37c"
     },
     "gtable": {
       "Package": "gtable",
@@ -635,6 +635,16 @@
         "rlang"
       ],
       "Hash": "e18861963cbc65a27736e02b3cd3c4a0"
+    },
+    "here": {
+      "Package": "here",
+      "Version": "1.0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "rprojroot"
+      ],
+      "Hash": "24b224366f9c2e7534d2344d10d59211"
     },
     "highr": {
       "Package": "highr",
