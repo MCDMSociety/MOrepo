@@ -49,10 +49,10 @@
 #'    misc = list(a = 23, b = "text", c = 3.8, d = list(f = "sublist", g = 6), h = c(1,2,3)),
 #'    print = TRUE
 #' )
-createResultFile<-function(instanceName, contributionName, objectives, points, card, suppCard = NULL,
+createResultFile<-function(instanceName, contributionName, objectives, points = NULL, card, suppCard = NULL,
    extCard = NULL, objectiveType = rep("int", objectives), direction = rep("min", objectives),
    comments = NULL, optimal = TRUE, cpu = NULL, valid = TRUE, version = "1.0", other = "", misc = NULL,
-   print = FALSE)
+   print = FALSE, path = here::here("results"))
 {
    lst <- list()
    lst$version <- version
@@ -67,16 +67,18 @@ createResultFile<-function(instanceName, contributionName, objectives, points, c
    lst$optimal <- optimal
    if (!is.null(cpu)) lst$cpu <- list(sec = as.numeric(cpu[1]), machineSpec = cpu[2])
    lst$valid <- valid
-   if (card != length(points$z1)) stop("Error: card is not equal the number of points!")
    lst$card <- card
    if (!is.null(suppCard)) lst$suppCard <- suppCard
    if (!is.null(extCard)) lst$extCard <- extCard
-   lst$points <- points
+   if (!is.null(points)) {
+      lst$points <- points
+      if (card != length(points$z1)) stop("Error: card is not equal the number of points!")
+   }
    if (!is.null(misc)) lst$misc <- misc
    str<-jsonlite::toJSON(lst, auto_unbox = TRUE, pretty = TRUE, digits = NA, na = "null")
    if (other!="") other <- paste0("_", other)
    if (print) cat(str,"\n")
-   fileN <- paste0(instanceName, "_result", other, ".json")
+   fileN <- here::here(path, paste0(instanceName, "_result", other, ".json"))
    readr::write_lines(str, fileN)
    message("Results written to ", fileN)
    message("Validate the file against schema ... ", appendLF = F)

@@ -8,7 +8,7 @@ createResultFile(
   instanceName,
   contributionName,
   objectives,
-  points,
+  points = NULL,
   card,
   suppCard = NULL,
   extCard = NULL,
@@ -21,7 +21,8 @@ createResultFile(
   version = "1.0",
   other = "",
   misc = NULL,
-  print = FALSE
+  print = FALSE,
+  path = here::here("results")
 )
 }
 \arguments{
