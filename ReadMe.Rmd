@@ -128,7 +128,7 @@ To cite use
 ```
 
 
-## Use the R to download instances.
+## Use R to download instances
    
 You may use the R package `MOrepoTools` to download instances. You don't need much knowledge about R to use the package. But of course it is preferable. You need [R](https://www.r-project.org/) and preferable [RStudio](https://www.rstudio.com/) installed on your computer. First you have to install the `MOrepoTools` package. From the R command line write:
 

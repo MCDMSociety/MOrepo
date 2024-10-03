@@ -138,7 +138,7 @@ extension). The result file has the following structure:
       * `sec`: Cpu time in seconds (number).
       * `machineSpec`: Machine specification, e.g. Intel Xeon 2.67 GHz, 6 GB RAM, Red Hat Enterprise 
       Linux v4.0 OS (string).   
-- `points` (required): Array with nondominated points objects (array). Each point object consists of  
+- `points` (optional): Array with nondominated points objects (array). Each point object consists of  
    `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend to `z3` if three objectives)
    and type which may be either `us` (unsupported), `se` (supported extreme), `s` (supported - may 
    be extreme or nonextreme), `sne` (supported nonextreme), `null` (unknown). The type entry 
