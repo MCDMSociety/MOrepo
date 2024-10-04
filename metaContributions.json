@@ -1,6 +1,6 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix that are part of MOrepo.",
-  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20", "Forget21", "Lyngesen24"],
+  "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20", "Forget21", "Lyngesen24", "An22", "Kirlik14"],
   "repoInfo": {
     "Gadegaard16": {
       "contributionName": "Gadegaard16",
@@ -317,6 +317,83 @@
       ],
       "resultContributions": "Lyngesen24",
       "bib": "@ARTICLE{Lyngesen24,\nauthor = {Lyngesen, M. and Gadegaard S.L. and Nielsen, L.R.},\ntitle = {Generator sets for Minkowski Sums - Theory and Insights},\nyear = {2024},\njournal = {??},\ninstitution = {Department of Economics and Business Economics, BSS, Aarhus University}\n}\n"
+    },
+    "An22": {
+      "contributionName": "An22",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "CFLP",
+          "class": "Facility Location",
+          "objectives": 3,
+          "tags": ["UFLP", "facilityLocation"],
+          "format": "fgt",
+          "desc": "Instances for the capacitated facility location problem (converted to fgt format)",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        }
+      ],
+      "bib": "@article{An2024,\n  title = {A matheuristic for tri-objective binary integer linear programming},\n  volume = {161},\n  ISSN = {0305-0548},\n  url = {http://dx.doi.org/10.1016/j.cor.2023.106397},\n  DOI = {10.1016/j.cor.2023.106397},\n  journal = {Computers &amp; Operations Research},\n  publisher = {Elsevier BV},\n  author = {An,  Duleabom and Parragh,  Sophie N. and Sinnl,  Markus and Tricoire,  Fabien},\n  year = {2024},\n  month = jan,\n  pages = {106397}\n}\n\n@TechReport{An22,\n  author      = {An, D. and Parragh, S.N. and Sinnl, N. and Tricoire, F.},\n  institution = {Arxiv},\n  title       = {A matheuristic for tri-objective binary integer programming},\n  year        = {2022},\n  abstract    = {Many real-world optimisation problems involve multiple objectives. When considered concurrently, they give rise to a set of optimal trade-off solutions, also known as efficient solutions. These solutions have the property that neither objective can be improved without deteriorating another objective. Motivated by the success of matheuristics in the single-objective domain, we propose a linear programming-based matheuristic for tri-objective binary integer programming. To achieve a high-quality approximation of the optimal set of trade-off solutions, a lower bound set is first obtained using the vector linear programming solver Bensolve. Then, feasibility pump-based ideas in combination with path relinking are applied in novel ways so as to obtain a high quality upper bound set. Our matheuristic is compared to a recently-suggested algorithm that is, to the best of our knowledge, the only existing matheuristic method for tri-objective integer programming. In an extensive computational study, we show that our method generates a better approximation of the true Pareto front than the benchmark method on a large set of tri-objective benchmark instances. Since the developed approach starts from a potentially fractional lower bound set, it may also be used as a primal heuristic in the context of linear relaxation-based multi-objective branch-and-bound algorithms. },\n  journal     = {Arxiv},\n  url         = {https://arxiv.org/abs/2205.03386}\n}"
+    },
+    "Kirlik14": {
+      "contributionName": "Kirlik14",
+      "maintainer": "Lars Relund <junk@relund.dk>",
+      "instanceGroups": [
+        {
+          "subfolder": "ILP/3obj",
+          "class": "ILP",
+          "objectives": 3,
+          "tags": ["ilp", "integer"],
+          "format": "fgt",
+          "desc": "Randomly generated integer problems with 3 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "ILP/4obj",
+          "class": "ILP",
+          "objectives": 3,
+          "tags": ["ilp", "integer"],
+          "format": "fgt",
+          "desc": "Randomly generated integer problems with 4 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "ILP/5obj",
+          "class": "ILP",
+          "objectives": 3,
+          "tags": ["ilp", "integer"],
+          "format": "fgt",
+          "desc": "Randomly generated integer problems with 5 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "KP/3obj",
+          "class": "Knapsack",
+          "objectives": 3,
+          "tags": "knapsackProblem",
+          "format": "fgt",
+          "desc": "Knapsack problems with 3 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "KP/4obj",
+          "class": "Knapsack",
+          "objectives": 3,
+          "tags": "knapsackProblem",
+          "format": "fgt",
+          "desc": "Knapsack problems with 4 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        },
+        {
+          "subfolder": "KP/5obj",
+          "class": "Knapsack",
+          "objectives": 3,
+          "tags": "knapsackProblem",
+          "format": "fgt",
+          "desc": "Knapsack problems with 5 objectives. Note that we do NOT claim to have created these instances, but only transformed them into a different text format.",
+          "creator": "Nicolas Forget <nforget@econ.au.dk>"
+        }
+      ],
+      "bib": "@Article{Kirlik14,\n  Title                    = {A new algorithm for generating all nondominated solutions of multiobjective discrete optimization problems},\n  Author                   = {G. Kirlik and S. Sayın},\n  Journal                  = {European Journal of Operational Research},\n  Year                     = {2014},\n  Number                   = {3},\n  Pages                    = {479 - 488},\n  Volume                   = {232},\n  Doi                      = {10.1016/j.ejor.2013.08.001},\n}"
     }
   }
 }
