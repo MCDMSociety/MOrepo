@@ -169,7 +169,7 @@ structure:
   same machine. An object with \* `sec`: Cpu time in seconds (number).
   \* `machineSpec`: Machine specification, e.g. Intel Xeon 2.67 GHz, 6
   GB RAM, Red Hat Enterprise Linux v4.0 OS (string).  
-- `points` (required): Array with nondominated points objects (array).
+- `points` (optional): Array with nondominated points objects (array).
   Each point object consists of  
   `{"z1":1,"z2":4,"type":"se"}` with the objective values (i.e. extend
   to `z3` if three objectives) and type which may be either `us`
@@ -322,6 +322,9 @@ classifications of MO optimization problems are
 - MILP
 - Knapsack
 - Production Planning
+- Minkowski Sum - Subset
+- Minkowski Sum
+- ILP
 
 The set of problem classes is expanded as new problem instances is added
 to the repository. For instance problem classes may be
