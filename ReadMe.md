@@ -32,7 +32,7 @@ Current maintainers of sub-repositories are Sune Lauth Gadegaard
 Current contributors to the repository are S.L. Gadegaard, A. Klose,
 L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph.
 Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte, N.
-Forget, K. Klamroth and A. Przybylski.
+Forget, K. Klamroth, A. Przybylski, M. Lyngesen and Gadegaard S.L..
 
 ## Usage
 
@@ -55,20 +55,23 @@ file](contribute.md) which describes different ways to do it.
 MOrepo contains instances for different problem classes. The
 contributions listed after class are:
 
-| Problem class       | Repository                                                                                                                                                                                 |
-|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Facility Location   | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20), [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)   |
-| Assignment          | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Traveling Salesman  | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00)                                                                                                                                 |
-| MILP                | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16)                                                                                                                             |
-| Knapsack            | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                                                                                 |
-| Production Planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21)                                                                                                                                 |
+| Problem class | Repository |
+|:---|:---|
+| Facility Location | [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20), [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Tuyttens00](https://github.com/MCDMSociety/MOrepo-Tuyttens00), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Traveling Salesman | [Hansen00](https://github.com/MCDMSociety/MOrepo-Hansen00) |
+| MILP | [Adelgren16](https://github.com/MCDMSociety/MOrepo-Adelgren16) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Production Planning | [Forget21](https://github.com/MCDMSociety/MOrepo-Forget21) |
+| Minkowski Sum - Subset | [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24) |
+| Minkowski Sum | [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24) |
 
 ### Detailed information
 
 MOrepo contains instances for problem classes Facility Location,
-Assignment, Traveling Salesman, MILP, Knapsack and Production Planning.
-A detailed description of the contributions are:
+Assignment, Traveling Salesman, MILP, Knapsack, Production Planning,
+Minkowski Sum - Subset and Minkowski Sum. A detailed description of the
+contributions are:
 
 #### Contribution - [Gadegaard16](https://github.com/MCDMSociety/MOrepo-Gadegaard16)
 
@@ -147,20 +150,33 @@ Subfolders: PPP/3obj, PPP/4obj, PPP/5obj, UFLP/3obj, UFLP/4obj and
 UFLP/5obj  
 Formats: fgt
 
+#### Contribution - [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24)
+
+Source: Lyngesen, M., G. S.L., and L. Nielsen (2024). “Generator sets
+for Minkowski Sums - Theory and Insights”. In: *??*.
+
+Test problem classes: Minkowski Sum - Subset and Minkowski Sum  
+Subfolders: sp/2obj, sp/3obj, sp/4obj, sp/5obj, msp/2obj, msp/3obj,
+msp/4obj and msp/5obj  
+Formats: json
+
 ## Results @ MOrepo
 
 MOrepo contains results for some of the instances in problem classes:
 
-| Problem class     | Repository                                                                                                                 |
-|:------------------|:---------------------------------------------------------------------------------------------------------------------------|
-| Assignment        | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
-| Knapsack          | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
-| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)                                                                 |
+| Problem class | Repository |
+|:---|:---|
+| Assignment | [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08), [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Knapsack | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Facility Location | [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20) |
+| Minkowski Sum - Subset | [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24) |
+| Minkowski Sum | [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24) |
 
 ### Detailed information
 
 MOrepo contains results for some of the instances in problem classes
-Assignment, Knapsack and Facility Location. The contributions are:
+Assignment, Knapsack, Facility Location, Minkowski Sum - Subset and
+Minkowski Sum. The contributions are:
 
 #### Contribution - [Pedersen08](https://github.com/MCDMSociety/MOrepo-Pedersen08)
 
@@ -184,18 +200,26 @@ Optimization Online. URL:
 Results given for contributions:
 [Forget20](https://github.com/MCDMSociety/MOrepo-Forget20)
 
+#### Contribution - [Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24)
+
+Source: Lyngesen, M., G. S.L., and L. Nielsen (2024). “Generator sets
+for Minkowski Sums - Theory and Insights”. In: *??*.
+
+Results given for contributions:
+[Lyngesen24](https://github.com/MCDMSociety/MOrepo-Lyngesen24)
+
 ## How to cite
 
 To cite use
 
-    @Electronic{MOrepo,
-      Title                    = {Multi-Objective Optimization Repository (MOrepo)},
-      Author                   = {L. R. Nielsen},
-      Url                      = {https://github.com/MCDMSociety/MOrepo},
-      Year                     = {2017}
-    }
+    ## @Electronic{MOrepo,
+    ##   title = {Multi-Objective Optimization Repository (MOrepo)},
+    ##   author = {L. R. Nielsen},
+    ##   url = {https://github.com/MCDMSociety/MOrepo},
+    ##   year = {2017},
+    ## }
 
-## Use the R to download instances.
+## Use R to download instances
 
 You may use the R package `MOrepoTools` to download instances. You don’t
 need much knowledge about R to use the package. But of course it is
@@ -214,8 +238,9 @@ To get an overview over the current problem classes run:
 ``` r
 library(MOrepoTools)
 getProblemClasses()  # current problem classes in MOrepo
-## [1] "Facility Location"   "Assignment"          "Traveling Salesman" 
-## [4] "MILP"                "Knapsack"            "Production Planning"
+## [1] "Facility Location"      "Assignment"             "Traveling Salesman"    
+## [4] "MILP"                   "Knapsack"               "Production Planning"   
+## [7] "Minkowski Sum - Subset" "Minkowski Sum"
 getInstanceInfo(class = "Assignment")  # info about instances for the assignment problem
 ## 
 ## #### Contribution Pedersen08
