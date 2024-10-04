@@ -12,7 +12,7 @@ Description: MOrepoTools is a R package with tools for the MOrepo at GitHub. It 
 License: GPL (>= 3)
 Encoding: UTF-8
 Depends:
-  ggplot2
+  tidyverse
 Imports: 
   httr, 
   jsonlite, 

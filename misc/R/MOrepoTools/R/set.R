@@ -17,11 +17,8 @@ setMetaResults<-function() {
       dplyr::filter(stringr::str_detect(files, ".json"))
    dat <- dat %>%
       dplyr::mutate(resultName = stringr::str_remove(basename(files), ".json"),
-         # instanceName = stringr::str_remove(basename(files), "_result.*json"),
          contributionName = stringr::str_replace(files, "^.*?-(.*?)/.*$", "\\1"),
-         subfolder = stringr::str_replace(files, "^.*/results/(.*)$", "\\1"),
-         subfolder = stringr::str_replace(subfolder, basename(subfolder), ""),
-         subfolder = stringr::str_replace(subfolder, "^(.*)/$", "\\1")) %>%
+         subfolder = sub("([^.]+/results)/(.+)/.+$", "\\2", files)) |>
       dplyr::select(-files)
    lst$results<-dat
    lst$colNames <- colnames(dat)
@@ -42,27 +39,23 @@ setMetaResults<-function() {
 #' MOrepoTools:::setMetaInstances()
 #' }
 setMetaInstances<-function() {
-   lst <- list()
-   lst$desc = "Meta file - Instances at MOrepo"
-
+   repos<-jsonlite::fromJSON(here::here("contributions.json"))$repos
    # get all instances at GitHub
    files <- getFileList(subdir = "instances")
-   idx <- grep("ReadMe", files)
-   if (length(idx)>0) files <- files[-idx] # remove ReadMe files
-   # subfolders
-   folders <- sub("([^.]+/instances)/(.+)/.+$", "\\2", files)
-   idx <- grep("/", folders)
-   folders[-idx] <- ""
-   folders[idx] <- sub("(.+)/(.+)$", "\\2", folders[idx])
-   # instanceNames
-   fileN <- basename(files)
-   fileN <- sub("([^.]+)\\.[[:alnum:]]+$", "\\1", fileN) # remove file extension
-   dat <- data.frame(instanceName = fileN, contributionName = NA, class = NA, tags = "",
-                     subfolder = folders, stringsAsFactors = FALSE)
+   dat <- tibble(path = files,
+                 file = fs::path_file(path),
+                 folder = sub("([^.]+/instances)/(.+)/.+$", "\\2", files)) |>
+      filter(str_detect(file, str_c(repos, collapse = "|"))) |>
+      mutate(instanceName = file, contributionName = NA, class = NA, tags = "",
+             subfolder = str_replace(folder, ".*?/", ""))
+
+   lst <- list()
+   lst$desc = "Meta file - Instances at MOrepo"
    # import meta data
    repoPaths <- getRepoPath()
    for (i in 1:length(repoPaths)) {
-      meta<-jsonlite::fromJSON(paste0(repoPaths[i],"meta.json"))
+      meta<- jsonlite::fromJSON(gh::gh(paste0(repoPaths[i], "meta.json"))$message)
+         # jsonlite::fromJSON(paste0(repoPaths[i],"meta.json"))
       idx1 <- grep(meta$contributionName, dat$instanceName)
       dat$contributionName[idx1] <- meta$contributionName
       for (j in 1:length(meta$instanceGroups$subfolder)) {
@@ -72,6 +65,7 @@ setMetaInstances<-function() {
          dat$tags[idx3] <- paste0(unlist(meta$instanceGroups$tags[j]), collapse = "; ")
       }
    }
+   dat <- dat |> select(-path, file, folder)
    lst$instances<-dat
    lst$colNames <- colnames(dat)
    str<-jsonlite::toJSON(lst, dataframe = "values", auto_unbox = TRUE, pretty = TRUE, digits = NA)

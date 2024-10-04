@@ -125,12 +125,12 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
    if (is.null(contribution)) {
       baseURL <- ifelse(local, "metaContributions.json",
          paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json") )
-      repos<-jsonlite::fromJSON(baseURL)$repos
+      repos<-jsonlite::fromJSON(gh::gh(baseURL)$message)$repos
       if (local) {
          contribution<-paste0("../MOrepo-", repos, "/")
       } else {
          contribution<-paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", repos,
-                              "/git/trees/master?recursive=1")
+                              "/git/trees/")
       }
    } else {
       repos <- contribution
@@ -138,15 +138,19 @@ getFileList<-function(name = "", subdir = "", contribution = NULL, local = FALSE
          contribution <- paste0("../MOrepo-",contribution,"/")
       } else {
          contribution <- paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", contribution,
-                                "/git/trees/master?recursive=1")
+                                "/git/trees/")
       }
    }
 
    getF<-function(i) {
       if (!local) {
-         req <- httr::GET(contribution[i])
-         httr::stop_for_status(req)
-         tree <- httr::content(req)$tree
+         lst <- gh::gh(paste0("https://api.github.com/repos/MCDMSociety/MOrepo-", repos[i]))
+         lst <- gh::gh(paste0(contribution[i], lst$default_branch, "?recursive=1"))
+
+         # req <- httr::GET(contribution[i])
+         # httr::stop_for_status(req)
+         # tree <- httr::content(req)$tree
+         tree <- lst$tree
          idx <- sapply(tree, "[", "type") == "blob"
          filelist <- unlist(lapply(tree, "[", "path"), use.names = F)
          filelist <- paste0("MOrepo-", repos[i], "/master/", filelist[idx])  # remove dirs
@@ -418,7 +422,7 @@ getMaintainers<-function(local = FALSE) {
 
 
 
-#' Get urls of the sub-repositories of MOrepo.
+#' Get urls of the sub-repositories of MOrepo
 #'
 #' @param local Use local repo (urls becomes paths).
 #'
@@ -428,13 +432,15 @@ getMaintainers<-function(local = FALSE) {
 #' @examples
 #' getRepoPath()
 getRepoPath<-function(local = FALSE) {
-   baseURL <- ifelse(local, "metaContributions.json",
-      paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo/master/metaContributions.json"))
-   repos<-jsonlite::fromJSON(baseURL)$repos
+   repos<-jsonlite::fromJSON(here::here("contributions.json"))$repos
    if (local) {
       repos<-paste0("../MOrepo-", repos, "/")
    } else {
-      repos<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos, "/master/")
+      repos<-paste0("https://raw.githubusercontent.com/MCDMSociety/MOrepo-", repos, "/")
+      for (i in 1:length(repos)) {
+         lst <- gh::gh(paste0("https://api.github.com/repos/MCDMSociety/", fs::path_file(repos[i])))
+         repos[i] <- str_c(repos[i], lst$default_branch, "/")
+      }
    }
    return(repos)
 }
