@@ -1,5 +1,5 @@
 {
   "desc": "Sub repositories at MOrepo without MOrepo prefix that are part of MOrepo.",
   "repos": ["Gadegaard16", "Pedersen08", "Tuyttens00", "Hansen00", "Adelgren16", "Forget20",
-      "Forget21", "Lyngesen24"]
+      "Forget21", "Lyngesen24", "An22", "Kirlik14"]
 }
