@@ -316,7 +316,7 @@
         }
       ],
       "resultContributions": "Lyngesen24",
-      "bib": "@ARTICLE{Lyngesen24,\nauthor = {Lyngesen, M. and Gadegaard S.L. and Nielsen, L.R.},\ntitle = {Generator sets for Minkowski Sums - Theory and Insights},\nyear = {2024},\njournal = {??},\ninstitution = {Department of Economics and Business Economics, BSS, Aarhus University}\n}\n"
+      "bib": "@ARTICLE{Lyngesen24,\nauthor = {Lyngesen, M. and Gadegaard S.L. and Nielsen, L.R.},\ntitle = {Generator sets for Minkowski Sums - Theory and Insights},\nyear = {2024},\njournal = {??},\ninstitution = {Department of Economics and Business Economics, BSS, Aarhus University}\n}\n\n@Electronic{MOrepo-Lyngesen24,\n  Title = {Minkowski sum problems (MOrepo-Lyngesen24)},\n  Author = {M. Lyngesen and L. R. Nielsen},\n  Url = {https://github.com/MCDMSociety/MOrepo-Lyngesen24},\n  Year = {2024}\n}\n"
     },
     "An22": {
       "contributionName": "An22",
