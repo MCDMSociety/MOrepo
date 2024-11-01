@@ -32,7 +32,13 @@ Current maintainers of sub-repositories are Sune Lauth Gadegaard
 Current contributors to the repository are S.L. Gadegaard, A. Klose,
 L.R. Nielsen, C.R. Pedersen, K.A. Andersen, D. Tuyttens, J. Teghem, Ph.
 Fortemps, K. Van Nieuwenhuyze, M.P. Hansen, N. Adelgren, A. Gupte, N.
-Forget, K. Klamroth, A. Przybylski, M. Lyngesen, Gadegaard S.L.,
+Forget, K. Klamroth, A. Przybylski, list(list(given = “M.”, family =
+“Lyngesen”, role = NULL, email = NULL, comment = NULL), list(given =
+“Gadegaard”, family = “S.L.”, role = NULL, email = NULL, comment =
+NULL), list(given = “L.R.”, family = “Nielsen”, role = NULL, email =
+NULL, comment = NULL)), list(list(given = “M.”, family = “Lyngesen”,
+role = NULL, email = NULL, comment = NULL), list(given = c(“L.”, “R.”),
+family = “Nielsen”, role = NULL, email = NULL, comment = NULL)),
 list(list(given = “Duleabom”, family = “An”, role = NULL, email = NULL,
 comment = NULL), list(given = c(“Sophie”, “N.”), family = “Parragh”,
 role = NULL, email = NULL, comment = NULL), list(given = “Markus”,
